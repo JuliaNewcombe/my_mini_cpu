@@ -1,4 +1,4 @@
-module MDR_reg (input clear, clock, MDRin, read, 
+module MDR_reg (input clear, clock, enable, read, 
 	input [31:0]BusMuxOut, input [31:0] Mdatain, output wire [31:0]BusMuxIn);
 reg [31:0]q;
 always @ (posedge clock)

@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/simulation/modelsim
 vALU
-Z1 !s110 1707155148
+Z1 !s110 1707157997
 !i10b 1
 !s100 kfcR[kFmgP78TCCL]Z?i>1
 IW0gmMmXWh?PNRa2BCOegF3
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1707155148.000000
+Z4 !s108 1707157997.000000
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v|
 !i113 1
@@ -32,7 +32,7 @@ Z6 !s92 -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cp
 Z7 tCvgOpt 0
 n@a@l@u
 vALU_tb
-Z8 !s110 1707155149
+Z8 !s110 1707157998
 !i10b 1
 !s100 Xe>GI;PU>l:42>LlPE]]n3
 IYjMHcFXN0M=>h9V]FaTi42
@@ -46,7 +46,7 @@ R3
 r1
 !s85 0
 31
-Z9 !s108 1707155149.000000
+Z9 !s108 1707157998.000000
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_tb.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_tb.v|
 !i113 1
@@ -101,11 +101,11 @@ R7
 vdivide
 R8
 !i10b 1
-!s100 6UegPJ=2Hm9YLH<MXbGGm0
-Ie@VLOfO<_S>UTiRg<el9T0
+!s100 khOlE5`:9E:2_mZMR>E6b3
+I[3`ImJ`W4DdI7SS37;F?42
 R2
 R0
-w1707155054
+w1707157819
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v
 L0 1
@@ -201,7 +201,7 @@ R3
 r1
 !s85 0
 31
-R4
+!s108 1707157996.000000
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v|
 !i113 1

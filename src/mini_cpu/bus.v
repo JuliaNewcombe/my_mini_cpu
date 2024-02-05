@@ -11,7 +11,7 @@ module Bus(
 reg [31:0]q;
 always @ (*)
 		begin
-			if(R0_out) q = BusMuxInR0;
+			if(R0out) q = BusMuxInR0;
 			if(R1out) q = BusMuxInR1;
 			if(R2out) q = BusMuxInR2;
 			if(R3out) q = BusMuxInR3;
