@@ -1,0 +1,298 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/18jmcn/Downloads/week1/week1/simulation/modelsim
+vALU
+Z1 !s110 1706556740
+!i10b 1
+!s100 kfcR[kFmgP78TCCL]Z?i>1
+IQg@E`3K@?9f4;[87Z7H@N3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1706556610
+8C:/Users/18jmcn/Downloads/week1/week1/ALU.v
+FC:/Users/18jmcn/Downloads/week1/week1/ALU.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1706556740.000000
+!s107 C:/Users/18jmcn/Downloads/week1/week1/ALU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/ALU.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/18jmcn/Downloads/week1/week1
+Z7 tCvgOpt 0
+n@a@l@u
+vALU_tb
+!s110 1706556741
+!i10b 1
+!s100 Xe>GI;PU>l:42>LlPE]]n3
+ITQKSWfYT8k2edohoT4<kd3
+R2
+R0
+w1706556254
+8C:/Users/18jmcn/Downloads/week1/week1/ALU_tb.v
+FC:/Users/18jmcn/Downloads/week1/week1/ALU_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1706556741.000000
+!s107 C:/Users/18jmcn/Downloads/week1/week1/ALU_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/ALU_tb.v|
+!i113 1
+R5
+R6
+R7
+n@a@l@u_tb
+vand_vals
+R1
+!i10b 1
+!s100 IWLf[_oM`MFYJ@PmR>lh_3
+I;_A[HIWmlIQmM6^>kA[df3
+R2
+R0
+Z8 w1706544458
+8C:/Users/18jmcn/Downloads/week1/week1/and_vals.v
+FC:/Users/18jmcn/Downloads/week1/week1/and_vals.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/and_vals.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/and_vals.v|
+!i113 1
+R5
+R6
+R7
+vbooth_pair_mul
+R1
+!i10b 1
+!s100 3YGBbzTa`?ahQFkoXzle71
+Ih>`3UazXbNDegM52VBVYm0
+R2
+R0
+w1706554392
+8C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v
+FC:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v|
+!i113 1
+R5
+R6
+R7
+vdivide
+R1
+!i10b 1
+!s100 a>g3M06KTN3NTOa]^[G762
+I]^A7^R>MW:mCz4;RK9Wfi1
+R2
+R0
+w1706556709
+8C:/Users/18jmcn/Downloads/week1/week1/divide.v
+FC:/Users/18jmcn/Downloads/week1/week1/divide.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/divide.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/divide.v|
+!i113 1
+R5
+R6
+R7
+vnegate_val
+R1
+!i10b 1
+!s100 N;b80b`[8Ob3<PA1E;BAz0
+IUEoz_=oaIMAN?Qb0>n?_m2
+R2
+R0
+w1706548118
+8C:/Users/18jmcn/Downloads/week1/week1/negate_val.v
+FC:/Users/18jmcn/Downloads/week1/week1/negate_val.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/negate_val.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/negate_val.v|
+!i113 1
+R5
+R6
+R7
+vnot_val
+R1
+!i10b 1
+!s100 3JoRUN]2gIBN8bNkSe3Dz2
+IzH[h`:kzWn=4oXBA@dH4`2
+R2
+R0
+R8
+8C:/Users/18jmcn/Downloads/week1/week1/not_val.v
+FC:/Users/18jmcn/Downloads/week1/week1/not_val.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/not_val.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/not_val.v|
+!i113 1
+R5
+R6
+R7
+vor_vals
+R1
+!i10b 1
+!s100 8@bWjd8QDmM4oD8=Nd>261
+IWU5SA1SeZgD_^GCZYHE_>2
+R2
+R0
+R8
+8C:/Users/18jmcn/Downloads/week1/week1/or_vals.v
+FC:/Users/18jmcn/Downloads/week1/week1/or_vals.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/or_vals.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/or_vals.v|
+!i113 1
+R5
+R6
+R7
+vripple_carry_adder
+!s110 1706556739
+!i10b 1
+!s100 1A?hIJPbh?QYc>hcMLYcC1
+IM:T@_^9iGg5UFS0WPRdG=0
+R2
+R0
+w1706546381
+8C:/Users/18jmcn/Downloads/week1/week1/ripple_carry_adder.v
+FC:/Users/18jmcn/Downloads/week1/week1/ripple_carry_adder.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1706556739.000000
+!s107 C:/Users/18jmcn/Downloads/week1/week1/ripple_carry_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/ripple_carry_adder.v|
+!i113 1
+R5
+R6
+R7
+vrotate_left
+R1
+!i10b 1
+!s100 CncYHVnZcUI0QZ>baG0DF0
+IhW`9HM@C5?c0=l^R]YH8A0
+R2
+R0
+w1706548051
+8C:/Users/18jmcn/Downloads/week1/week1/rotate_left.v
+FC:/Users/18jmcn/Downloads/week1/week1/rotate_left.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/rotate_left.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/rotate_left.v|
+!i113 1
+R5
+R6
+R7
+vrotate_right
+R1
+!i10b 1
+!s100 _;7F0T_idjzT:LTlP5BI40
+I]kR1WdAf@UMR3DLLIHXSQ1
+R2
+R0
+w1706548049
+8C:/Users/18jmcn/Downloads/week1/week1/rotate_right.v
+FC:/Users/18jmcn/Downloads/week1/week1/rotate_right.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/rotate_right.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/rotate_right.v|
+!i113 1
+R5
+R6
+R7
+vshift_left
+R1
+!i10b 1
+!s100 hO^iXOI47L9`o0JjG7H^P3
+IgRA5XFNQI:eE^1fjWS^Ld0
+R2
+R0
+w1706544459
+8C:/Users/18jmcn/Downloads/week1/week1/shift_left.v
+FC:/Users/18jmcn/Downloads/week1/week1/shift_left.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/shift_left.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/shift_left.v|
+!i113 1
+R5
+R6
+R7
+vshift_right
+R1
+!i10b 1
+!s100 Oimz1fz<=nU8kHh:@ZN]71
+ISJ8]MV2F@>f;XH]I:Ma6J2
+R2
+R0
+w1706551316
+8C:/Users/18jmcn/Downloads/week1/week1/shift_right.v
+FC:/Users/18jmcn/Downloads/week1/week1/shift_right.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/18jmcn/Downloads/week1/week1/shift_right.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/Downloads/week1/week1|C:/Users/18jmcn/Downloads/week1/week1/shift_right.v|
+!i113 1
+R5
+R6
+R7

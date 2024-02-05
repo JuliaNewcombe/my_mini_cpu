@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at ripple_carry_adder.v(11): always construct contains both blocking and non-blocking assignments File: C:/intelFPGA/18.1/elec374/week1/ripple_carry_adder.v Line: 11

@@ -1,0 +1,5 @@
+module roatate_left (input [31:0] A, input integer amnt, output [31:0] result);
+	
+	assign result = {A[31-amnt:0], A[31:amnt]};
+	
+endmodule;

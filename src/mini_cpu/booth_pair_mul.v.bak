@@ -1,0 +1,37 @@
+module booth_pair_mul (input [31:0] A, B, output reg [63:0] sum, output reg carry_flag);
+	
+	reg [63:0] c;
+	reg [33:0] extended_B;
+	integer [33:0] multipliers;
+	integer index;
+	
+	reg [32
+	
+	always @(A or B) begin
+	
+		carry = 64'b0;
+		extended_B = {B[31], B[31:0], 0'b0}
+		
+		for(index = 0; index < 32; index = index + 2) begin
+			case(extended_B[index+1:index-1])
+				3'b001,3'b010 : 	multipliers[index] = 1;
+				3'b010 : 			multipliers[index] = 1;
+				3'b011 : 			multipliers[index] = 2;
+				3'b100 : 			multipliers[index] = -2;
+				3'b101, 3'b110 : 	multipliers[index] = -1;
+				default : 			multipliers[index] = 0;
+			endcase
+		end
+		
+		for(index = 0; index < 32; index = index + 2) begin
+			case(multiplier[index]) 
+				1  : c = c + (A<<index);
+				2  : c = c + (A<<(index+1));
+				-1 : c = c + (-A<<index);
+				-2 : c = c + (-A<<(index+1));
+			endcase
+		end
+		sum = c;
+	end
+
+endmodule

@@ -1,0 +1,10 @@
+module negate_val (input [31:0] A, output [31:0] result);
+
+	reg [31:0] intermediate;
+	
+	always @(A) begin
+		not_val(A, intermediate);
+		ripple_carry_adder(intermediate, 32'b1);
+	end
+	
+endmodule;

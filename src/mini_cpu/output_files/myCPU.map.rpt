@@ -1,0 +1,372 @@
+Analysis & Elaboration report for myCPU
+Mon Jan 29 14:32:00 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Port Connectivity Checks: "ALU:ALU_instance|divide:divide_instance"
+  6. Port Connectivity Checks: "ALU:ALU_instance|booth_pair_mul:booth_instance"
+  7. Port Connectivity Checks: "ALU:ALU_instance|negate_val:negate_instance|ripple_carry_adder:add_one"
+  8. Port Connectivity Checks: "ALU:ALU_instance|rotate_right:ror_instance"
+  9. Port Connectivity Checks: "ALU:ALU_instance|rotate_left:rol_instance"
+ 10. Port Connectivity Checks: "ALU:ALU_instance|shift_right:slra_instance"
+ 11. Port Connectivity Checks: "ALU:ALU_instance|shift_right:slr_instance"
+ 12. Port Connectivity Checks: "ALU:ALU_instance|shift_left:sll_instance"
+ 13. Port Connectivity Checks: "ALU:ALU_instance|ripple_carry_adder:add_instance"
+ 14. Port Connectivity Checks: "ALU:ALU_instance"
+ 15. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                  ;
++-------------------------------+-------------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Mon Jan 29 14:32:00 2024           ;
+; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                 ; myCPU                                           ;
+; Top-level Entity Name         ; ALU_tb                                          ;
+; Family                        ; Cyclone V                                       ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                       ;
+; Total registers               ; N/A until Partition Merge                       ;
+; Total pins                    ; N/A until Partition Merge                       ;
+; Total virtual pins            ; N/A until Partition Merge                       ;
+; Total block memory bits       ; N/A until Partition Merge                       ;
+; Total PLLs                    ; N/A until Partition Merge                       ;
+; Total DLLs                    ; N/A until Partition Merge                       ;
++-------------------------------+-------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                           ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA5F23C7        ;                    ;
+; Top-level entity name                                                           ; ALU_tb             ; myCPU              ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|divide:divide_instance"                                                 ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; remainder ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|booth_pair_mul:booth_instance"                                                                                                                                ;
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                                 ;
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; sum         ; Output ; Warning  ; Output or bidir port (64 bits) is smaller than the port expression (65 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; sum[63..32] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|negate_val:negate_instance|ripple_carry_adder:add_one"                      ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; B[31..1]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[0]          ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; carry_flag    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; overflow_flag ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|rotate_right:ror_instance" ;
++------+-------+----------+----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                      ;
++------+-------+----------+----------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                 ;
++------+-------+----------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|rotate_left:rol_instance" ;
++------+-------+----------+---------------------------------------------+
+; Port ; Type  ; Severity ; Details                                     ;
++------+-------+----------+---------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                ;
++------+-------+----------+---------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|shift_right:slra_instance" ;
++------+-------+----------+----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                      ;
++------+-------+----------+----------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                 ;
+; sign ; Input ; Info     ; Stuck at VCC                                 ;
++------+-------+----------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|shift_right:slr_instance" ;
++------+-------+----------+---------------------------------------------+
+; Port ; Type  ; Severity ; Details                                     ;
++------+-------+----------+---------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                ;
+; sign ; Input ; Info     ; Stuck at GND                                ;
++------+-------+----------+---------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|shift_left:sll_instance" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                               ;
++------+-------+----------+--------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance|ripple_carry_adder:add_instance"                                            ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; carry_flag    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; overflow_flag ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_instance"                                                                     ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; result ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Elaboration
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Mon Jan 29 14:31:50 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off myCPU -c myCPU --analysis_and_elaboration
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ripple_carry_adder.v
+    Info (12023): Found entity 1: ripple_carry_adder File: C:/Users/18jmcn/Downloads/week1/week1/ripple_carry_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file and_vals.v
+    Info (12023): Found entity 1: and_vals File: C:/Users/18jmcn/Downloads/week1/week1/and_vals.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file or_vals.v
+    Info (12023): Found entity 1: or_vals File: C:/Users/18jmcn/Downloads/week1/week1/or_vals.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file shift_right.v
+    Info (12023): Found entity 1: shift_right File: C:/Users/18jmcn/Downloads/week1/week1/shift_right.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file shift_left.v
+    Info (12023): Found entity 1: shift_left File: C:/Users/18jmcn/Downloads/week1/week1/shift_left.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file rotate_left.v
+    Info (12023): Found entity 1: rotate_left File: C:/Users/18jmcn/Downloads/week1/week1/rotate_left.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file rotate_right.v
+    Info (12023): Found entity 1: rotate_right File: C:/Users/18jmcn/Downloads/week1/week1/rotate_right.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file not_val.v
+    Info (12023): Found entity 1: not_val File: C:/Users/18jmcn/Downloads/week1/week1/not_val.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file negate_val.v
+    Info (12023): Found entity 1: negate_val File: C:/Users/18jmcn/Downloads/week1/week1/negate_val.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: ALU File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_tb.v
+    Info (12023): Found entity 1: ALU_tb File: C:/Users/18jmcn/Downloads/week1/week1/ALU_tb.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file booth_pair_mul.v
+    Info (12023): Found entity 1: booth_pair_mul File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 1
+Warning (12090): Entity "divide" obtained from "divide.v" instead of from Quartus Prime megafunction library File: C:/Users/18jmcn/Downloads/week1/week1/divide.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file divide.v
+    Info (12023): Found entity 1: divide File: C:/Users/18jmcn/Downloads/week1/week1/divide.v Line: 1
+Info (12127): Elaborating entity "ALU_tb" for the top level hierarchy
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU_tb.v Line: 8
+Warning (10230): Verilog HDL assignment warning at ALU.v(37): truncated value with size 65 to match size of target (32) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 37
+Warning (10270): Verilog HDL Case Statement warning at ALU.v(26): incomplete case statement has no default case item File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(26): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[0]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[1]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[2]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[3]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[4]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[5]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[6]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[7]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[8]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[9]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[10]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[11]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[12]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[13]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[14]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[15]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[16]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[17]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[18]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[19]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[20]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[21]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[22]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[23]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[24]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[25]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[26]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[27]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[28]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[29]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[30]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (10041): Inferred latch for "result[31]" at ALU.v(26) File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 26
+Info (12128): Elaborating entity "ripple_carry_adder" for hierarchy "ALU:ALU_instance|ripple_carry_adder:add_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 12
+Info (12128): Elaborating entity "and_vals" for hierarchy "ALU:ALU_instance|and_vals:and_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 13
+Info (12128): Elaborating entity "or_vals" for hierarchy "ALU:ALU_instance|or_vals:or_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 14
+Info (12128): Elaborating entity "shift_left" for hierarchy "ALU:ALU_instance|shift_left:sll_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 15
+Info (12128): Elaborating entity "shift_right" for hierarchy "ALU:ALU_instance|shift_right:slr_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 16
+Warning (10036): Verilog HDL or VHDL warning at shift_right.v(5): object "new_sign" assigned a value but never read File: C:/Users/18jmcn/Downloads/week1/week1/shift_right.v Line: 5
+Warning (10240): Verilog HDL Always Construct warning at shift_right.v(9): inferring latch(es) for variable "iter", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/Downloads/week1/week1/shift_right.v Line: 9
+Info (12128): Elaborating entity "rotate_left" for hierarchy "ALU:ALU_instance|rotate_left:rol_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 18
+Info (12128): Elaborating entity "rotate_right" for hierarchy "ALU:ALU_instance|rotate_right:ror_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 19
+Info (12128): Elaborating entity "not_val" for hierarchy "ALU:ALU_instance|not_val:not_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 20
+Info (12128): Elaborating entity "negate_val" for hierarchy "ALU:ALU_instance|negate_val:negate_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 21
+Info (12128): Elaborating entity "booth_pair_mul" for hierarchy "ALU:ALU_instance|booth_pair_mul:booth_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 22
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(16): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 16
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(18): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 18
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(20): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 20
+Warning (10272): Verilog HDL Case Statement warning at booth_pair_mul.v(17): case item expression covers a value already covered by a previous case item File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 17
+Warning (10762): Verilog HDL Case Statement warning at booth_pair_mul.v(24): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 24
+Warning (10270): Verilog HDL Case Statement warning at booth_pair_mul.v(24): incomplete case statement has no default case item File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 24
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(17): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 17
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(19): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 19
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(26): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 26
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(27): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 27
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(28): case item expression never matches the case expression File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 28
+Warning (10034): Output port "carry_flag" at booth_pair_mul.v(1) has no driver File: C:/Users/18jmcn/Downloads/week1/week1/booth_pair_mul.v Line: 1
+Info (12128): Elaborating entity "divide" for hierarchy "ALU:ALU_instance|divide:divide_instance" File: C:/Users/18jmcn/Downloads/week1/week1/ALU.v Line: 23
+Warning (10235): Verilog HDL Always Construct warning at divide.v(20): variable "neg_A" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/Downloads/week1/week1/divide.v Line: 20
+Warning (10235): Verilog HDL Always Construct warning at divide.v(23): variable "pos_A" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/Downloads/week1/week1/divide.v Line: 23
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 4781 megabytes
+    Info: Processing ended: Mon Jan 29 14:32:00 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:10
+
+
