@@ -43,7 +43,7 @@ reg_32 InPort(clear, clock, InPortin, BusMuxOut, BusMuxInInPortout);
 reg_32 Y(clear, clock, Yin, BusMuxOut, BusMuxInYout);
 
 // init ALU
-ALU alu(Y, BusMuxOut, op, Zregin)
+ALU alu(Y, BusMuxOut, op, Zregin);
 
 // init rest of blocks here
 
