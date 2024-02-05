@@ -36,5 +36,5 @@ always @ (*)
 			if(InPortout) q = BusMuxInInPortout;
 			if(Yout) q = BusMuxInYout;
 		end
-	assign BusMuxOut = q;
+	assign BusMuxOut = q
 endmodule 
