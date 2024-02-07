@@ -1,5 +1,5 @@
 Analysis & Elaboration report for myCPU
-Mon Feb 05 13:32:58 2024
+Tue Feb 06 19:49:11 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -21,6 +21,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  13. Port Connectivity Checks: "ALU:ALU_instance|ripple_carry_adder:add_instance"
  14. Port Connectivity Checks: "ALU:ALU_instance"
  15. Analysis & Elaboration Messages
+ 16. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -46,7 +47,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                  ;
 +-------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Mon Feb 05 13:32:58 2024           ;
+; Analysis & Elaboration Status ; Successful - Tue Feb 06 19:49:11 2024           ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                 ; myCPU                                           ;
 ; Top-level Entity Name         ; ALU_tb                                          ;
@@ -267,7 +268,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon Feb 05 13:32:47 2024
+    Info: Processing started: Tue Feb 06 19:49:00 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off myCPU -c myCPU --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -306,6 +307,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file mdr_reg
     Info (12023): Found entity 1: MDR_reg File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file reg_32.v
     Info (12023): Found entity 1: reg_32 File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datapath_tb.v
+    Info (12023): Found entity 1: datapath_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 3
 Warning (10236): Verilog HDL Implicit Net warning at data_path.v(46): created implicit net for "op" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 46
 Warning (10236): Verilog HDL Implicit Net warning at data_path.v(53): created implicit net for "BusMuxInCout" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 53
 Warning (10236): Verilog HDL Implicit Net warning at data_path.v(55): created implicit net for "Cout" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 55
@@ -374,10 +377,17 @@ Info (12128): Elaborating entity "divide" for hierarchy "ALU:ALU_instance|divide
 Warning (10235): Verilog HDL Always Construct warning at divide.v(21): variable "neg_B" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v Line: 21
 Warning (10235): Verilog HDL Always Construct warning at divide.v(19): variable "pos_B" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v Line: 19
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (144001): Generated suppressed messages file C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/output_files/myCPU.map.smsg
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4785 megabytes
-    Info: Processing ended: Mon Feb 05 13:32:58 2024
+    Info: Peak virtual memory: 4781 megabytes
+    Info: Processing ended: Tue Feb 06 19:49:11 2024
     Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:10
+
+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
+The suppressed messages can be found in C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/output_files/myCPU.map.smsg.
 
 
