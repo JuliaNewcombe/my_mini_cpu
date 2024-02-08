@@ -1,19 +1,22 @@
-module DataPath(
+module data_path(
 	input clock, clear,
 	//immediate value IS this even necessary
 	input [31:0] A,
 	input [31:0] RegisterAImmediate,
+	input [31:0] MDataIn,
 	//control signals
 	input R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
 	R12out, R13out, R14out, R15out, HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout,
 	//register enables
 	input R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, 
-	R12in, R13in, R14in, R15in, HIin, LOin, Zhighin, Zlowin, PCin, MARin, MDRin, InPortin, Yin
+	R12in, R13in, R14in, R15in, HIin, LOin, Zhighin, Zlowin, PCin, MARin, MDRin, InPortin, Yin,
+	output [31:0] BusMuxOut
 );	
 wire [31:0] BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
 BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
 BusMuxInHI, BusMuxInLO, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInMDRout, BusMuxInInPortout,
-BusMuxInYout, BusMuxOut;
+BusMuxInYout;
+//BusMuxOut
 wire [31:0] Zregin;
 
 // init 24 regs here
@@ -39,12 +42,12 @@ reg_32 Zhigh(clear, clock, Zhighin, BusMuxOut, BusMuxInZhigh);
 reg_32 Zlow(clear, clock, Zlowin, BusMuxOut, BusMuxInZlow);
 reg_32 PC(clear, clock, PCin, BusMuxOut, BusMuxInPCout);
 // reg_32 MAR(clear, clock, MARin, BusMuxOut, BusMuxInPCout);
-MDR_reg MDR(clear, clock, MDRin, BusMuxOut, BusMuxInMDRout);
+MDR_reg MDR(clear, clock, MDRin, Read, BusMuxOut, MDataIn, BusMuxInMDRout);
 reg_32 InPort(clear, clock, InPortin, BusMuxOut, BusMuxInInPortout);
 reg_32 Y(clear, clock, Yin, BusMuxOut, BusMuxInYout);
 
 // init ALU
-ALU alu(Y, BusMuxOut, op, Zregin);
+ALU alu(BusMuxInYout, BusMuxOut, op, Zregin);
 
 // init rest of blocks here
 

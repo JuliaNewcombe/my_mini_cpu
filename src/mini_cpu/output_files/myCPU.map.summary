@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Tue Feb 06 19:49:11 2024
+Analysis & Elaboration Status : Successful - Thu Feb 08 12:52:26 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : myCPU
-Top-level Entity Name : ALU_tb
+Top-level Entity Name : datapath_tb
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge

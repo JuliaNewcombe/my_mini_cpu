@@ -1,5 +1,5 @@
 Analysis & Elaboration report for myCPU
-Tue Feb 06 19:49:11 2024
+Thu Feb 08 12:52:26 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -9,19 +9,45 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   1. Legal Notice
   2. Analysis & Elaboration Summary
   3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Port Connectivity Checks: "ALU:ALU_instance|divide:divide_instance"
-  6. Port Connectivity Checks: "ALU:ALU_instance|booth_pair_mul:booth_instance"
-  7. Port Connectivity Checks: "ALU:ALU_instance|negate_val:negate_instance|ripple_carry_adder:add_one"
-  8. Port Connectivity Checks: "ALU:ALU_instance|rotate_right:ror_instance"
-  9. Port Connectivity Checks: "ALU:ALU_instance|rotate_left:rol_instance"
- 10. Port Connectivity Checks: "ALU:ALU_instance|shift_right:slra_instance"
- 11. Port Connectivity Checks: "ALU:ALU_instance|shift_right:slr_instance"
- 12. Port Connectivity Checks: "ALU:ALU_instance|shift_left:sll_instance"
- 13. Port Connectivity Checks: "ALU:ALU_instance|ripple_carry_adder:add_instance"
- 14. Port Connectivity Checks: "ALU:ALU_instance"
- 15. Analysis & Elaboration Messages
- 16. Analysis & Elaboration Suppressed Messages
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |datapath_tb
+  5. Analysis & Elaboration Settings
+  6. Port Connectivity Checks: "data_path:DUT|Bus:bus"
+  7. Port Connectivity Checks: "data_path:DUT|ALU:alu|divide:divide_instance"
+  8. Port Connectivity Checks: "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance"
+  9. Port Connectivity Checks: "data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one"
+ 10. Port Connectivity Checks: "data_path:DUT|ALU:alu|rotate_right:ror_instance"
+ 11. Port Connectivity Checks: "data_path:DUT|ALU:alu|rotate_left:rol_instance"
+ 12. Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slra_instance"
+ 13. Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slr_instance"
+ 14. Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_left:sll_instance"
+ 15. Port Connectivity Checks: "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance"
+ 16. Port Connectivity Checks: "data_path:DUT|ALU:alu"
+ 17. Port Connectivity Checks: "data_path:DUT|reg_32:InPort"
+ 18. Port Connectivity Checks: "data_path:DUT|MDR_reg:MDR"
+ 19. Port Connectivity Checks: "data_path:DUT|reg_32:PC"
+ 20. Port Connectivity Checks: "data_path:DUT|reg_32:Zlow"
+ 21. Port Connectivity Checks: "data_path:DUT|reg_32:Zhigh"
+ 22. Port Connectivity Checks: "data_path:DUT|reg_32:LO"
+ 23. Port Connectivity Checks: "data_path:DUT|reg_32:HI"
+ 24. Port Connectivity Checks: "data_path:DUT|reg_32:R15"
+ 25. Port Connectivity Checks: "data_path:DUT|reg_32:R14"
+ 26. Port Connectivity Checks: "data_path:DUT|reg_32:R13"
+ 27. Port Connectivity Checks: "data_path:DUT|reg_32:R12"
+ 28. Port Connectivity Checks: "data_path:DUT|reg_32:R11"
+ 29. Port Connectivity Checks: "data_path:DUT|reg_32:R10"
+ 30. Port Connectivity Checks: "data_path:DUT|reg_32:R9"
+ 31. Port Connectivity Checks: "data_path:DUT|reg_32:R8"
+ 32. Port Connectivity Checks: "data_path:DUT|reg_32:R7"
+ 33. Port Connectivity Checks: "data_path:DUT|reg_32:R6"
+ 34. Port Connectivity Checks: "data_path:DUT|reg_32:R5"
+ 35. Port Connectivity Checks: "data_path:DUT|reg_32:R4"
+ 36. Port Connectivity Checks: "data_path:DUT|reg_32:R3"
+ 37. Port Connectivity Checks: "data_path:DUT|reg_32:R2"
+ 38. Port Connectivity Checks: "data_path:DUT|reg_32:R1"
+ 39. Port Connectivity Checks: "data_path:DUT|reg_32:R0"
+ 40. Port Connectivity Checks: "data_path:DUT"
+ 41. Analysis & Elaboration Messages
+ 42. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -47,10 +73,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                  ;
 +-------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Tue Feb 06 19:49:11 2024           ;
+; Analysis & Elaboration Status ; Successful - Thu Feb 08 12:52:26 2024           ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                 ; myCPU                                           ;
-; Top-level Entity Name         ; ALU_tb                                          ;
+; Top-level Entity Name         ; datapath_tb                                     ;
 ; Family                        ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                       ;
 ; Total registers               ; N/A until Partition Merge                       ;
@@ -78,13 +104,35 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |datapath_tb ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; Default        ; 0000  ; Unsigned Binary                                    ;
+; Reg_load1a     ; 0001  ; Unsigned Binary                                    ;
+; Reg_load1b     ; 0010  ; Unsigned Binary                                    ;
+; Reg_load2a     ; 0011  ; Unsigned Binary                                    ;
+; Reg_load2b     ; 0100  ; Unsigned Binary                                    ;
+; Reg_load3a     ; 0101  ; Unsigned Binary                                    ;
+; Reg_load3b     ; 0110  ; Unsigned Binary                                    ;
+; T0             ; 0111  ; Unsigned Binary                                    ;
+; T1             ; 1000  ; Unsigned Binary                                    ;
+; T2             ; 1001  ; Unsigned Binary                                    ;
+; T3             ; 1010  ; Unsigned Binary                                    ;
+; T4             ; 1011  ; Unsigned Binary                                    ;
+; T5             ; 1100  ; Unsigned Binary                                    ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +---------------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CEBA5F23C7        ;                    ;
-; Top-level entity name                                                           ; ALU_tb             ; myCPU              ;
+; Top-level entity name                                                           ; datapath_tb        ; myCPU              ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -165,8 +213,39 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|Bus:bus"                                                                                                                                                                         ;
++-------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port              ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; BusMuxInR0        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR1        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR2        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR3        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR4        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR5        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR6        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR7        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR8        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR9        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR10       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR11       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR12       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR13       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR14       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInR15       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInHI        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInLO        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInZhigh     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInZlow      ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInPCout     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInMDRout    ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxInInPortout ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|divide:divide_instance"                                                 ;
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|divide:divide_instance"                                            ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port      ; Type   ; Severity ; Details                                                                             ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -175,7 +254,7 @@ refer to the applicable agreement for further details.
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|booth_pair_mul:booth_instance"                                                                                                                                ;
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance"                                                                                                                           ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port        ; Type   ; Severity ; Details                                                                                                                                                                 ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -185,7 +264,7 @@ refer to the applicable agreement for further details.
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|negate_val:negate_instance|ripple_carry_adder:add_one"                      ;
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one"                 ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port          ; Type   ; Severity ; Details                                                                             ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -196,55 +275,55 @@ refer to the applicable agreement for further details.
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|rotate_right:ror_instance" ;
-+------+-------+----------+----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                      ;
-+------+-------+----------+----------------------------------------------+
-; amnt ; Input ; Info     ; Stuck at VCC                                 ;
-+------+-------+----------+----------------------------------------------+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|rotate_right:ror_instance" ;
++------+-------+----------+---------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                           ;
++------+-------+----------+---------------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                      ;
++------+-------+----------+---------------------------------------------------+
 
 
-+-----------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|rotate_left:rol_instance" ;
-+------+-------+----------+---------------------------------------------+
-; Port ; Type  ; Severity ; Details                                     ;
-+------+-------+----------+---------------------------------------------+
-; amnt ; Input ; Info     ; Stuck at VCC                                ;
-+------+-------+----------+---------------------------------------------+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|rotate_left:rol_instance" ;
++------+-------+----------+--------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                          ;
++------+-------+----------+--------------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                     ;
++------+-------+----------+--------------------------------------------------+
 
 
-+------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|shift_right:slra_instance" ;
-+------+-------+----------+----------------------------------------------+
-; Port ; Type  ; Severity ; Details                                      ;
-+------+-------+----------+----------------------------------------------+
-; amnt ; Input ; Info     ; Stuck at VCC                                 ;
-; sign ; Input ; Info     ; Stuck at VCC                                 ;
-+------+-------+----------+----------------------------------------------+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slra_instance" ;
++------+-------+----------+---------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                           ;
++------+-------+----------+---------------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                      ;
+; sign ; Input ; Info     ; Stuck at VCC                                      ;
++------+-------+----------+---------------------------------------------------+
 
 
-+-----------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|shift_right:slr_instance" ;
-+------+-------+----------+---------------------------------------------+
-; Port ; Type  ; Severity ; Details                                     ;
-+------+-------+----------+---------------------------------------------+
-; amnt ; Input ; Info     ; Stuck at VCC                                ;
-; sign ; Input ; Info     ; Stuck at GND                                ;
-+------+-------+----------+---------------------------------------------+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slr_instance" ;
++------+-------+----------+--------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                          ;
++------+-------+----------+--------------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                     ;
+; sign ; Input ; Info     ; Stuck at GND                                     ;
++------+-------+----------+--------------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|shift_left:sll_instance" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; amnt ; Input ; Info     ; Stuck at VCC                               ;
-+------+-------+----------+--------------------------------------------+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_left:sll_instance" ;
++------+-------+----------+-------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                         ;
++------+-------+----------+-------------------------------------------------+
+; amnt ; Input ; Info     ; Stuck at VCC                                    ;
++------+-------+----------+-------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance|ripple_carry_adder:add_instance"                                            ;
+; Port Connectivity Checks: "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance"                                       ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port          ; Type   ; Severity ; Details                                                                             ;
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -253,13 +332,240 @@ refer to the applicable agreement for further details.
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:ALU_instance"                                                                     ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; Port   ; Type   ; Severity ; Details                                                                             ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
-; result ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|ALU:alu"                                                                                                                       ;
++--------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                                    ;
++--------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; op     ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (5 bits) it drives.  Extra input bit(s) "op[4..1]" will be connected to GND. ;
+; result ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                        ;
++--------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:InPort"                                                                   ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|MDR_reg:MDR"                                                                     ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:PC"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:Zlow"                                                                     ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:Zhigh"                                                                    ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:LO"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:HI"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R15"                                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R14"                                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R13"                                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R12"                                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R11"                                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R10"                                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R9"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R8"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R7"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R6"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R5"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R4"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R3"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R2"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R1"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|reg_32:R0"                                                                       ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; BusMuxIn[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT"                                                                                                                                                                                ;
++-----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; MDataIn[31..30] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; MDataIn[26..24] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; MDataIn[22..21] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; MDataIn[19..17] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; MDataIn[14..5]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; MDataIn[28]     ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; MDataIn[0]      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; R2in            ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; R3in            ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; Yin             ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; BusMuxOut       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                           ;
++-----------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------+
@@ -268,7 +574,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Tue Feb 06 19:49:00 2024
+    Info: Processing started: Thu Feb 08 12:52:15 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off myCPU -c myCPU --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -302,18 +608,88 @@ Info (12021): Found 1 design units, including 1 entities, in source file divide.
 Info (12021): Found 1 design units, including 1 entities, in source file bus.v
     Info (12023): Found entity 1: Bus File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file data_path.v
-    Info (12023): Found entity 1: DataPath File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 1
+    Info (12023): Found entity 1: data_path File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mdr_reg.v
     Info (12023): Found entity 1: MDR_reg File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file reg_32.v
     Info (12023): Found entity 1: reg_32 File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_tb.v
     Info (12023): Found entity 1: datapath_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at data_path.v(46): created implicit net for "op" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 46
-Warning (10236): Verilog HDL Implicit Net warning at data_path.v(53): created implicit net for "BusMuxInCout" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 53
-Warning (10236): Verilog HDL Implicit Net warning at data_path.v(55): created implicit net for "Cout" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 55
-Info (12127): Elaborating entity "ALU_tb" for the top level hierarchy
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_tb.v Line: 8
+Warning (10236): Verilog HDL Implicit Net warning at data_path.v(45): created implicit net for "Read" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 45
+Warning (10236): Verilog HDL Implicit Net warning at data_path.v(50): created implicit net for "op" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 50
+Warning (10236): Verilog HDL Implicit Net warning at data_path.v(57): created implicit net for "BusMuxInCout" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 57
+Warning (10236): Verilog HDL Implicit Net warning at data_path.v(59): created implicit net for "Cout" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 59
+Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(15): created implicit net for "HIout" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 15
+Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(16): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 16
+Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(16): created implicit net for "Zhighin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 16
+Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(16): created implicit net for "InPC" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 16
+Info (12127): Elaborating entity "datapath_tb" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at datapath_tb.v(6): object "MARin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at datapath_tb.v(6): object "Zin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at datapath_tb.v(6): object "PCin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at datapath_tb.v(6): object "IRin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at datapath_tb.v(7): object "IncPC" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 7
+Warning (10036): Verilog HDL or VHDL warning at datapath_tb.v(7): object "Read" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 7
+Warning (10036): Verilog HDL or VHDL warning at datapath_tb.v(7): object "AND" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 7
+Warning (10755): Verilog HDL warning at datapath_tb.v(40): assignments to Clock create a combinational loop File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 40
+Info (10264): Verilog HDL Case Statement information at datapath_tb.v(43): all case item expressions in this case statement are onehot File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 43
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "PCout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "Zlowout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "MDRout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "R2out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "R3out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "MDRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "Yin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "R1in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "R2in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "R3in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Warning (10240): Verilog HDL Always Construct warning at datapath_tb.v(59): inferring latch(es) for variable "Mdatain", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[0]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[1]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[2]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[3]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[4]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[5]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[6]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[7]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[8]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[9]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[10]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[11]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[12]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[13]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[14]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[15]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[16]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[17]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[18]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[19]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[20]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[21]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[22]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[23]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[24]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[25]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[26]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[27]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[28]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[29]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[30]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Mdatain[31]" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "R3in" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "R2in" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "R1in" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Yin" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "MDRin" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "R3out" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "R2out" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "MDRout" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "Zlowout" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (10041): Inferred latch for "PCout" at datapath_tb.v(59) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 59
+Info (12128): Elaborating entity "data_path" for hierarchy "data_path:DUT" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 16
+Info (12128): Elaborating entity "reg_32" for hierarchy "data_path:DUT|reg_32:R0" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 23
+Info (12128): Elaborating entity "MDR_reg" for hierarchy "data_path:DUT|MDR_reg:MDR" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 45
+Info (12128): Elaborating entity "ALU" for hierarchy "data_path:DUT|ALU:alu" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 50
 Warning (10230): Verilog HDL assignment warning at ALU.v(37): truncated value with size 65 to match size of target (32) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 37
 Warning (10270): Verilog HDL Case Statement warning at ALU.v(26): incomplete case statement has no default case item File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 26
 Warning (10240): Verilog HDL Always Construct warning at ALU.v(26): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 26
@@ -349,18 +725,18 @@ Info (10041): Inferred latch for "result[28]" at ALU.v(26) File: C:/Users/18jmcn
 Info (10041): Inferred latch for "result[29]" at ALU.v(26) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 26
 Info (10041): Inferred latch for "result[30]" at ALU.v(26) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 26
 Info (10041): Inferred latch for "result[31]" at ALU.v(26) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 26
-Info (12128): Elaborating entity "ripple_carry_adder" for hierarchy "ALU:ALU_instance|ripple_carry_adder:add_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 12
-Info (12128): Elaborating entity "and_vals" for hierarchy "ALU:ALU_instance|and_vals:and_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 13
-Info (12128): Elaborating entity "or_vals" for hierarchy "ALU:ALU_instance|or_vals:or_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 14
-Info (12128): Elaborating entity "shift_left" for hierarchy "ALU:ALU_instance|shift_left:sll_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 15
-Info (12128): Elaborating entity "shift_right" for hierarchy "ALU:ALU_instance|shift_right:slr_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 16
+Info (12128): Elaborating entity "ripple_carry_adder" for hierarchy "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 12
+Info (12128): Elaborating entity "and_vals" for hierarchy "data_path:DUT|ALU:alu|and_vals:and_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 13
+Info (12128): Elaborating entity "or_vals" for hierarchy "data_path:DUT|ALU:alu|or_vals:or_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 14
+Info (12128): Elaborating entity "shift_left" for hierarchy "data_path:DUT|ALU:alu|shift_left:sll_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 15
+Info (12128): Elaborating entity "shift_right" for hierarchy "data_path:DUT|ALU:alu|shift_right:slr_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 16
 Warning (10036): Verilog HDL or VHDL warning at shift_right.v(5): object "new_sign" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 5
 Warning (10240): Verilog HDL Always Construct warning at shift_right.v(9): inferring latch(es) for variable "iter", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 9
-Info (12128): Elaborating entity "rotate_left" for hierarchy "ALU:ALU_instance|rotate_left:rol_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 18
-Info (12128): Elaborating entity "rotate_right" for hierarchy "ALU:ALU_instance|rotate_right:ror_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 19
-Info (12128): Elaborating entity "not_val" for hierarchy "ALU:ALU_instance|not_val:not_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 20
-Info (12128): Elaborating entity "negate_val" for hierarchy "ALU:ALU_instance|negate_val:negate_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 21
-Info (12128): Elaborating entity "booth_pair_mul" for hierarchy "ALU:ALU_instance|booth_pair_mul:booth_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 22
+Info (12128): Elaborating entity "rotate_left" for hierarchy "data_path:DUT|ALU:alu|rotate_left:rol_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 18
+Info (12128): Elaborating entity "rotate_right" for hierarchy "data_path:DUT|ALU:alu|rotate_right:ror_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 19
+Info (12128): Elaborating entity "not_val" for hierarchy "data_path:DUT|ALU:alu|not_val:not_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 20
+Info (12128): Elaborating entity "negate_val" for hierarchy "data_path:DUT|ALU:alu|negate_val:negate_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 21
+Info (12128): Elaborating entity "booth_pair_mul" for hierarchy "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 22
 Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(16): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 16
 Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(18): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 18
 Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(20): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 20
@@ -373,14 +749,50 @@ Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(26): cas
 Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(27): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 27
 Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(28): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 28
 Warning (10034): Output port "carry_flag" at booth_pair_mul.v(1) has no driver File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 1
-Info (12128): Elaborating entity "divide" for hierarchy "ALU:ALU_instance|divide:divide_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 23
+Info (12128): Elaborating entity "divide" for hierarchy "data_path:DUT|ALU:alu|divide:divide_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 23
 Warning (10235): Verilog HDL Always Construct warning at divide.v(21): variable "neg_B" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v Line: 21
 Warning (10235): Verilog HDL Always Construct warning at divide.v(19): variable "pos_B" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v Line: 19
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12128): Elaborating entity "Bus" for hierarchy "data_path:DUT|Bus:bus" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 60
+Warning (10240): Verilog HDL Always Construct warning at bus.v(14): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 14
+Info (10041): Inferred latch for "q[0]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[1]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[2]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[3]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[4]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[5]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[6]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[7]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[8]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[9]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[10]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[11]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[12]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[13]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[14]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[15]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[16]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[17]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[18]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[19]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[20]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[21]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[22]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[23]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[24]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[25]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[26]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[27]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[28]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[29]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[30]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[31]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "Clock" is missing source, defaulting to GND File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 8
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (144001): Generated suppressed messages file C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/output_files/myCPU.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4781 megabytes
-    Info: Processing ended: Tue Feb 06 19:49:11 2024
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 4789 megabytes
+    Info: Processing ended: Thu Feb 08 12:52:26 2024
     Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:10
 
