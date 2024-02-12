@@ -9,37 +9,33 @@ module datapath_tb;
 	reg [31:0] Mdatain, A, Immediate;	parameter Default = 4'b0000, Reg_load1a = 4'b0001, Reg_load1b = 4'b0010, Reg_load2a = 4'b0011, Reg_load2b = 4'b0100, Reg_load3a = 4'b0101, Reg_load3b = 4'b0110, T0 = 4'b0111,
 	T1 = 4'b1000, T2 = 4'b1001, T3 = 4'b1010, T4 = 4'b1011, T5 = 4'b1100;
 	reg [3:0] Present_state = Default;
-	wire [31:0] BusOut;
+	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2;
 	//Datapath DUT(PCout, Zlowout, MDRout, R2out, R3out, MARin, Zin, PCin, MDRin, IRin, Yin, IncPC, Read, AND, R1in, R2in, R3in, Clock, Mdatain);
-	data_path DUT(Clock, clear, A, Immediate, Mdatain, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
-	R12out, R13out, R14out, R15out, HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, 
-	R12in, R13in, R14in, R15in, HIin, LOin, Zhighin, Zlowin, InPC, MDRin, InPortin, Yin, BusOut);
+	data_path DUT(Clock, clear, Read, A, Immediate, Mdatain, 
+	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, 
+	HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, 
+	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in, 
+	HIin, LOin, Zhighin, Zlowin, InPC, MDRin, InPortin, Yin, 
+	BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2);
 	/*module data_path(
-	input clock, clear,
-	//immediate value IS this even necessary
-	input [31:0] A,
-	input [31:0] RegisterAImmediate,
-	input [31:0] MDataIn,
-	//control signals
-	input R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
-	R12out, R13out, R14out, R15out, HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout,
-	//register enables
-	input R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, 
-	R12in, R13in, R14in, R15in, HIin, LOin, Zhighin, Zlowin, PCin, MARin, MDRin, InPortin, Yin,
-	output [31:0] busOut
-);	*/
+	clock, clear, A, RegisterAImmediate, MDataIn,
+	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, 
+	HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout,
+	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in, 
+	HIin, LOin, Zhighin, Zlowin, PCin, MDRin, InPortin, Yin,
+	BusMuxOut, mdrdata
+);		*/
 	
 // add test logic here
 initial begin
-	
-	Clock = 0;
+	Clock = 1;
 	//forever #10 Clock = ~Clock;
 end
 
 
 always #10 Clock = ~Clock;
 		
-always @(posedge Clock) begin// finite state machine; if clock rising-edge
+always @(negedge Clock) begin// finite state machine; if clock rising-edge
 	case (Present_state)
 		Default : Present_state = Reg_load1a;
 		Reg_load1a : Present_state = Reg_load1b;
@@ -68,36 +64,36 @@ always @(Present_state) begin // do the required job in each state
 			
 		Reg_load1a: begin
 			Mdatain <= 32'h00000012;
-			Read = 0; MDRin = 0; // the first zero is there for completeness
-			#10 Read <= 1; MDRin <= 1;
-			#15 Read <= 0; MDRin <= 0;
+						// the first zero is there for completeness
+			#5 Read <= 1; MDRin <= 1;
+			#10 Read <= 0; MDRin <= 0;
 		end
  
 		Reg_load1b: begin
-			#10 MDRout <= 1; R2in <= 1;
-			#15 MDRout <= 0; R2in <= 0; // initialize R2 with the value $12
+			#5 MDRout <= 1; R2in <= 1;
+			#10 MDRout <= 0; R2in <= 0; // initialize R2 with the value $12
 		end
 
 		Reg_load2a: begin
 			Mdatain <= 32'h00000014;
-			#10 Read <= 1; MDRin <= 1;
-			#15 Read <= 0; MDRin <= 0;
+			#5 Read <= 1; MDRin <= 1;
+			#10 Read <= 0; MDRin <= 0;
 		end
  
 		Reg_load2b: begin
-			#10 MDRout <= 1; R3in <= 1;
-			#15 MDRout <= 0; R3in <= 0; // initialize R3 with the value $14
+			#5 MDRout <= 1; R3in <= 1;
+			#10 MDRout <= 0; R3in <= 0; // initialize R3 with the value $14
 		end
 
 		Reg_load3a: begin
 			Mdatain <= 32'h00000018;
-			#10 Read <= 1; MDRin <= 1;
-			#15 Read <= 0; MDRin <= 0;
+			#5 Read <= 1; MDRin <= 1;
+			#10 Read <= 0; MDRin <= 0;
 		end
  
 		Reg_load3b: begin
-			#10 MDRout <= 1; R1in <= 1;
-			#15 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18
+			#5 MDRout <= 1; R1in <= 1;
+			#10 MDRout <= 0; R1in <= 0; // initialize R1 with the value $18
 		end
 
 		T0: begin // see if you need to de-assert these signals

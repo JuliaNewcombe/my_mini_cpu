@@ -1,6 +1,6 @@
 module Bus(
 	// Mux
-	input BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
+	input [31:0] BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
 	BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
 	BusMuxInHI, BusMuxInLO, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInMDRout, BusMuxInInPortout,
 	BusMuxInYout,
@@ -32,6 +32,7 @@ always @ (*)
 			if(Zhighout) q = BusMuxInZhigh;
 			if(Zlowout) q = BusMuxInZlow;
 			if(PCout) q = BusMuxInPCout;
+			//if(MDRout) q = 32'b1010101;
 			if(MDRout) q = BusMuxInMDRout;
 			if(InPortout) q = BusMuxInInPortout;
 			if(Yout) q = BusMuxInYout;
