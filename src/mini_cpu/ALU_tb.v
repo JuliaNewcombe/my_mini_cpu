@@ -3,75 +3,78 @@ module ALU_tb;
 
 	reg  [31:0] A, B;
 	reg  [4:0]  opcode;
-	wire [31:0] result;
+	wire [31:0] Zlowout;
+	wire [31:0] Zhighout;
 	
-	ALU ALU_instance(A, B, opcode, result);
+	ALU ALU_instance(A, B, opcode, Zlowout, Zhighout);
 	
 	initial begin
 		A <= -7;
 		B <= 10;
 		opcode <= 0;
 		
-		#10
+		#30
 		
 		A <= 32'b1111111111;
 		B <= 32'b1010101010;
 		opcode <= 1;
 		
-		#10
+		#30
 		
 		opcode <= 2;
 		
 		#10
+		B <= 5;
 		
 		opcode <= 3;
 		
-		#10
+		#30
 		
 		A <= -5;
 		opcode <= 4;
 		
-		#10
+		#30
 		
 		opcode <= 5;
 		
-		#10
+		#30
 		
 		opcode <= 6;
 		
-		#10
+		#30
 		
 		opcode <= 7;
 		
-		#10
+		#30
 		
 		opcode <= 8;
 		
-		#10
+		#30
 		
 		opcode <= 9;
+		A <= 30;
 		
-		#10
-		
-		opcode <= 10;
+		#30
 		A <= 5;
 		B <= 5;
+		opcode <= 10;
+
 		
-		#10
-		A <= -5;
-		B <= 5;
+		#30
+		A <= 5;
+		B <= -17;
 		
-		#10
-		
-		opcode <= 11;
+		#30
 		A <= 25;
-		B <= 5;
+		B <= 8;
+		opcode <= 11;
+
 		
-		#10
+		#30
 		A <= 30;
-		B <= 6;
+		B <= 9;
 		
 
 	end
 	
-endmodule
+endmodule 
