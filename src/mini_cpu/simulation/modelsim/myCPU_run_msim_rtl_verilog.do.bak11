@@ -15,13 +15,17 @@ vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v}
-vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_tb.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v}
 
-vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_tb.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v}
 
-vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ALU_tb
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  datapath_tb
 
 add wave *
 view structure
