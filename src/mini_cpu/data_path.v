@@ -1,8 +1,7 @@
 module data_path(
 	input clock, clear, Read,
 	//immediate value IS this even necessary
-	input [31:0] A,
-	input [31:0] RegisterAImmediate,
+	input [4:0] op,
 	input [31:0] MDataIn,
 	//control signals
 	input R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
@@ -17,7 +16,7 @@ BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusM
 BusMuxInHI, BusMuxInLO, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout,
 BusMuxInYout;
 //BusMuxOut,  BusMuxInMDRout, BusMuxInR0, BusMuxInR1, BusMuxInR2
-wire [31:0] Zregin;
+//wire [31:0] Zregin;
 
 // init 24 regs here
 reg_32 R0(clear, clock, R0in, BusMuxOut, BusMuxInR0);
@@ -47,7 +46,7 @@ reg_32 InPort(clear, clock, InPortin, BusMuxOut, BusMuxInInPortout);
 reg_32 Y(clear, clock, Yin, BusMuxOut, BusMuxInYout);
 
 // init ALU
-ALU alu(BusMuxInYout, BusMuxOut, op, Zregin);
+ALU alu(BusMuxInYout, BusMuxOut, op, BusMuxInZlow, BusMuxInZhigh);
 
 // init rest of blocks here
 
