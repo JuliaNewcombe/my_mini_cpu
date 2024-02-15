@@ -12,4 +12,4 @@ module negate_val (input [31:0] A, output [31:0] result);
 	end
 	ripple_carry_adder add_one(intermediate, 32'b1, result, flag1, flag2);
 	
-endmodule
+endmodule 
