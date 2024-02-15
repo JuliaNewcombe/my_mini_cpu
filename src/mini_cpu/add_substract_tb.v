@@ -3,20 +3,20 @@
 module add_substract_tb;
 
 	reg PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
-	reg MARin, Zin, PCin, MDRin, IRin, Yin, IncPC, Read, AND, HIin, InPortin, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
+	reg MARin, Zin, PCin, MDRin, IRin, Yin, InPC, Read, AND, HIin, InPortin, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 	reg Clock, clear;
 	reg [31:0] Mdatain;	
 	parameter Default = 4'b0000, mdr_load_1 = 4'b0001, Reg_load_1 = 4'b0010, mdr_load_2 = 4'b0011, reg_load_2 = 4'b0100, add_op = 4'b0101, z_low_read = 4'b0110, z_high_read = 4'b0111;
 	reg [3:0] Present_state = Default;
 	reg [4:0] op;
-	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2;
+	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInYOut;
 
 	data_path DUT(Clock, clear, Read, op, Mdatain, 
 	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, 
-	HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, 
+	HIOut, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, 
 	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in, 
-	HIin, LOin, Zhighin, Zlowin, InPC, MDRin, InPortin, Yin, 
-	BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2);
+	HIin, Loin, ZHighin, Zlowin, InPC, MDRin, InPortin, Yin, 
+	BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInYOut);
 
 	
 initial begin
@@ -48,7 +48,7 @@ always @(Present_state) begin // do the required job in each state
 			IncPC <= 0; Read <= 0; AND <= 0;
 			R1in <= 0; R2in <= 0; R3in <= 0; Mdatain <= 32'h00000000;*/
 			{PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out} <= 24'b0;
-			{MARin, Zin, PCin, MDRin, IRin, Yin, IncPC, Read, AND, HIin, InPortin, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in} <= 29'b0;
+			{MARin, Zin, PCin, MDRin, IRin, Yin, InPC, Read, AND, HIin, InPortin, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in} <= 29'b0;
 			clear<=0;
 			Mdatain <= 32'h00000000;
 			op <= 0;
@@ -73,14 +73,14 @@ always @(Present_state) begin // do the required job in each state
 		end
  
 		reg_load_2: begin
-			#5 MDRout <= 1; R3in <= 1;
-			#10 MDRout <= 0; R3in <= 0; // initialize R3 with the value $14
+			#5 MDRout <= 1; R2in <= 1;
+			#10 MDRout <= 0; R2in <= 0; // initialize R3 with the value $14
 		end
 
 		add_op: begin
 			op <= 5'b0;
-			#5 R3out <= 1;
-			#10 R3out <= 0;
+			#5 R2out <= 1; ZHighin <= 1; Zlowin <= 1;
+			#10 R2out <= 0; ZHighin <= 0; Zlowin <= 0;
 		end
  
 		z_low_read: begin
@@ -89,8 +89,8 @@ always @(Present_state) begin // do the required job in each state
 		end
 
 		z_high_read: begin // see if you need to de-assert these signals
-			#5 Zhighout <= 1; R1in <= 1;
-			#10 Zhighout <= 0; R1in <= 0;
+			#5 Zhighout <= 1; R0in <= 1;
+			#10 Zhighout <= 0; R0in <= 0;
 		end
 
 	endcase

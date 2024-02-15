@@ -5,7 +5,7 @@ module ALU(input [31:0] A, B, input [4:0] op, output reg[31:0] Zlowout, Zhighout
 	wire carry_flag, overflow_flag;
 	reg my_one = 1'b1;
 	reg my_zero = 1'b0;
-	integer my_int = 1;
+	//integer my_int = 1;
 	reg [63:0] Z = 64'b0;
 
 	
