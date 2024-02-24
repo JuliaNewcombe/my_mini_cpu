@@ -5,7 +5,8 @@ module divide (input [31:0] A, B, output reg [31:0] quotient, remainder);
 	reg [32:0] pos_B, neg_B, temp;
 	
 	always @(A or B) begin
-		neg_B = {~B[31], ~B+1'b1};
+		temp = 33'b0;
+		neg_B = ~{B[31], B} + 1'b1;
 		pos_B = {B[31], B};
 		if (B[31] == 1'b1) begin
 			temp = neg_B;
@@ -25,6 +26,9 @@ module divide (input [31:0] A, B, output reg [31:0] quotient, remainder);
 			
 			// if the right most bit is a one the left bit is 0
 			c[0] = !c[64];
+		end
+		if (c[64] == 1'b1) begin
+			c = c + {pos_B, 32'b0};
 		end
 		if (B[31] == 1'b1) quotient = ~c[31:0] + 1'b1;
 		else quotient  = c[31:0];
