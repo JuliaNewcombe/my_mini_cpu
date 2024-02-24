@@ -1,12 +1,12 @@
 `timescale 1ns/10ps
 
-module and_tb;
+module or_tb;
 
 	reg PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
 	reg MARin, Zin, PCin, MDRin, IRin, Yin, InPC, Read, AND, HIin, InPortin, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 	reg Clock, clear;
 	reg [31:0] Mdatain;	
-	parameter Default = 4'b0000, mdr_load_1 = 4'b0001, Reg_load_1 = 4'b0010, mdr_load_2 = 4'b0011, reg_load_2 = 4'b0100, and_op = 4'b0101, z_low_read = 4'b0110, z_high_read = 4'b0111;
+	parameter Default = 4'b0000, mdr_load_1 = 4'b0001, Reg_load_1 = 4'b0010, mdr_load_2 = 4'b0011, reg_load_2 = 4'b0100, or_op = 4'b0101, z_low_read = 4'b0110, z_high_read = 4'b0111;
 	reg [3:0] Present_state = Default;
 	reg [4:0] op;
 	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInYOut;
@@ -33,8 +33,8 @@ always @(negedge Clock) begin// finite state machine; if clock falling-edge so a
 		mdr_load_1 : Present_state = Reg_load_1;
 		Reg_load_1 : Present_state = mdr_load_2;
 		mdr_load_2 : Present_state = reg_load_2;
-		reg_load_2 : Present_state = and_op;
-		and_op	  : Present_state = z_low_read;
+		reg_load_2 : Present_state = or_op;
+		or_op	  : Present_state = z_low_read;
 		z_low_read : Present_state = z_high_read;
 	endcase
 end
@@ -77,8 +77,8 @@ always @(Present_state) begin // do the required job in each state
 			#10 MDRout <= 0; R2in <= 0; // initialize R3 with the value $14
 		end
 
-		and_op: begin
-			op <= 5'b00001;
+		or_op: begin
+			op <= 5'b00010;
 			#5 R2out <= 1; ZHighin <= 1; Zlowin <= 1;
 			#10 R2out <= 0; ZHighin <= 0; Zlowin <= 0;
 		end
