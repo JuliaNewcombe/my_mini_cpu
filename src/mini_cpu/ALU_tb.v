@@ -72,7 +72,7 @@ module ALU_tb;
 		
 		#30
 		A <= 30;
-		B <= 9;
+		B <= -9;
 		
 
 	end
