@@ -9,11 +9,11 @@ module data_path(
 	//register enables
 	input R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, 
 	R12in, R13in, R14in, R15in, HIin, LOin, Zhighin, Zlowin, PCin, MDRin, InPortin, Yin,
-	output [31:0] BusMuxOut, output [31:0] BusMuxInMDRout, BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInYout
+	output [31:0] BusMuxOut, output [31:0] BusMuxInMDRout, BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInYout,
+	BusMuxInHI, BusMuxInLO
 );	
 wire [31:0] BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
-BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
-BusMuxInHI, BusMuxInLO, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, ZHighWire, ZLowWire;
+BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, ZHighWire, ZLowWire;
 //BusMuxOut,  BusMuxInMDRout, BusMuxInR0, BusMuxInR1, BusMuxInR2 BusMuxInYout
 //wire [31:0] Zregin;
 
