@@ -56,7 +56,7 @@ always @(Present_state) begin // do the required job in each state
 			
 		mdr_load_1: begin
 			Mdatain <= 32'd12;
-						// the first zero is there for completeness
+			// the first zero is there for completeness
 			#5 Read <= 1; MDRin <= 1;
 			#10 Read <= 0; MDRin <= 0;
 		end
@@ -96,4 +96,4 @@ always @(Present_state) begin // do the required job in each state
 	endcase
 end
 
-endmodule
+endmodule 
