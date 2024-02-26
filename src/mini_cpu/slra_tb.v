@@ -67,7 +67,7 @@ always @(Present_state) begin // do the required job in each state
 		end
 
 		mdr_load_2: begin
-			Mdatain <= -5;
+			Mdatain <= 5;
 			#5 Read <= 1; MDRin <= 1;
 			#10 Read <= 0; MDRin <= 0;
 		end
