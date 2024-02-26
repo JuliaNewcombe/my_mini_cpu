@@ -6,7 +6,9 @@ module div_tb;
 	reg MARin, Zin, PCin, MDRin, IRin, Yin, InPC, Read, AND, HIin, InPortin, LOin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 	reg Clock, clear;
 	reg [31:0] Mdatain;	
-	parameter Default = 4'b0000, mdr_load_1 = 4'b0001, Reg_load_1 = 4'b0010, mdr_load_2 = 4'b0011, reg_load_2 = 4'b0100, div_op = 4'b0101, z_low_read = 4'b0110, z_high_read = 4'b0111;
+	parameter Default = 4'b0000, mdr_load_1 = 4'b0001, Reg_load_1 = 4'b0010, Y_load = 4'b0011, 
+				 reg_load_2 = 4'b0100, mdr_load_2 = 4'b0101, div_op = 4'b0110, z_low_read = 4'b0111, 
+				 z_high_read = 4'b1000;
 	reg [3:0] Present_state = Default;
 	reg [4:0] op;
 	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2,  BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
@@ -36,7 +38,8 @@ always @(negedge Clock) begin// finite state machine; if clock falling-edge so a
 	case (Present_state)
 		Default : Present_state = mdr_load_1;
 		mdr_load_1 : Present_state = Reg_load_1;
-		Reg_load_1 : Present_state = mdr_load_2;
+		Reg_load_1 : Present_state = Y_load;
+		Y_load     : Present_state = mdr_load_2;
 		mdr_load_2 : Present_state = reg_load_2;
 		reg_load_2 : Present_state = div_op;
 		div_op	  : Present_state = z_low_read;
@@ -67,8 +70,13 @@ always @(Present_state) begin // do the required job in each state
 		end
  
 		Reg_load_1: begin
-			#5 MDRout <= 1; Yin <= 1;
-			#10 MDRout <= 0; Yin <= 0; // initialize R2 with the value $12
+			#5 MDRout <= 1; R4in <= 1;
+			#10 MDRout <= 0; R4in <= 0; // initialize R2 with the value $12
+		end
+		
+		Y_load: begin
+			#5 R4out <= 1; Yin <= 1;
+			#10 R4out <= 0; Yin <= 0; // initialize R2 with the value $12
 		end
 
 		mdr_load_2: begin
@@ -78,14 +86,14 @@ always @(Present_state) begin // do the required job in each state
 		end
  
 		reg_load_2: begin
-			#5 MDRout <= 1; R2in <= 1;
-			#10 MDRout <= 0; R2in <= 0; // initialize R3 with the value $14
+			#5 MDRout <= 1; R5in <= 1;
+			#10 MDRout <= 0; R5in <= 0; // initialize R3 with the value $14
 		end
 
 		div_op: begin
 			op <= 5'b01011;
-			#5 R2out <= 1; ZHighin <= 1; Zlowin <= 1;
-			#10 R2out <= 0; ZHighin <= 0; Zlowin <= 0;
+			#5 R5out <= 1; ZHighin <= 1; Zlowin <= 1;
+			#10 R5out <= 0; ZHighin <= 0; Zlowin <= 0;
 		end
  
 		z_low_read: begin
