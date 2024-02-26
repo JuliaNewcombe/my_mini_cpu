@@ -78,7 +78,7 @@ always @(Present_state) begin // do the required job in each state
 		end
 
 		negate_op: begin
-			op <= 5'b00101;
+			op <= 5'b01001;
 			#5 R2out <= 1; ZHighin <= 1; Zlowin <= 1;
 			#10 R2out <= 0; ZHighin <= 0; Zlowin <= 0;
 		end

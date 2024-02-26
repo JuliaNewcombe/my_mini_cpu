@@ -31,7 +31,7 @@ always @(negedge Clock) begin// finite state machine; if clock falling-edge so a
 	case (Present_state)
 		Default : Present_state = mdr_load_1;
 		mdr_load_1 : Present_state = Reg_load_1;
-		Reg_load_1 : Present_state = mdr_load_2;
+		Reg_load_1 : Present_state = not_op;
 		not_op	  : Present_state = z_low_read;
 		z_low_read : Present_state = z_high_read;
 	endcase
@@ -65,9 +65,10 @@ always @(Present_state) begin // do the required job in each state
 		end
 
 		not_op: begin
-			op <= 5'b00100;
+			op <= 5'b01000;
 			#5 ZHighin <= 1; Zlowin <= 1;
 			#10 ZHighin <= 0; Zlowin <= 0;
+			op <= 5'b0;
 		end
  
 		z_low_read: begin
