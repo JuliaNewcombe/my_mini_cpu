@@ -91,8 +91,8 @@ always @(Present_state) begin // do the required job in each state
 
 		mul_op: begin
 			op <= 5'b01010;
-			#5 R2out <= 1; ZHighin <= 1; Zlowin <= 1;
-			#10 R2out <= 0; ZHighin <= 0; Zlowin <= 0;
+			#5 R5out <= 1; ZHighin <= 1; Zlowin <= 1;
+			#10 R5out <= 0; ZHighin <= 0; Zlowin <= 0;
 		end
  
 		z_low_read: begin

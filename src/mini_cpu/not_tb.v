@@ -82,8 +82,8 @@ always @(Present_state) begin // do the required job in each state
 		end
  
 		z_low_read: begin
-			#5 Zlowout <= 1; R1in <= 1;
-			#10 Zlowout <= 0; R1in <= 0; // initialize R1 with the value $18
+			#5 Zlowout <= 1; R6in <= 1;
+			#10 Zlowout <= 0; R6in <= 0; // initialize R1 with the value $18
 		end
 
 	endcase
