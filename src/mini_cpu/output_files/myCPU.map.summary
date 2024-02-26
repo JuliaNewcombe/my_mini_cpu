@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Thu Feb 15 11:18:03 2024
-Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Analysis & Elaboration Status : Successful - Sat Feb 24 18:42:49 2024
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : myCPU
-Top-level Entity Name : add_substract_tb
+Top-level Entity Name : ror_tb
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge
