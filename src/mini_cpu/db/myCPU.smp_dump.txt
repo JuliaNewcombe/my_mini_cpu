@@ -1,9 +1,11 @@
 
-State Machine - |not_tb|Present_state
-Name Present_state.z_high_read Present_state.z_low_read Present_state.not_op Present_state.Reg_load_1 Present_state.mdr_load_1 Present_state.Default 
-Present_state.Default 0 0 0 0 0 0 
-Present_state.mdr_load_1 0 0 0 0 1 1 
-Present_state.Reg_load_1 0 0 0 1 0 1 
-Present_state.not_op 0 0 1 0 0 1 
-Present_state.z_low_read 0 1 0 0 0 1 
-Present_state.z_high_read 1 0 0 0 0 1 
+State Machine - |or_tb|Present_state
+Name Present_state.z_high_read Present_state.z_low_read Present_state.or_op Present_state.reg_load_2 Present_state.mdr_load_2 Present_state.Reg_load_1 Present_state.mdr_load_1 Present_state.Default 
+Present_state.Default 0 0 0 0 0 0 0 0 
+Present_state.mdr_load_1 0 0 0 0 0 0 1 1 
+Present_state.Reg_load_1 0 0 0 0 0 1 0 1 
+Present_state.mdr_load_2 0 0 0 0 1 0 0 1 
+Present_state.reg_load_2 0 0 0 1 0 0 0 1 
+Present_state.or_op 0 0 1 0 0 0 0 1 
+Present_state.z_low_read 0 1 0 0 0 0 0 1 
+Present_state.z_high_read 1 0 0 0 0 0 0 1 

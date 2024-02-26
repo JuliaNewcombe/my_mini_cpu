@@ -6,17 +6,23 @@ module not_tb;
 	reg MARin, Zin, PCin, MDRin, IRin, Yin, InPC, Read, AND, HIin, InPortin, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 	reg Clock, clear;
 	reg [31:0] Mdatain;	
-	parameter Default = 4'b0000, mdr_load_1 = 4'b0001, Reg_load_1 = 4'b0010, mdr_load_2 = 4'b0011, reg_load_2 = 4'b0100, not_op = 4'b0101, z_low_read = 4'b0110, z_high_read = 4'b0111;
+	parameter Default = 4'b0000, mdr_load_1 = 4'b0001, Reg_load_1 = 4'b0010, Y_load = 4'b0011, 
+				 not_op = 4'b0100, z_low_read = 4'b0101;
 	reg [3:0] Present_state = Default;
 	reg [4:0] op;
-	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInYOut;
+	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2,  BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
+					BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
+					BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, BusMuxInYout, BusMuxInHI, BusMuxInLO;
+
 
 	data_path DUT(Clock, clear, Read, op, Mdatain, 
 	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, 
 	HIOut, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, 
 	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in, 
 	HIin, LOin, ZHighin, Zlowin, InPC, MDRin, InPortin, Yin, 
-	BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInYOut, BusMuxInHI, BusMuxInLO);
+	BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2,  BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
+	BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
+	BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, BusMuxInYout, BusMuxInHI, BusMuxInLO);
 
 	
 initial begin
@@ -31,9 +37,9 @@ always @(negedge Clock) begin// finite state machine; if clock falling-edge so a
 	case (Present_state)
 		Default : Present_state = mdr_load_1;
 		mdr_load_1 : Present_state = Reg_load_1;
-		Reg_load_1 : Present_state = not_op;
-		not_op	  : Present_state = z_low_read;
-		z_low_read : Present_state = z_high_read;
+		Reg_load_1 : Present_state = Y_load;
+		Y_load     : Present_state = not_op;
+		not_op     : Present_state = z_low_read;
 	endcase
 end
 
@@ -53,32 +59,31 @@ always @(Present_state) begin // do the required job in each state
 		end
 			
 		mdr_load_1: begin
-			Mdatain <= -12;
+			Mdatain <= 32'd12;
 			// the first zero is there for completeness
 			#5 Read <= 1; MDRin <= 1;
 			#10 Read <= 0; MDRin <= 0;
 		end
  
 		Reg_load_1: begin
-			#5 MDRout <= 1; Yin <= 1;
-			#10 MDRout <= 0; Yin <= 0; // initialize R2 with the value $12
+			#5 MDRout <= 1; R7in <= 1;
+			#10 MDRout <= 0; R7in <= 0; // initialize R2 with the value $12
+		end
+		
+		Y_load: begin
+			#5 R7out <= 1; Yin <= 1;
+			#10 R7out <= 0; Yin <= 0; // initialize R2 with the value $12
 		end
 
 		not_op: begin
-			op <= 5'b01000;
-			#5 ZHighin <= 1; Zlowin <= 1;
-			#10 ZHighin <= 0; Zlowin <= 0;
-			op <= 5'b0;
+			op <= 5'b01001;
+			#5 R7out <= 1; Zlowin <= 1;
+			#10 R7out <= 0; Zlowin <= 0;
 		end
  
 		z_low_read: begin
 			#5 Zlowout <= 1; R1in <= 1;
 			#10 Zlowout <= 0; R1in <= 0; // initialize R1 with the value $18
-		end
-
-		z_high_read: begin // see if you need to de-assert these signals
-			#5 Zhighout <= 1; R0in <= 1;
-			#10 Zhighout <= 0; R0in <= 0;
 		end
 
 	endcase
