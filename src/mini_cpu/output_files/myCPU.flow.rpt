@@ -1,5 +1,5 @@
 Flow report for myCPU
-Mon Feb 26 15:13:56 2024
+Fri Mar 01 12:35:14 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,10 +40,10 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Successful - Mon Feb 26 15:13:56 2024           ;
+; Flow Status                 ; Successful - Fri Mar 01 12:35:14 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name               ; myCPU                                           ;
-; Top-level Entity Name       ; negate_tb                                       ;
+; Top-level Entity Name       ; phase_2_tb                                      ;
 ; Family                      ; Cyclone V                                       ;
 ; Device                      ; 5CEBA5F23C7                                     ;
 ; Timing Models               ; Final                                           ;
@@ -62,7 +62,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/26/2024 15:13:45 ;
+; Start date & time ; 03/01/2024 12:35:03 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; myCPU               ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id       ;
 +--------------------------------------+----------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID                ; 26830026781693.170897842515924         ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID                ; 26830026795149.170931450315848         ; --            ; --          ; --               ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; or_tb            ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ALU_tb           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; ror_tb           ;
@@ -81,6 +81,7 @@ refer to the applicable agreement for further details.
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; and_tb           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; add_substract_tb ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; datapath_tb      ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; phase_2_tb       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; not_tb           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; slr_tb           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; rol_tb           ;
@@ -88,7 +89,7 @@ refer to the applicable agreement for further details.
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; slra_tb          ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; mul_tb           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; negate_tb        ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; negate_tb                              ; --            ; --          ; eda_simulation   ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; phase_2_tb                             ; --            ; --          ; eda_simulation   ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation   ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --               ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --          ; eda_simulation   ;
@@ -99,6 +100,7 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_FILE                  ; and_tb.v                               ; --            ; --          ; and_tb           ;
 ; EDA_TEST_BENCH_FILE                  ; add_substract_tb.v                     ; --            ; --          ; add_substract_tb ;
 ; EDA_TEST_BENCH_FILE                  ; datapath_tb.v                          ; --            ; --          ; datapath_tb      ;
+; EDA_TEST_BENCH_FILE                  ; phase_2_tb.v                           ; --            ; --          ; phase_2_tb       ;
 ; EDA_TEST_BENCH_FILE                  ; not_tb.v                               ; --            ; --          ; not_tb           ;
 ; EDA_TEST_BENCH_FILE                  ; slr_tb.v                               ; --            ; --          ; slr_tb           ;
 ; EDA_TEST_BENCH_FILE                  ; rol_tb.v                               ; --            ; --          ; rol_tb           ;
@@ -113,6 +115,7 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_MODULE_NAME           ; and_tb                                 ; --            ; --          ; and_tb           ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; add_substract_tb                       ; --            ; --          ; add_substract_tb ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; datapath_tb                            ; --            ; --          ; datapath_tb      ;
+; EDA_TEST_BENCH_MODULE_NAME           ; phase_2_tb                             ; --            ; --          ; phase_2_tb       ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; not_tb                                 ; --            ; --          ; not_tb           ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; slr_tb                                 ; --            ; --          ; slr_tb           ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; rol_tb                                 ; --            ; --          ; rol_tb           ;
@@ -134,6 +137,7 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_NAME                  ; ror_tb                                 ; --            ; --          ; eda_simulation   ;
 ; EDA_TEST_BENCH_NAME                  ; negate_tb                              ; --            ; --          ; eda_simulation   ;
 ; EDA_TEST_BENCH_NAME                  ; not_tb                                 ; --            ; --          ; eda_simulation   ;
+; EDA_TEST_BENCH_NAME                  ; phase_2_tb                             ; --            ; --          ; eda_simulation   ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; or_tb            ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; ALU_tb           ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; ror_tb           ;
@@ -141,6 +145,7 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; and_tb           ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; add_substract_tb ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; datapath_tb      ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; phase_2_tb       ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; not_tb           ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; slr_tb           ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --          ; rol_tb           ;
@@ -151,13 +156,13 @@ refer to the applicable agreement for further details.
 ; EDA_TIME_SCALE                       ; 1 ns                                   ; --            ; --          ; eda_simulation   ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --          ; --               ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; negate_tb   ; Top              ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; negate_tb   ; Top              ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; negate_tb   ; Top              ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; phase_2_tb  ; Top              ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; phase_2_tb  ; Top              ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; phase_2_tb  ; Top              ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --               ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --               ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --               ;
-; TOP_LEVEL_ENTITY                     ; negate_tb                              ; myCPU         ; --          ; --               ;
+; TOP_LEVEL_ENTITY                     ; phase_2_tb                             ; myCPU         ; --          ; --               ;
 +--------------------------------------+----------------------------------------+---------------+-------------+------------------+
 
 
@@ -166,8 +171,8 @@ refer to the applicable agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4792 MB             ; 00:00:10                           ;
-; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:10                           ;
+; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4794 MB             ; 00:00:11                           ;
+; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:11                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -176,7 +181,7 @@ refer to the applicable agreement for further details.
 +------------------------+------------------+------------+------------+----------------+
 ; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; BMH-212-15       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Elaboration ; BMH-212-09       ; Windows 10 ; 10.0       ; x86_64         ;
 +------------------------+------------------+------------+------------+----------------+
 
 

@@ -21,11 +21,13 @@ vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v}
-vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_tb.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v}
 
-vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_tb.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v}
 
-vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  negate_tb
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  phase_2_tb
 
 add wave *
 view structure

@@ -1,15 +1,18 @@
 module r0 (input clear, clock, enable, BAout, input [31:0]BusMuxOut, output wire [31:0]BusMuxIn);
 reg [31:0] q;
+wire [31:0] temp_BusMuxIn;
 
-reg_31 this_reg(clear, clock, enable, BusMuxOut, q)
+reg_32 this_reg(clear, clock, enable, BusMuxOut, temp_BusMuxIn);
 
-always @(clock) begin
+always @(posedge clock) begin
 	if(BAout == 1'b1) begin 
-		BusMuxIn <= 32'b0;
-	else begin
-		BusMuxIn <= q;
+		q <= 32'b0;
+	end else begin
+		q <= temp_BusMuxIn;
 	end
 
 end
+
+assign BusMuxIn = q;
 
 endmodule

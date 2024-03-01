@@ -1,10 +1,12 @@
-|negate_tb
+|phase_2_tb
 
 
-|negate_tb|data_path:DUT
-clock => clock.IN24
-clear => clear.IN24
+|phase_2_tb|data_path:DUT
+clock => clock.IN25
+clear => clear.IN25
 Read => Read.IN1
+strobe => strobe.IN1
+BAOut => BAOut.IN1
 op[0] => op[0].IN1
 op[1] => op[1].IN1
 op[2] => op[2].IN1
@@ -42,6 +44,38 @@ MDataIn[28] => MDataIn[28].IN1
 MDataIn[29] => MDataIn[29].IN1
 MDataIn[30] => MDataIn[30].IN1
 MDataIn[31] => MDataIn[31].IN1
+input_data[0] => input_data[0].IN1
+input_data[1] => input_data[1].IN1
+input_data[2] => input_data[2].IN1
+input_data[3] => input_data[3].IN1
+input_data[4] => input_data[4].IN1
+input_data[5] => input_data[5].IN1
+input_data[6] => input_data[6].IN1
+input_data[7] => input_data[7].IN1
+input_data[8] => input_data[8].IN1
+input_data[9] => input_data[9].IN1
+input_data[10] => input_data[10].IN1
+input_data[11] => input_data[11].IN1
+input_data[12] => input_data[12].IN1
+input_data[13] => input_data[13].IN1
+input_data[14] => input_data[14].IN1
+input_data[15] => input_data[15].IN1
+input_data[16] => input_data[16].IN1
+input_data[17] => input_data[17].IN1
+input_data[18] => input_data[18].IN1
+input_data[19] => input_data[19].IN1
+input_data[20] => input_data[20].IN1
+input_data[21] => input_data[21].IN1
+input_data[22] => input_data[22].IN1
+input_data[23] => input_data[23].IN1
+input_data[24] => input_data[24].IN1
+input_data[25] => input_data[25].IN1
+input_data[26] => input_data[26].IN1
+input_data[27] => input_data[27].IN1
+input_data[28] => input_data[28].IN1
+input_data[29] => input_data[29].IN1
+input_data[30] => input_data[30].IN1
+input_data[31] => input_data[31].IN1
 R0out => R0out.IN1
 R1out => R1out.IN1
 R2out => R2out.IN1
@@ -88,7 +122,7 @@ Zhighin => Zhighin.IN1
 Zlowin => Zlowin.IN1
 PCin => PCin.IN1
 MDRin => MDRin.IN1
-InPortin => InPortin.IN1
+OutPortin => OutPortin.IN1
 Yin => Yin.IN1
 BusMuxOut[0] <= BusMuxOut[0].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxOut[1] <= BusMuxOut[1].DB_MAX_OUTPUT_PORT_TYPE
@@ -890,9 +924,143 @@ BusMuxInLO[28] <= BusMuxInLO[28].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxInLO[29] <= BusMuxInLO[29].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxInLO[30] <= BusMuxInLO[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxInLO[31] <= BusMuxInLO[31].DB_MAX_OUTPUT_PORT_TYPE
+output_data[0] <= reg_32:OutPort.port4
+output_data[1] <= reg_32:OutPort.port4
+output_data[2] <= reg_32:OutPort.port4
+output_data[3] <= reg_32:OutPort.port4
+output_data[4] <= reg_32:OutPort.port4
+output_data[5] <= reg_32:OutPort.port4
+output_data[6] <= reg_32:OutPort.port4
+output_data[7] <= reg_32:OutPort.port4
+output_data[8] <= reg_32:OutPort.port4
+output_data[9] <= reg_32:OutPort.port4
+output_data[10] <= reg_32:OutPort.port4
+output_data[11] <= reg_32:OutPort.port4
+output_data[12] <= reg_32:OutPort.port4
+output_data[13] <= reg_32:OutPort.port4
+output_data[14] <= reg_32:OutPort.port4
+output_data[15] <= reg_32:OutPort.port4
+output_data[16] <= reg_32:OutPort.port4
+output_data[17] <= reg_32:OutPort.port4
+output_data[18] <= reg_32:OutPort.port4
+output_data[19] <= reg_32:OutPort.port4
+output_data[20] <= reg_32:OutPort.port4
+output_data[21] <= reg_32:OutPort.port4
+output_data[22] <= reg_32:OutPort.port4
+output_data[23] <= reg_32:OutPort.port4
+output_data[24] <= reg_32:OutPort.port4
+output_data[25] <= reg_32:OutPort.port4
+output_data[26] <= reg_32:OutPort.port4
+output_data[27] <= reg_32:OutPort.port4
+output_data[28] <= reg_32:OutPort.port4
+output_data[29] <= reg_32:OutPort.port4
+output_data[30] <= reg_32:OutPort.port4
+output_data[31] <= reg_32:OutPort.port4
 
 
-|negate_tb|data_path:DUT|reg_32:R0
+|phase_2_tb|data_path:DUT|r0:R0
+clear => clear.IN1
+clock => clock.IN1
+enable => enable.IN1
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BAout => q.OUTPUTSELECT
+BusMuxOut[0] => BusMuxOut[0].IN1
+BusMuxOut[1] => BusMuxOut[1].IN1
+BusMuxOut[2] => BusMuxOut[2].IN1
+BusMuxOut[3] => BusMuxOut[3].IN1
+BusMuxOut[4] => BusMuxOut[4].IN1
+BusMuxOut[5] => BusMuxOut[5].IN1
+BusMuxOut[6] => BusMuxOut[6].IN1
+BusMuxOut[7] => BusMuxOut[7].IN1
+BusMuxOut[8] => BusMuxOut[8].IN1
+BusMuxOut[9] => BusMuxOut[9].IN1
+BusMuxOut[10] => BusMuxOut[10].IN1
+BusMuxOut[11] => BusMuxOut[11].IN1
+BusMuxOut[12] => BusMuxOut[12].IN1
+BusMuxOut[13] => BusMuxOut[13].IN1
+BusMuxOut[14] => BusMuxOut[14].IN1
+BusMuxOut[15] => BusMuxOut[15].IN1
+BusMuxOut[16] => BusMuxOut[16].IN1
+BusMuxOut[17] => BusMuxOut[17].IN1
+BusMuxOut[18] => BusMuxOut[18].IN1
+BusMuxOut[19] => BusMuxOut[19].IN1
+BusMuxOut[20] => BusMuxOut[20].IN1
+BusMuxOut[21] => BusMuxOut[21].IN1
+BusMuxOut[22] => BusMuxOut[22].IN1
+BusMuxOut[23] => BusMuxOut[23].IN1
+BusMuxOut[24] => BusMuxOut[24].IN1
+BusMuxOut[25] => BusMuxOut[25].IN1
+BusMuxOut[26] => BusMuxOut[26].IN1
+BusMuxOut[27] => BusMuxOut[27].IN1
+BusMuxOut[28] => BusMuxOut[28].IN1
+BusMuxOut[29] => BusMuxOut[29].IN1
+BusMuxOut[30] => BusMuxOut[30].IN1
+BusMuxOut[31] => BusMuxOut[31].IN1
+BusMuxIn[0] <= q[0].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[1] <= q[1].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[2] <= q[2].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[3] <= q[3].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[4] <= q[4].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[5] <= q[5].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[6] <= q[6].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[7] <= q[7].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[8] <= q[8].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[9] <= q[9].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[10] <= q[10].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[11] <= q[11].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[12] <= q[12].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[13] <= q[13].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[14] <= q[14].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[15] <= q[15].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[16] <= q[16].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[17] <= q[17].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[18] <= q[18].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[19] <= q[19].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[20] <= q[20].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[21] <= q[21].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[22] <= q[22].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[23] <= q[23].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[24] <= q[24].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[25] <= q[25].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[26] <= q[26].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[27] <= q[27].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[28] <= q[28].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[29] <= q[29].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|phase_2_tb|data_path:DUT|r0:R0|reg_32:this_reg
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1055,7 +1223,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R1
+|phase_2_tb|data_path:DUT|reg_32:R1
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1218,7 +1386,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R2
+|phase_2_tb|data_path:DUT|reg_32:R2
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1381,7 +1549,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R3
+|phase_2_tb|data_path:DUT|reg_32:R3
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1544,7 +1712,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R4
+|phase_2_tb|data_path:DUT|reg_32:R4
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1707,7 +1875,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R5
+|phase_2_tb|data_path:DUT|reg_32:R5
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1870,7 +2038,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R6
+|phase_2_tb|data_path:DUT|reg_32:R6
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2033,7 +2201,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R7
+|phase_2_tb|data_path:DUT|reg_32:R7
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2196,7 +2364,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R8
+|phase_2_tb|data_path:DUT|reg_32:R8
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2359,7 +2527,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R9
+|phase_2_tb|data_path:DUT|reg_32:R9
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2522,7 +2690,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R10
+|phase_2_tb|data_path:DUT|reg_32:R10
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2685,7 +2853,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R11
+|phase_2_tb|data_path:DUT|reg_32:R11
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2848,7 +3016,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R12
+|phase_2_tb|data_path:DUT|reg_32:R12
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3011,7 +3179,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R13
+|phase_2_tb|data_path:DUT|reg_32:R13
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3174,7 +3342,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R14
+|phase_2_tb|data_path:DUT|reg_32:R14
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3337,7 +3505,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:R15
+|phase_2_tb|data_path:DUT|reg_32:R15
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3500,7 +3668,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:HI
+|phase_2_tb|data_path:DUT|reg_32:HI
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3663,7 +3831,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:LO
+|phase_2_tb|data_path:DUT|reg_32:LO
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3826,7 +3994,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:Zhigh
+|phase_2_tb|data_path:DUT|reg_32:Zhigh
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3989,7 +4157,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:Zlow
+|phase_2_tb|data_path:DUT|reg_32:Zlow
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4152,7 +4320,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:PC
+|phase_2_tb|data_path:DUT|reg_32:PC
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4315,7 +4483,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|MDR_reg:MDR
+|phase_2_tb|data_path:DUT|MDR_reg:MDR
 clear => q[0].ACLR
 clear => q[1].ACLR
 clear => q[2].ACLR
@@ -4511,7 +4679,170 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:InPort
+|phase_2_tb|data_path:DUT|in_port:InPort
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clear => q.OUTPUTSELECT
+clock => q[0].CLK
+clock => q[1].CLK
+clock => q[2].CLK
+clock => q[3].CLK
+clock => q[4].CLK
+clock => q[5].CLK
+clock => q[6].CLK
+clock => q[7].CLK
+clock => q[8].CLK
+clock => q[9].CLK
+clock => q[10].CLK
+clock => q[11].CLK
+clock => q[12].CLK
+clock => q[13].CLK
+clock => q[14].CLK
+clock => q[15].CLK
+clock => q[16].CLK
+clock => q[17].CLK
+clock => q[18].CLK
+clock => q[19].CLK
+clock => q[20].CLK
+clock => q[21].CLK
+clock => q[22].CLK
+clock => q[23].CLK
+clock => q[24].CLK
+clock => q[25].CLK
+clock => q[26].CLK
+clock => q[27].CLK
+clock => q[28].CLK
+clock => q[29].CLK
+clock => q[30].CLK
+clock => q[31].CLK
+strobe => temp[0].CLK
+strobe => temp[1].CLK
+strobe => temp[2].CLK
+strobe => temp[3].CLK
+strobe => temp[4].CLK
+strobe => temp[5].CLK
+strobe => temp[6].CLK
+strobe => temp[7].CLK
+strobe => temp[8].CLK
+strobe => temp[9].CLK
+strobe => temp[10].CLK
+strobe => temp[11].CLK
+strobe => temp[12].CLK
+strobe => temp[13].CLK
+strobe => temp[14].CLK
+strobe => temp[15].CLK
+strobe => temp[16].CLK
+strobe => temp[17].CLK
+strobe => temp[18].CLK
+strobe => temp[19].CLK
+strobe => temp[20].CLK
+strobe => temp[21].CLK
+strobe => temp[22].CLK
+strobe => temp[23].CLK
+strobe => temp[24].CLK
+strobe => temp[25].CLK
+strobe => temp[26].CLK
+strobe => temp[27].CLK
+strobe => temp[28].CLK
+strobe => temp[29].CLK
+strobe => temp[30].CLK
+strobe => temp[31].CLK
+unit_input[0] => temp[0].DATAIN
+unit_input[1] => temp[1].DATAIN
+unit_input[2] => temp[2].DATAIN
+unit_input[3] => temp[3].DATAIN
+unit_input[4] => temp[4].DATAIN
+unit_input[5] => temp[5].DATAIN
+unit_input[6] => temp[6].DATAIN
+unit_input[7] => temp[7].DATAIN
+unit_input[8] => temp[8].DATAIN
+unit_input[9] => temp[9].DATAIN
+unit_input[10] => temp[10].DATAIN
+unit_input[11] => temp[11].DATAIN
+unit_input[12] => temp[12].DATAIN
+unit_input[13] => temp[13].DATAIN
+unit_input[14] => temp[14].DATAIN
+unit_input[15] => temp[15].DATAIN
+unit_input[16] => temp[16].DATAIN
+unit_input[17] => temp[17].DATAIN
+unit_input[18] => temp[18].DATAIN
+unit_input[19] => temp[19].DATAIN
+unit_input[20] => temp[20].DATAIN
+unit_input[21] => temp[21].DATAIN
+unit_input[22] => temp[22].DATAIN
+unit_input[23] => temp[23].DATAIN
+unit_input[24] => temp[24].DATAIN
+unit_input[25] => temp[25].DATAIN
+unit_input[26] => temp[26].DATAIN
+unit_input[27] => temp[27].DATAIN
+unit_input[28] => temp[28].DATAIN
+unit_input[29] => temp[29].DATAIN
+unit_input[30] => temp[30].DATAIN
+unit_input[31] => temp[31].DATAIN
+BusMuxIn[0] <= q[0].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[1] <= q[1].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[2] <= q[2].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[3] <= q[3].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[4] <= q[4].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[5] <= q[5].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[6] <= q[6].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[7] <= q[7].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[8] <= q[8].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[9] <= q[9].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[10] <= q[10].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[11] <= q[11].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[12] <= q[12].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[13] <= q[13].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[14] <= q[14].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[15] <= q[15].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[16] <= q[16].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[17] <= q[17].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[18] <= q[18].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[19] <= q[19].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[20] <= q[20].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[21] <= q[21].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[22] <= q[22].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[23] <= q[23].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[24] <= q[24].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[25] <= q[25].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[26] <= q[26].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[27] <= q[27].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[28] <= q[28].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[29] <= q[29].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
+BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|phase_2_tb|data_path:DUT|reg_32:Y
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4674,7 +5005,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|reg_32:Y
+|phase_2_tb|data_path:DUT|reg_32:OutPort
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4837,7 +5168,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu
+|phase_2_tb|data_path:DUT|ALU:alu
 A[0] => A[0].IN10
 A[1] => A[1].IN10
 A[2] => A[2].IN10
@@ -5288,7 +5619,7 @@ Zhighout[30] <= Zhighout[30].DB_MAX_OUTPUT_PORT_TYPE
 Zhighout[31] <= Zhighout[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|ripple_carry_adder:add_instance
+|phase_2_tb|data_path:DUT|ALU:alu|ripple_carry_adder:add_instance
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -5517,7 +5848,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|and_vals:and_instance
+|phase_2_tb|data_path:DUT|ALU:alu|and_vals:and_instance
 A[0] => result.IN0
 A[1] => result.IN0
 A[2] => result.IN0
@@ -5616,7 +5947,7 @@ result[30] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= result.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|or_vals:or_instance
+|phase_2_tb|data_path:DUT|ALU:alu|or_vals:or_instance
 A[0] => result.IN0
 A[1] => result.IN0
 A[2] => result.IN0
@@ -5715,7 +6046,7 @@ result[30] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= result.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|shift_left:sll_instance
+|phase_2_tb|data_path:DUT|ALU:alu|shift_left:sll_instance
 A[0] => ShiftLeft0.IN32
 A[1] => ShiftLeft0.IN31
 A[2] => ShiftLeft0.IN30
@@ -5814,7 +6145,7 @@ result[30] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|shift_right:slr_instance
+|phase_2_tb|data_path:DUT|ALU:alu|shift_right:slr_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftRight1.IN32
 A[1] => ShiftRight0.IN31
@@ -6010,7 +6341,7 @@ result[30] <= intermediate[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= intermediate[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|shift_right:slra_instance
+|phase_2_tb|data_path:DUT|ALU:alu|shift_right:slra_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftRight1.IN32
 A[1] => ShiftRight0.IN31
@@ -6206,7 +6537,7 @@ result[30] <= intermediate[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= intermediate[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|rotate_left:rol_instance
+|phase_2_tb|data_path:DUT|ALU:alu|rotate_left:rol_instance
 A[0] => ShiftLeft0.IN32
 A[0] => ShiftRight0.IN64
 A[1] => ShiftLeft0.IN31
@@ -6369,7 +6700,7 @@ result[30] <= q.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|rotate_right:ror_instance
+|phase_2_tb|data_path:DUT|ALU:alu|rotate_right:ror_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftLeft0.IN64
 A[1] => ShiftRight0.IN31
@@ -6532,7 +6863,7 @@ result[30] <= q.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|not_val:not_instance
+|phase_2_tb|data_path:DUT|ALU:alu|not_val:not_instance
 A[0] => result[0].DATAIN
 A[1] => result[1].DATAIN
 A[2] => result[2].DATAIN
@@ -6599,7 +6930,7 @@ result[30] <= A[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= A[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|negate_val:negate_instance
+|phase_2_tb|data_path:DUT|ALU:alu|negate_val:negate_instance
 A[0] => intermediate[0].IN1
 A[1] => intermediate[1].IN1
 A[2] => intermediate[2].IN1
@@ -6666,7 +6997,7 @@ result[30] <= ripple_carry_adder:add_one.port2
 result[31] <= ripple_carry_adder:add_one.port2
 
 
-|negate_tb|data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one
+|phase_2_tb|data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -6895,7 +7226,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|ALU:alu|booth_pair_mul:booth_instance
+|phase_2_tb|data_path:DUT|ALU:alu|booth_pair_mul:booth_instance
 A[0] => Selector31.IN7
 A[0] => Selector32.IN4
 A[0] => Add1.IN124
@@ -8561,7 +8892,7 @@ result[63] <= Selector719.DB_MAX_OUTPUT_PORT_TYPE
 carry_flag <= <GND>
 
 
-|negate_tb|data_path:DUT|ALU:alu|divide:divide_instance
+|phase_2_tb|data_path:DUT|ALU:alu|divide:divide_instance
 A[0] => Add62.IN33
 A[0] => Add63.IN33
 A[1] => Add60.IN33
@@ -8884,7 +9215,7 @@ remainder[30] <= c.DB_MAX_OUTPUT_PORT_TYPE
 remainder[31] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|negate_tb|data_path:DUT|Bus:bus
+|phase_2_tb|data_path:DUT|Bus:bus
 BusMuxInR0[0] => q[0].DATAA
 BusMuxInR0[1] => q[1].DATAA
 BusMuxInR0[2] => q[2].DATAA
