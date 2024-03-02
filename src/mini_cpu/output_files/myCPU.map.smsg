@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at in_port.v(13): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v Line: 13
+Warning (10268): Verilog HDL information at sel_encode_unit.v(7): always construct contains both blocking and non-blocking assignments File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 7
