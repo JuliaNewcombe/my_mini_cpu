@@ -1,6 +1,6 @@
 Analysis & Elaboration report for myCPU
-Fri Mar 01 20:30:24 2024
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Sun Mar 03 12:03:31 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
 ---------------------
@@ -18,6 +18,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  10. Port Connectivity Checks: "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance"
  11. Port Connectivity Checks: "data_path:DUT"
  12. Analysis & Elaboration Messages
+ 13. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -40,22 +41,22 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                              ;
-+-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Fri Mar 01 20:30:24 2024       ;
-; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                 ; myCPU                                       ;
-; Top-level Entity Name         ; phase_2_tb                                  ;
-; Family                        ; Cyclone V                                   ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
-; Total registers               ; N/A until Partition Merge                   ;
-; Total pins                    ; N/A until Partition Merge                   ;
-; Total virtual pins            ; N/A until Partition Merge                   ;
-; Total block memory bits       ; N/A until Partition Merge                   ;
-; Total PLLs                    ; N/A until Partition Merge                   ;
-; Total DLLs                    ; N/A until Partition Merge                   ;
-+-------------------------------+---------------------------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                  ;
++-------------------------------+-------------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Sun Mar 03 12:03:31 2024           ;
+; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                 ; myCPU                                           ;
+; Top-level Entity Name         ; phase_2_tb                                      ;
+; Family                        ; Cyclone V                                       ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                       ;
+; Total registers               ; N/A until Partition Merge                       ;
+; Total pins                    ; N/A until Partition Merge                       ;
+; Total virtual pins            ; N/A until Partition Merge                       ;
+; Total block memory bits       ; N/A until Partition Merge                       ;
+; Total PLLs                    ; N/A until Partition Merge                       ;
+; Total DLLs                    ; N/A until Partition Merge                       ;
++-------------------------------+-------------------------------------------------+
 
 
 +------------------------------------------+
@@ -63,8 +64,8 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -87,6 +88,8 @@ refer to the applicable agreement for further details.
 ; s5             ; 0101  ; Unsigned Binary                                   ;
 ; s6             ; 0110  ; Unsigned Binary                                   ;
 ; s7             ; 0111  ; Unsigned Binary                                   ;
+; s8             ; 1000  ; Unsigned Binary                                   ;
+; s9             ; 1001  ; Unsigned Binary                                   ;
 +----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -234,11 +237,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; clear              ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; Read               ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Write              ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; strobe             ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; BAOut              ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; op                 ; Input  ; Info     ; Stuck at GND                                                                        ;
-; MDataIn[1..0]      ; Input  ; Info     ; Stuck at GND                                                                        ;
-; MDataIn[3]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDataIn[31..2]     ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; input_data[15..0]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; input_data[31..16] ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; R0out              ; Input  ; Info     ; Stuck at GND                                                                        ;
@@ -265,6 +268,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; MDRout             ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; InPortout          ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; Yout               ; Input  ; Info     ; Stuck at GND                                                                        ;
+; RAMout             ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; R0in               ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; R1in               ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; R2in               ; Input  ; Info     ; Stuck at GND                                                                        ;
@@ -288,6 +292,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; MDRin              ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; OutPortin          ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; Yin                ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MARin              ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; BusMuxOut          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; BusMuxInMDRout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; BusMuxInR0         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
@@ -313,6 +318,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; BusMuxInYout       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; BusMuxInHI         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; BusMuxInLO         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInRamout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; output_data        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +--------------------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -322,420 +328,436 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Mar 01 20:30:16 2024
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Sun Mar 03 12:03:19 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off myCPU -c myCPU --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file ripple_carry_adder.v
-    Info (12023): Found entity 1: ripple_carry_adder File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v Line: 1
+    Info (12023): Found entity 1: ripple_carry_adder File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file and_vals.v
-    Info (12023): Found entity 1: and_vals File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/and_vals.v Line: 1
+    Info (12023): Found entity 1: and_vals File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_vals.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file or_vals.v
-    Info (12023): Found entity 1: or_vals File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/or_vals.v Line: 1
+    Info (12023): Found entity 1: or_vals File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_vals.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file shift_right.v
-    Info (12023): Found entity 1: shift_right File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 1
+    Info (12023): Found entity 1: shift_right File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file shift_left.v
-    Info (12023): Found entity 1: shift_left File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_left.v Line: 1
+    Info (12023): Found entity 1: shift_left File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_left.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rotate_left.v
-    Info (12023): Found entity 1: rotate_left File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/rotate_left.v Line: 1
+    Info (12023): Found entity 1: rotate_left File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_left.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rotate_right.v
-    Info (12023): Found entity 1: rotate_right File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/rotate_right.v Line: 1
+    Info (12023): Found entity 1: rotate_right File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_right.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file not_val.v
-    Info (12023): Found entity 1: not_val File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/not_val.v Line: 1
+    Info (12023): Found entity 1: not_val File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file negate_val.v
-    Info (12023): Found entity 1: negate_val File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/negate_val.v Line: 1
+    Info (12023): Found entity 1: negate_val File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: ALU File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 1
+    Info (12023): Found entity 1: ALU File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu_tb.v
-    Info (12023): Found entity 1: ALU_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU_tb.v Line: 2
+    Info (12023): Found entity 1: ALU_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_tb.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file booth_pair_mul.v
-    Info (12023): Found entity 1: booth_pair_mul File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 1
-Warning (12090): Entity "divide" obtained from "divide.v" instead of from Quartus Prime megafunction library File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/divide.v Line: 1
+    Info (12023): Found entity 1: booth_pair_mul File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 1
+Warning (12090): Entity "divide" obtained from "divide.v" instead of from Quartus Prime megafunction library File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file divide.v
-    Info (12023): Found entity 1: divide File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/divide.v Line: 1
+    Info (12023): Found entity 1: divide File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file bus.v
-    Info (12023): Found entity 1: Bus File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 1
+    Info (12023): Found entity 1: Bus File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file data_path.v
-    Info (12023): Found entity 1: data_path File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/data_path.v Line: 1
+    Info (12023): Found entity 1: data_path File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mdr_reg.v
-    Info (12023): Found entity 1: MDR_reg File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 1
+    Info (12023): Found entity 1: MDR_reg File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file reg_32.v
-    Info (12023): Found entity 1: reg_32 File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/reg_32.v Line: 1
+    Info (12023): Found entity 1: reg_32 File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file datapath_tb.v
-    Info (12023): Found entity 1: datapath_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 3
+    Info (12023): Found entity 1: datapath_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file add_substract_tb.v
-    Info (12023): Found entity 1: add_substract_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/add_substract_tb.v Line: 3
+    Info (12023): Found entity 1: add_substract_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/add_substract_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file and_tb.v
-    Info (12023): Found entity 1: and_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/and_tb.v Line: 3
+    Info (12023): Found entity 1: and_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file or_tb.v
-    Info (12023): Found entity 1: or_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/or_tb.v Line: 3
+    Info (12023): Found entity 1: or_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file mul_tb.v
-    Info (12023): Found entity 1: mul_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/mul_tb.v Line: 3
+    Info (12023): Found entity 1: mul_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mul_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file div_tb.v
-    Info (12023): Found entity 1: div_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/div_tb.v Line: 3
+    Info (12023): Found entity 1: div_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/div_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file sll_tb.v
-    Info (12023): Found entity 1: sll_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/sll_tb.v Line: 3
+    Info (12023): Found entity 1: sll_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sll_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file slr_tb.v
-    Info (12023): Found entity 1: slr_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/slr_tb.v Line: 3
+    Info (12023): Found entity 1: slr_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/slr_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file slra_tb.v
-    Info (12023): Found entity 1: slra_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/slra_tb.v Line: 3
+    Info (12023): Found entity 1: slra_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/slra_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file rol_tb.v
-    Info (12023): Found entity 1: rol_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/rol_tb.v Line: 3
+    Info (12023): Found entity 1: rol_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rol_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file ror_tb.v
-    Info (12023): Found entity 1: ror_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ror_tb.v Line: 3
+    Info (12023): Found entity 1: ror_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ror_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file negate_tb.v
-    Info (12023): Found entity 1: negate_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/negate_tb.v Line: 3
+    Info (12023): Found entity 1: negate_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file not_tb.v
-    Info (12023): Found entity 1: not_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/not_tb.v Line: 3
+    Info (12023): Found entity 1: not_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file in_port.v
-    Info (12023): Found entity 1: in_port File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/in_port.v Line: 1
+    Info (12023): Found entity 1: in_port File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mar.v
-    Info (12023): Found entity 1: mar File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/mar.v Line: 1
+    Info (12023): Found entity 1: mar File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ram.v
-    Info (12023): Found entity 1: ram File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ram.v Line: 1
+    Info (12023): Found entity 1: ram File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file r0.v
-    Info (12023): Found entity 1: r0 File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/r0.v Line: 1
+    Info (12023): Found entity 1: r0 File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file phase_2_tb.v
-    Info (12023): Found entity 1: phase_2_tb File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 3
+    Info (12023): Found entity 1: phase_2_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file sel_encode_unit.v
-    Info (12023): Found entity 1: sel_encode File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "InPC" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at add_substract_tb.v(21): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/add_substract_tb.v Line: 21
-Warning (10236): Verilog HDL Implicit Net warning at and_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/and_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at or_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/or_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at sll_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/sll_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at slr_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/slr_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at slra_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/slra_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at rol_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/rol_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at ror_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ror_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at negate_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/negate_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at not_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/not_tb.v Line: 22
-Warning (10236): Verilog HDL Implicit Net warning at phase_2_tb.v(22): created implicit net for "LOin" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 22
+    Info (12023): Found entity 1: sel_encode File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "InPC" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at add_substract_tb.v(21): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/add_substract_tb.v Line: 21
+Warning (10236): Verilog HDL Implicit Net warning at and_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at or_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at sll_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sll_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at slr_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/slr_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at slra_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/slra_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at rol_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rol_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at ror_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ror_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at negate_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at not_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_tb.v Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at phase_2_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 22
 Info (12127): Elaborating entity "phase_2_tb" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "MARin" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "Zin" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "PCin" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "IRin" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "AND" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "Loin" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10755): Verilog HDL warning at phase_2_tb.v(33): assignments to Clock create a combinational loop File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 33
-Info (10264): Verilog HDL Case Statement information at phase_2_tb.v(37): all case item expressions in this case statement are onehot File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 37
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "PCout", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "Zhighout", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "Zlowout", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "MDRout", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "HIOut", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "LOout", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "InPortout", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "Yout", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R0out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R1out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R2out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R3out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R4out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R5out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R6out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R7out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R8out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R9out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R10out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R11out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R12out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R13out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R14out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R15out", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "MDRin", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "Yin", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "InPC", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "Read", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "HIin", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "ZHighin", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "Zlowin", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R0in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R1in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R2in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R3in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R4in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R5in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R6in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R7in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R8in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R9in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R10in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R11in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R12in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R13in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R14in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "R15in", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "clear", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "Mdatain", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "op", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "BAOut", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "OutPortin", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "input_data", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(48): inferring latch(es) for variable "strobe", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "strobe" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[0]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[1]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[2]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[3]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[4]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[5]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[6]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[7]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[8]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[9]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[10]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[11]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[12]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[13]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[14]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[15]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[16]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[17]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[18]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[19]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[20]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[21]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[22]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[23]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[24]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[25]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[26]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[27]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[28]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[29]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[30]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "input_data[31]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "OutPortin" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "BAOut" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "op[0]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "op[1]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "op[2]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "op[3]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "op[4]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[0]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[1]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[2]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[3]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[4]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[5]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[6]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[7]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[8]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[9]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[10]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[11]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[12]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[13]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[14]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[15]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[16]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[17]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[18]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[19]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[20]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[21]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[22]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[23]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[24]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[25]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[26]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[27]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[28]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[29]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[30]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Mdatain[31]" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "clear" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R15in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R14in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R13in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R12in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R11in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R10in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R9in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R8in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R7in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R6in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R5in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R4in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R3in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R2in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R1in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R0in" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Zlowin" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "ZHighin" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "HIin" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Read" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "InPC" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Yin" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "MDRin" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R15out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R14out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R13out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R12out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R11out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R10out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R9out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R8out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R7out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R6out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R5out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R4out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R3out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R2out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R1out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "R0out" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Yout" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "InPortout" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "LOout" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "HIOut" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "MDRout" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Zlowout" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "Zhighout" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (10041): Inferred latch for "PCout" at phase_2_tb.v(48) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 48
-Info (12128): Elaborating entity "data_path" for hierarchy "data_path:DUT" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 25
-Info (12128): Elaborating entity "r0" for hierarchy "data_path:DUT|r0:R0" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/data_path.v Line: 21
-Info (12128): Elaborating entity "reg_32" for hierarchy "data_path:DUT|r0:R0|reg_32:this_reg" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/r0.v Line: 5
-Info (12128): Elaborating entity "MDR_reg" for hierarchy "data_path:DUT|MDR_reg:MDR" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/data_path.v Line: 43
-Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(10): variable "clear" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 10
-Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(13): variable "enable" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 13
-Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(16): variable "read" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 16
-Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(17): variable "Mdatain" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 17
-Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(19): variable "BusMuxOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 19
-Warning (10240): Verilog HDL Always Construct warning at MDR_reg.v(8): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[0]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[1]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[2]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[3]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[4]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[5]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[6]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[7]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[8]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[9]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[10]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[11]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[12]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[13]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[14]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[15]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[16]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[17]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[18]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[19]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[20]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[21]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[22]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[23]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[24]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[25]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[26]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[27]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[28]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[29]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[30]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (10041): Inferred latch for "q[31]" at MDR_reg.v(8) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (12128): Elaborating entity "in_port" for hierarchy "data_path:DUT|in_port:InPort" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/data_path.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at in_port.v(3): object "flag" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/in_port.v Line: 3
-Info (12128): Elaborating entity "ALU" for hierarchy "data_path:DUT|ALU:alu" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/data_path.v Line: 49
-Warning (10230): Verilog HDL assignment warning at ALU.v(38): truncated value with size 65 to match size of target (64) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 38
-Warning (10270): Verilog HDL Case Statement warning at ALU.v(27): incomplete case statement has no default case item File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 27
-Warning (10240): Verilog HDL Always Construct warning at ALU.v(27): inferring latch(es) for variable "Z", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 27
-Info (12128): Elaborating entity "ripple_carry_adder" for hierarchy "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 13
-Info (12128): Elaborating entity "and_vals" for hierarchy "data_path:DUT|ALU:alu|and_vals:and_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 14
-Info (12128): Elaborating entity "or_vals" for hierarchy "data_path:DUT|ALU:alu|or_vals:or_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 15
-Info (12128): Elaborating entity "shift_left" for hierarchy "data_path:DUT|ALU:alu|shift_left:sll_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 16
-Info (12128): Elaborating entity "shift_right" for hierarchy "data_path:DUT|ALU:alu|shift_right:slr_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 17
-Warning (10036): Verilog HDL or VHDL warning at shift_right.v(5): object "new_sign" assigned a value but never read File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 5
-Warning (10240): Verilog HDL Always Construct warning at shift_right.v(8): inferring latch(es) for variable "intermediate", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 8
-Info (10041): Inferred latch for "intermediate[0]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[1]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[2]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[3]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[4]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[5]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[6]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[7]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[8]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[9]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[10]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[11]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[12]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[13]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[14]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[15]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[16]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[17]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[18]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[19]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[20]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[21]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[22]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[23]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[24]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[25]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[26]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[27]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[28]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[29]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[30]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (10041): Inferred latch for "intermediate[31]" at shift_right.v(14) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
-Info (12128): Elaborating entity "rotate_left" for hierarchy "data_path:DUT|ALU:alu|rotate_left:rol_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 19
-Info (12128): Elaborating entity "rotate_right" for hierarchy "data_path:DUT|ALU:alu|rotate_right:ror_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 20
-Info (12128): Elaborating entity "not_val" for hierarchy "data_path:DUT|ALU:alu|not_val:not_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 21
-Info (12128): Elaborating entity "negate_val" for hierarchy "data_path:DUT|ALU:alu|negate_val:negate_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 22
-Info (12128): Elaborating entity "booth_pair_mul" for hierarchy "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 23
-Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(19): case item expression never matches the case expression File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 19
-Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(20): case item expression never matches the case expression File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 20
-Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(22): case item expression never matches the case expression File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 22
-Warning (10762): Verilog HDL Case Statement warning at booth_pair_mul.v(27): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 27
-Warning (10270): Verilog HDL Case Statement warning at booth_pair_mul.v(27): incomplete case statement has no default case item File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 27
-Warning (10034): Output port "carry_flag" at booth_pair_mul.v(1) has no driver File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 1
-Info (12128): Elaborating entity "divide" for hierarchy "data_path:DUT|ALU:alu|divide:divide_instance" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/ALU.v Line: 24
-Info (12128): Elaborating entity "Bus" for hierarchy "data_path:DUT|Bus:bus" File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/data_path.v Line: 58
-Warning (10240): Verilog HDL Always Construct warning at bus.v(13): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 13
-Info (10041): Inferred latch for "q[0]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[1]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[2]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[3]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[4]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[5]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[6]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[7]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[8]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[9]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[10]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[11]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[12]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[13]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[14]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[15]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[16]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[17]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[18]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[19]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[20]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[21]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[22]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[23]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[24]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[25]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[26]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[27]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[28]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[29]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[30]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
-Info (10041): Inferred latch for "q[31]" at bus.v(36) File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/bus.v Line: 36
+Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "Zin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "PCin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "IRin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "AND" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "Loin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
+Warning (10755): Verilog HDL warning at phase_2_tb.v(33): assignments to Clock create a combinational loop File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 33
+Info (10264): Verilog HDL Case Statement information at phase_2_tb.v(37): all case item expressions in this case statement are onehot File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 37
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "PCout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Zhighout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Zlowout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "MDRout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "HIOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "LOout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "InPortout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Yout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R0out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R1out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R2out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R3out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R4out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R5out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R6out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R7out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R8out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R9out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R10out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R11out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R12out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R13out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R14out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R15out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "MARin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "MDRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Yin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "InPC", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Read", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "HIin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "ZHighin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Zlowin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R0in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R1in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R2in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R3in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R4in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R5in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R6in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R7in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R8in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R9in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R10in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R11in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R12in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R13in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R14in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "R15in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "clear", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Mdatain", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "op", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "BAOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "OutPortin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "input_data", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "strobe", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "Write", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(50): inferring latch(es) for variable "RAMout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "RAMout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Write" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "strobe" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[0]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[1]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[2]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[3]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[4]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[5]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[6]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[7]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[8]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[9]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[10]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[11]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[12]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[13]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[14]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[15]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[16]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[17]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[18]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[19]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[20]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[21]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[22]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[23]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[24]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[25]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[26]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[27]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[28]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[29]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[30]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "input_data[31]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "OutPortin" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "BAOut" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "op[0]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "op[1]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "op[2]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "op[3]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "op[4]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[0]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[1]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[2]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[3]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[4]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[5]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[6]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[7]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[8]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[9]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[10]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[11]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[12]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[13]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[14]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[15]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[16]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[17]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[18]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[19]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[20]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[21]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[22]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[23]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[24]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[25]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[26]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[27]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[28]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[29]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[30]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Mdatain[31]" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "clear" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R15in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R14in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R13in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R12in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R11in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R10in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R9in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R8in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R7in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R6in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R5in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R4in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R3in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R2in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R1in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R0in" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Zlowin" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "ZHighin" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "HIin" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Read" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "InPC" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Yin" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "MDRin" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "MARin" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R15out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R14out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R13out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R12out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R11out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R10out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R9out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R8out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R7out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R6out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R5out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R4out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R3out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R2out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R1out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "R0out" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Yout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "InPortout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "LOout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "HIOut" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "MDRout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Zlowout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "Zhighout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (10041): Inferred latch for "PCout" at phase_2_tb.v(50) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 50
+Info (12128): Elaborating entity "data_path" for hierarchy "data_path:DUT" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 25
+Info (12128): Elaborating entity "r0" for hierarchy "data_path:DUT|r0:R0" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 22
+Info (12128): Elaborating entity "reg_32" for hierarchy "data_path:DUT|r0:R0|reg_32:this_reg" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v Line: 5
+Info (12128): Elaborating entity "MDR_reg" for hierarchy "data_path:DUT|MDR_reg:MDR" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 44
+Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(10): variable "clear" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 10
+Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(13): variable "enable" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 13
+Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(16): variable "read" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 16
+Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(17): variable "Mdatain" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 17
+Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(19): variable "BusMuxOut" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 19
+Warning (10240): Verilog HDL Always Construct warning at MDR_reg.v(8): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[0]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[1]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[2]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[3]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[4]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[5]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[6]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[7]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[8]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[9]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[10]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[11]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[12]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[13]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[14]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[15]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[16]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[17]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[18]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[19]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[20]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[21]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[22]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[23]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[24]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[25]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[26]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[27]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[28]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[29]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[30]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (10041): Inferred latch for "q[31]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
+Info (12128): Elaborating entity "in_port" for hierarchy "data_path:DUT|in_port:InPort" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 45
+Warning (10036): Verilog HDL or VHDL warning at in_port.v(3): object "flag" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v Line: 3
+Info (12128): Elaborating entity "mar" for hierarchy "data_path:DUT|mar:MAR" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 48
+Info (12128): Elaborating entity "ALU" for hierarchy "data_path:DUT|ALU:alu" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 51
+Warning (10230): Verilog HDL assignment warning at ALU.v(38): truncated value with size 65 to match size of target (64) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 38
+Warning (10270): Verilog HDL Case Statement warning at ALU.v(27): incomplete case statement has no default case item File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 27
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(27): inferring latch(es) for variable "Z", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 27
+Info (12128): Elaborating entity "ripple_carry_adder" for hierarchy "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 13
+Info (12128): Elaborating entity "and_vals" for hierarchy "data_path:DUT|ALU:alu|and_vals:and_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 14
+Info (12128): Elaborating entity "or_vals" for hierarchy "data_path:DUT|ALU:alu|or_vals:or_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 15
+Info (12128): Elaborating entity "shift_left" for hierarchy "data_path:DUT|ALU:alu|shift_left:sll_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 16
+Info (12128): Elaborating entity "shift_right" for hierarchy "data_path:DUT|ALU:alu|shift_right:slr_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at shift_right.v(5): object "new_sign" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 5
+Warning (10240): Verilog HDL Always Construct warning at shift_right.v(8): inferring latch(es) for variable "intermediate", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 8
+Info (10041): Inferred latch for "intermediate[0]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[1]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[2]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[3]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[4]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[5]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[6]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[7]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[8]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[9]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[10]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[11]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[12]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[13]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[14]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[15]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[16]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[17]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[18]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[19]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[20]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[21]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[22]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[23]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[24]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[25]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[26]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[27]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[28]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[29]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[30]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (10041): Inferred latch for "intermediate[31]" at shift_right.v(14) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v Line: 14
+Info (12128): Elaborating entity "rotate_left" for hierarchy "data_path:DUT|ALU:alu|rotate_left:rol_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 19
+Info (12128): Elaborating entity "rotate_right" for hierarchy "data_path:DUT|ALU:alu|rotate_right:ror_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 20
+Info (12128): Elaborating entity "not_val" for hierarchy "data_path:DUT|ALU:alu|not_val:not_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 21
+Info (12128): Elaborating entity "negate_val" for hierarchy "data_path:DUT|ALU:alu|negate_val:negate_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 22
+Info (12128): Elaborating entity "booth_pair_mul" for hierarchy "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 23
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(19): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 19
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(20): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 20
+Warning (10199): Verilog HDL Case Statement warning at booth_pair_mul.v(22): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 22
+Warning (10762): Verilog HDL Case Statement warning at booth_pair_mul.v(27): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 27
+Warning (10270): Verilog HDL Case Statement warning at booth_pair_mul.v(27): incomplete case statement has no default case item File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 27
+Warning (10034): Output port "carry_flag" at booth_pair_mul.v(1) has no driver File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 1
+Info (12128): Elaborating entity "divide" for hierarchy "data_path:DUT|ALU:alu|divide:divide_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 24
+Info (12128): Elaborating entity "ram" for hierarchy "data_path:DUT|ram:RAM" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 54
+Warning (10230): Verilog HDL assignment warning at ram.v(11): truncated value with size 512 to match size of target (33) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v Line: 11
+Warning (10230): Verilog HDL assignment warning at ram.v(15): truncated value with size 33 to match size of target (32) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v Line: 15
+Info (12128): Elaborating entity "Bus" for hierarchy "data_path:DUT|Bus:bus" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 65
+Warning (10240): Verilog HDL Always Construct warning at bus.v(13): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 13
+Info (10041): Inferred latch for "q[0]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[1]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[2]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[3]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[4]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[5]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[6]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[7]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[8]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[9]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[10]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[11]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[12]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[13]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[14]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[15]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[16]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[17]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[18]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[19]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[20]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[21]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[22]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[23]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[24]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[25]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[26]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[27]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[28]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[29]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[30]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
+Info (10041): Inferred latch for "q[31]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "Clock" is missing source, defaulting to GND File: C:/Users/adogh/OneDrive/Documents/4th_year/Winter/ELEC374/Lab_repo_2/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 7
+    Warning (12110): Net "Clock" is missing source, defaulting to GND File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 7
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 98 warnings
-    Info: Peak virtual memory: 4787 megabytes
-    Info: Processing ended: Fri Mar 01 20:30:24 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:15
+Info (144001): Generated suppressed messages file C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/output_files/myCPU.map.smsg
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 102 warnings
+    Info: Peak virtual memory: 4793 megabytes
+    Info: Processing ended: Sun Mar 03 12:03:31 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:11
+
+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
+The suppressed messages can be found in C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/output_files/myCPU.map.smsg.
 
 

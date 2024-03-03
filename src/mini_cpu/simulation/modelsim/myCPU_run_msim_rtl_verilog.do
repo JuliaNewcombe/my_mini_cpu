@@ -22,6 +22,8 @@ vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v}
+vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v}
 vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v}
 
