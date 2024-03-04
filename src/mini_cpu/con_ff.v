@@ -1,19 +1,22 @@
-module con_ff (output result, input [31:0] ir, input [31:0] BusMuxOut);
+module con_ff (output result, input [31:0] ir, input [31:0] BusMuxOut, input CONin);
 
-reg [3:0] decoder
+reg [3:0] decoder;
+reg temp;
+wire equal = (BusMuxOut == 32'b0) ? 1'b1 : 1'b0;
+wire not_equal = (BusMuxOut != 32'b0) ? 1'b1 : 1'b0;
+wire positive = (BusMuxOut[31] == 1'b0) ? 1'b1 : 1'b0;
+wire negative = (BusMuxOut[31] == 1'b1) ? 1'b1 : 1'b0;
 
-always @(ir) begin
+always @ (ir) begin
 	case (ir[20:19])
-		
-		00 : decoder <= 4'b0001;
-		01 : decoder <= 4'b0010;
-		10 : decoder <= 4'b0100;
-		11 : decoder <= 4'b1000;
-
+			00: decoder = 4'b0001;
+			01: decoder = 4'b0010;
+			10: decoder = 4'b0100;
+			11: decoder = 4'b1000;
 	endcase
-	
-	
-		
+	temp = (decoder[0] & equal | decoder[1] & not_equal | decoder[2] & positive | decoder[3] & negative);
 end
+
+d_flip_flop	CONFF(CONin, temp, result); 
 
 endmodule
