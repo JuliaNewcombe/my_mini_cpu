@@ -1,5 +1,5 @@
 Analysis & Elaboration report for myCPU
-Sun Mar 10 14:58:49 2024
+Sun Mar 10 16:27:36 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -9,17 +9,18 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   1. Legal Notice
   2. Analysis & Elaboration Summary
   3. Parallel Compilation
-  4. Parameter Settings for User Entity Instance: Top-level Entity: |phase_2_tb
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |ALU_immediate_instr_tb
   5. Analysis & Elaboration Settings
-  6. Port Connectivity Checks: "data_path:DUT|reg_32:ir"
-  7. Port Connectivity Checks: "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance"
-  8. Port Connectivity Checks: "data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one"
-  9. Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slra_instance"
- 10. Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slr_instance"
- 11. Port Connectivity Checks: "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance"
- 12. Port Connectivity Checks: "data_path:DUT"
- 13. Analysis & Elaboration Messages
- 14. Analysis & Elaboration Suppressed Messages
+  6. Port Connectivity Checks: "data_path:DUT|sel_encode:SEL_ENCODE"
+  7. Port Connectivity Checks: "data_path:DUT|reg_32:ir"
+  8. Port Connectivity Checks: "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance"
+  9. Port Connectivity Checks: "data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one"
+ 10. Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slra_instance"
+ 11. Port Connectivity Checks: "data_path:DUT|ALU:alu|shift_right:slr_instance"
+ 12. Port Connectivity Checks: "data_path:DUT|ALU:alu|ripple_carry_adder:add_instance"
+ 13. Port Connectivity Checks: "data_path:DUT"
+ 14. Analysis & Elaboration Messages
+ 15. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -45,10 +46,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                  ;
 +-------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Sun Mar 10 14:58:49 2024           ;
+; Analysis & Elaboration Status ; Successful - Sun Mar 10 16:27:36 2024           ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                 ; myCPU                                           ;
-; Top-level Entity Name         ; phase_2_tb                                      ;
+; Top-level Entity Name         ; ALU_immediate_instr_tb                          ;
 ; Family                        ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                       ;
 ; Total registers               ; N/A until Partition Merge                       ;
@@ -76,112 +77,122 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |phase_2_tb ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; Default        ; 0000  ; Unsigned Binary                                   ;
-; s1             ; 0001  ; Unsigned Binary                                   ;
-; s2             ; 0010  ; Unsigned Binary                                   ;
-; s3             ; 0011  ; Unsigned Binary                                   ;
-; s4             ; 0100  ; Unsigned Binary                                   ;
-; s5             ; 0101  ; Unsigned Binary                                   ;
-; s6             ; 0110  ; Unsigned Binary                                   ;
-; s7             ; 0111  ; Unsigned Binary                                   ;
-; s8             ; 1000  ; Unsigned Binary                                   ;
-; s9             ; 1001  ; Unsigned Binary                                   ;
-; s10            ; 1010  ; Unsigned Binary                                   ;
-; s11            ; 1011  ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |ALU_immediate_instr_tb ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; Default        ; 0000  ; Unsigned Binary                                               ;
+; s1             ; 0001  ; Unsigned Binary                                               ;
+; s2             ; 0010  ; Unsigned Binary                                               ;
+; s3             ; 0011  ; Unsigned Binary                                               ;
+; s4             ; 0100  ; Unsigned Binary                                               ;
+; s5             ; 0101  ; Unsigned Binary                                               ;
+; s6             ; 0110  ; Unsigned Binary                                               ;
+; s7             ; 0111  ; Unsigned Binary                                               ;
+; s8             ; 1000  ; Unsigned Binary                                               ;
+; s9             ; 1001  ; Unsigned Binary                                               ;
+; s10            ; 1010  ; Unsigned Binary                                               ;
+; s11            ; 1011  ; Unsigned Binary                                               ;
++----------------+-------+---------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                          ; Setting            ; Default Value      ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CEBA5F23C7        ;                    ;
-; Top-level entity name                                                           ; phase_2_tb         ; myCPU              ;
-; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
-; Use smart compilation                                                           ; Off                ; Off                ;
-; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
-; Enable compact report table                                                     ; Off                ; Off                ;
-; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
-; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
-; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
-; Preserve fewer node names                                                       ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
-; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                        ; Auto               ; Auto               ;
-; Safe State Machine                                                              ; Off                ; Off                ;
-; Extract Verilog State Machines                                                  ; On                 ; On                 ;
-; Extract VHDL State Machines                                                     ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
-; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
-; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
-; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
-; Parallel Synthesis                                                              ; On                 ; On                 ;
-; DSP Block Balancing                                                             ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                              ; On                 ; On                 ;
-; Power-Up Don't Care                                                             ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
-; Remove Duplicate Registers                                                      ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
-; Optimization Technique                                                          ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                              ; 70                 ; 70                 ;
-; Auto Carry Chains                                                               ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
-; Auto ROM Replacement                                                            ; On                 ; On                 ;
-; Auto RAM Replacement                                                            ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
-; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
-; Strict RAM Replacement                                                          ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                           ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
-; Report Parameter Settings                                                       ; On                 ; On                 ;
-; Report Source Assignments                                                       ; On                 ; On                 ;
-; Report Connectivity Checks                                                      ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
-; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
-; HDL message level                                                               ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
-; Clock MUX Protection                                                            ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
-; Block Design Naming                                                             ; Auto               ; Auto               ;
-; SDC constraint protection                                                       ; Off                ; Off                ;
-; Synthesis Effort                                                                ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
-; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
-; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                               ;
++---------------------------------------------------------------------------------+------------------------+--------------------+
+; Option                                                                          ; Setting                ; Default Value      ;
++---------------------------------------------------------------------------------+------------------------+--------------------+
+; Device                                                                          ; 5CEBA5F23C7            ;                    ;
+; Top-level entity name                                                           ; ALU_immediate_instr_tb ; myCPU              ;
+; Family name                                                                     ; Cyclone V              ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                    ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                     ; On                 ;
+; Enable compact report table                                                     ; Off                    ; Off                ;
+; Restructure Multiplexers                                                        ; Auto                   ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                    ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                    ; Off                ;
+; Preserve fewer node names                                                       ; On                     ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                 ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001           ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993              ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto                   ; Auto               ;
+; Safe State Machine                                                              ; Off                    ; Off                ;
+; Extract Verilog State Machines                                                  ; On                     ; On                 ;
+; Extract VHDL State Machines                                                     ; On                     ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                    ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000                   ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                    ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                     ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                     ; On                 ;
+; Parallel Synthesis                                                              ; On                     ; On                 ;
+; DSP Block Balancing                                                             ; Auto                   ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                     ; On                 ;
+; Power-Up Don't Care                                                             ; On                     ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                    ; Off                ;
+; Remove Duplicate Registers                                                      ; On                     ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                    ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                    ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                    ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                    ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                    ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                     ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                    ; Off                ;
+; Optimization Technique                                                          ; Balanced               ; Balanced           ;
+; Carry Chain Length                                                              ; 70                     ; 70                 ;
+; Auto Carry Chains                                                               ; On                     ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                     ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                    ; Off                ;
+; Auto ROM Replacement                                                            ; On                     ; On                 ;
+; Auto RAM Replacement                                                            ; On                     ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                     ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto                   ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                   ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                     ; On                 ;
+; Strict RAM Replacement                                                          ; Off                    ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                     ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                    ; Off                ;
+; Auto Resource Sharing                                                           ; Off                    ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                    ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                    ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                    ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                     ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                    ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                     ; On                 ;
+; Report Parameter Settings                                                       ; On                     ; On                 ;
+; Report Source Assignments                                                       ; On                     ; On                 ;
+; Report Connectivity Checks                                                      ; On                     ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                    ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                      ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation     ; Normal compilation ;
+; HDL message level                                                               ; Level2                 ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                    ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                   ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                   ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                    ; 100                ;
+; Clock MUX Protection                                                            ; On                     ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                    ; Off                ;
+; Block Design Naming                                                             ; Auto                   ; Auto               ;
+; SDC constraint protection                                                       ; Off                    ; Off                ;
+; Synthesis Effort                                                                ; Auto                   ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                     ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                    ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium                 ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                   ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                     ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                     ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                    ; Off                ;
++---------------------------------------------------------------------------------+------------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT|sel_encode:SEL_ENCODE"                                                              ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; C_sign_ext[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C_sign_ext[14..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -242,103 +253,78 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "data_path:DUT"                                                                                    ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port               ; Type   ; Severity ; Details                                                                             ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------+
-; clear              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Read               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Write              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; strobe             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; BAOut              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; op                 ; Input  ; Info     ; Stuck at GND                                                                        ;
-; MDataIn[31..6]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; MDataIn[3..2]      ; Input  ; Info     ; Stuck at GND                                                                        ;
-; input_data[15..0]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; input_data[31..16] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; irIn[31..21]       ; Input  ; Info     ; Stuck at GND                                                                        ;
-; irIn[19..0]        ; Input  ; Info     ; Stuck at GND                                                                        ;
-; irIn[20]           ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; R0out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R1out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R2out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R3out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R4out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R5out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R6out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R7out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R8out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R9out              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R10out             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R11out             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R12out             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R13out             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R14out             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R15out             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; HIout              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; LOout              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Zhighout           ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Zlowout            ; Input  ; Info     ; Stuck at GND                                                                        ;
-; PCout              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; MDRout             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; InPortout          ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Yout               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; RAMout             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R0in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R1in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R2in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R3in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R4in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R5in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R6in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R7in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R8in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R9in               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R10in              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R11in              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R12in              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R13in              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R14in              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; R15in              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; HIin               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Zhighin            ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Zlowin             ; Input  ; Info     ; Stuck at GND                                                                        ;
-; PCin               ; Input  ; Info     ; Stuck at GND                                                                        ;
-; MDRin              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; OutPortin          ; Input  ; Info     ; Stuck at GND                                                                        ;
-; Yin                ; Input  ; Info     ; Stuck at GND                                                                        ;
-; MARin              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; BusMuxOut          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInMDRout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR0         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR1         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR2         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR3         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR4         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR5         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR6         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR7         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR8         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR9         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR10        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR11        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR12        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR13        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR14        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInR15        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInZhigh      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInZlow       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInPCout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInInPortout  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInYout       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInHI         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInLO         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; BusMuxInRamout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; output_data        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; irOut              ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; branchCompare      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_path:DUT"                                                                                   ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; clear             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Read              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Write             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; BAOut             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Gra               ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Grb               ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Rin               ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Rout              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; op                ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDataIn[28..25]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDataIn[20..6]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDataIn[31]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDataIn[22]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDataIn[3]        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; irIn[28..25]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; irIn[19..6]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; irIn[31]          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; irIn[22]          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; irIn[3]           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; irIn[1]           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; HIout             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; LOout             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Zhighout          ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Zlowout           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; PCout             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDRout            ; Input  ; Info     ; Stuck at GND                                                                        ;
+; InPortout         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Yout              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; RAMout            ; Input  ; Info     ; Stuck at GND                                                                        ;
+; HIin              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Zhighin           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Zlowin            ; Input  ; Info     ; Stuck at GND                                                                        ;
+; PCin              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MDRin             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Yin               ; Input  ; Info     ; Stuck at GND                                                                        ;
+; MARin             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IncPC             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; BusMuxOut         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInMDRout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR0        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR1        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR2        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR3        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR4        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR5        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR6        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR7        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR8        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR9        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR10       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR11       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR12       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR13       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR14       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInR15       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInZhigh     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInZlow      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInPCout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInInPortout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInYout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInHI        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInLO        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; BusMuxInRamout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; output_data       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; irOut             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; branchCompare     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------+
@@ -347,7 +333,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun Mar 10 14:58:36 2024
+    Info: Processing started: Sun Mar 10 16:27:25 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off myCPU -c myCPU --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -428,6 +414,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file con_ff.
     Info (12023): Found entity 1: con_ff File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file dff.v
     Info (12023): Found entity 1: d_flip_flop File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_immediate_instr_tb.v
+    Info (12023): Found entity 1: ALU_immediate_instr_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 3
 Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
 Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "InPC" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
 Warning (10236): Verilog HDL Implicit Net warning at add_substract_tb.v(21): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/add_substract_tb.v Line: 21
@@ -441,231 +429,172 @@ Warning (10236): Verilog HDL Implicit Net warning at ror_tb.v(22): created impli
 Warning (10236): Verilog HDL Implicit Net warning at negate_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_tb.v Line: 22
 Warning (10236): Verilog HDL Implicit Net warning at not_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_tb.v Line: 22
 Warning (10236): Verilog HDL Implicit Net warning at phase_2_tb.v(25): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 25
-Info (12127): Elaborating entity "phase_2_tb" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "Zin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "PCin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "IRin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "AND" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10036): Verilog HDL or VHDL warning at phase_2_tb.v(6): object "Loin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
-Warning (10755): Verilog HDL warning at phase_2_tb.v(37): assignments to Clock create a combinational loop File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 37
-Info (10264): Verilog HDL Case Statement information at phase_2_tb.v(41): all case item expressions in this case statement are onehot File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 41
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "PCout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Zhighout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Zlowout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "MDRout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "HIOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "LOout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "InPortout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Yout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R0out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R1out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R2out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R3out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R4out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R5out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R6out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R7out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R8out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R9out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R10out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R11out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R12out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R13out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R14out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R15out", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "MARin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "MDRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Yin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "InPC", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Read", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "HIin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "ZHighin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Zlowin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R0in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R1in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R2in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R3in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R4in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R5in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R6in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R7in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R8in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R9in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R10in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R11in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R12in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R13in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R14in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "R15in", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "clear", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Mdatain", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "op", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "BAOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "OutPortin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "input_data", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "strobe", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "Write", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "RAMout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at phase_2_tb.v(56): inferring latch(es) for variable "irIn", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[0]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[1]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[2]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[3]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[4]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[5]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[6]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[7]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[8]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[9]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[10]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[11]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[12]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[13]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[14]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[15]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[16]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[17]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[18]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[19]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[20]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[21]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[22]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[23]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[24]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[25]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[26]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[27]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[28]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[29]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[30]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "irIn[31]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "RAMout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Write" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "strobe" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[0]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[1]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[2]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[3]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[4]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[5]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[6]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[7]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[8]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[9]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[10]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[11]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[12]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[13]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[14]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[15]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[16]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[17]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[18]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[19]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[20]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[21]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[22]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[23]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[24]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[25]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[26]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[27]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[28]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[29]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[30]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "input_data[31]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "OutPortin" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "BAOut" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "op[0]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "op[1]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "op[2]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "op[3]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "op[4]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[0]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[1]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[2]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[3]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[4]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[5]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[6]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[7]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[8]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[9]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[10]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[11]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[12]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[13]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[14]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[15]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[16]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[17]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[18]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[19]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[20]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[21]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[22]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[23]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[24]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[25]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[26]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[27]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[28]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[29]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[30]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Mdatain[31]" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "clear" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R15in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R14in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R13in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R12in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R11in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R10in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R9in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R8in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R7in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R6in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R5in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R4in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R3in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R2in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R1in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R0in" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Zlowin" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "ZHighin" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "HIin" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Read" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "InPC" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Yin" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "MDRin" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "MARin" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R15out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R14out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R13out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R12out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R11out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R10out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R9out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R8out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R7out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R6out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R5out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R4out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R3out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R2out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R1out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "R0out" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Yout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "InPortout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "LOout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "HIOut" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "MDRout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Zlowout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "Zhighout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (10041): Inferred latch for "PCout" at phase_2_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
-Info (12128): Elaborating entity "data_path" for hierarchy "data_path:DUT" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 29
-Info (12128): Elaborating entity "r0" for hierarchy "data_path:DUT|r0:R0" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 23
+Warning (10236): Verilog HDL Implicit Net warning at ALU_immediate_instr_tb.v(25): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 25
+Info (12127): Elaborating entity "ALU_immediate_instr_tb" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R0out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R1out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R2out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R3out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R4out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R5out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R6out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R7out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R8out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R9out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R10out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R11out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R12out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R13out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R14out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(5): object "R15out" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 5
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "Zin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "IRin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "AND" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "Loin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R0in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R1in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R2in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R3in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R4in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R5in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R6in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R7in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R8in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R9in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R10in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R11in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R12in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R13in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R14in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10036): Verilog HDL or VHDL warning at ALU_immediate_instr_tb.v(6): object "R15in" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6
+Warning (10755): Verilog HDL warning at ALU_immediate_instr_tb.v(37): assignments to Clock create a combinational loop File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 37
+Info (10264): Verilog HDL Case Statement information at ALU_immediate_instr_tb.v(41): all case item expressions in this case statement are onehot File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 41
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "PCout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Zhighout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Zlowout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "MDRout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "HIOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "LOout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "InPortout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Yout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "MARin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "PCin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "MDRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Yin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "IncPC", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Read", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "HIin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "ZHighin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Zlowin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "clear", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Mdatain", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "op", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "BAOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "irIn", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Grb", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Rout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Gra", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Rin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "Write", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at ALU_immediate_instr_tb.v(56): inferring latch(es) for variable "RAMout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "RAMout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Write" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Rin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Gra" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Rout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Grb" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[0]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[1]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[2]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[3]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[4]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[5]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[6]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[7]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[8]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[9]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[10]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[11]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[12]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[13]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[14]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[15]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[16]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[17]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[18]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[19]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[20]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[21]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[22]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[23]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[24]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[25]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[26]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[27]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[28]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[29]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[30]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "irIn[31]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "BAOut" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "op[0]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "op[1]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "op[2]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "op[3]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "op[4]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[0]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[1]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[2]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[3]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[4]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[5]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[6]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[7]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[8]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[9]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[10]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[11]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[12]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[13]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[14]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[15]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[16]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[17]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[18]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[19]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[20]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[21]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[22]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[23]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[24]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[25]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[26]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[27]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[28]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[29]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[30]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Mdatain[31]" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "clear" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Zlowin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "ZHighin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "HIin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Read" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "IncPC" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Yin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "MDRin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "PCin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "MARin" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Yout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "InPortout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "LOout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "HIOut" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "MDRout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Zlowout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "Zhighout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10041): Inferred latch for "PCout" at ALU_immediate_instr_tb.v(56) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (12128): Elaborating entity "data_path" for hierarchy "data_path:DUT" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 29
+Info (12128): Elaborating entity "r0" for hierarchy "data_path:DUT|r0:R0" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 25
 Info (12128): Elaborating entity "reg_32" for hierarchy "data_path:DUT|r0:R0|reg_32:this_reg" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v Line: 5
-Info (12128): Elaborating entity "MDR_reg" for hierarchy "data_path:DUT|MDR_reg:MDR" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 45
+Info (12128): Elaborating entity "MDR_reg" for hierarchy "data_path:DUT|MDR_reg:MDR" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 47
 Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(10): variable "clear" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 10
 Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(13): variable "enable" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 13
 Warning (10235): Verilog HDL Always Construct warning at MDR_reg.v(16): variable "read" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 16
@@ -704,10 +633,10 @@ Info (10041): Inferred latch for "q[28]" at MDR_reg.v(8) File: C:/Users/18jmcn/m
 Info (10041): Inferred latch for "q[29]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
 Info (10041): Inferred latch for "q[30]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
 Info (10041): Inferred latch for "q[31]" at MDR_reg.v(8) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v Line: 8
-Info (12128): Elaborating entity "in_port" for hierarchy "data_path:DUT|in_port:InPort" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 46
+Info (12128): Elaborating entity "in_port" for hierarchy "data_path:DUT|in_port:InPort" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 48
 Warning (10036): Verilog HDL or VHDL warning at in_port.v(3): object "flag" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v Line: 3
-Info (12128): Elaborating entity "mar" for hierarchy "data_path:DUT|mar:MAR" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 49
-Info (12128): Elaborating entity "ALU" for hierarchy "data_path:DUT|ALU:alu" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 52
+Info (12128): Elaborating entity "mar" for hierarchy "data_path:DUT|mar:MAR" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 51
+Info (12128): Elaborating entity "ALU" for hierarchy "data_path:DUT|ALU:alu" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 54
 Warning (10230): Verilog HDL assignment warning at ALU.v(38): truncated value with size 65 to match size of target (64) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 38
 Warning (10270): Verilog HDL Case Statement warning at ALU.v(27): incomplete case statement has no default case item File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 27
 Warning (10240): Verilog HDL Always Construct warning at ALU.v(27): inferring latch(es) for variable "Z", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 27
@@ -762,10 +691,10 @@ Warning (10762): Verilog HDL Case Statement warning at booth_pair_mul.v(27): can
 Warning (10270): Verilog HDL Case Statement warning at booth_pair_mul.v(27): incomplete case statement has no default case item File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 27
 Warning (10034): Output port "carry_flag" at booth_pair_mul.v(1) has no driver File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v Line: 1
 Info (12128): Elaborating entity "divide" for hierarchy "data_path:DUT|ALU:alu|divide:divide_instance" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 24
-Info (12128): Elaborating entity "ram" for hierarchy "data_path:DUT|ram:RAM" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 55
+Info (12128): Elaborating entity "ram" for hierarchy "data_path:DUT|ram:RAM" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 57
 Warning (10230): Verilog HDL assignment warning at ram.v(11): truncated value with size 512 to match size of target (33) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v Line: 11
 Warning (10230): Verilog HDL assignment warning at ram.v(15): truncated value with size 33 to match size of target (32) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v Line: 15
-Info (12128): Elaborating entity "Bus" for hierarchy "data_path:DUT|Bus:bus" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 66
+Info (12128): Elaborating entity "Bus" for hierarchy "data_path:DUT|Bus:bus" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 68
 Warning (10240): Verilog HDL Always Construct warning at bus.v(13): inferring latch(es) for variable "q", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 13
 Info (10041): Inferred latch for "q[0]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
 Info (10041): Inferred latch for "q[1]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
@@ -799,7 +728,7 @@ Info (10041): Inferred latch for "q[28]" at bus.v(37) File: C:/Users/18jmcn/my_m
 Info (10041): Inferred latch for "q[29]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
 Info (10041): Inferred latch for "q[30]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
 Info (10041): Inferred latch for "q[31]" at bus.v(37) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v Line: 37
-Info (12128): Elaborating entity "con_ff" for hierarchy "data_path:DUT|con_ff:CON_FF" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 70
+Info (12128): Elaborating entity "con_ff" for hierarchy "data_path:DUT|con_ff:CON_FF" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 72
 Warning (10199): Verilog HDL Case Statement warning at con_ff.v(14): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v Line: 14
 Warning (10199): Verilog HDL Case Statement warning at con_ff.v(15): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v Line: 15
 Warning (10270): Verilog HDL Case Statement warning at con_ff.v(11): incomplete case statement has no default case item File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v Line: 11
@@ -814,14 +743,30 @@ Info (10041): Inferred latch for "decoder[2]" at con_ff.v(10) File: C:/Users/18j
 Info (10041): Inferred latch for "decoder[3]" at con_ff.v(10) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v Line: 10
 Info (12128): Elaborating entity "d_flip_flop" for hierarchy "data_path:DUT|con_ff:CON_FF|d_flip_flop:CONFF" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v Line: 20
 Warning (10235): Verilog HDL Always Construct warning at dff.v(6): variable "D" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v Line: 6
+Info (12128): Elaborating entity "sel_encode" for hierarchy "data_path:DUT|sel_encode:SEL_ENCODE" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 84
+Warning (10230): Verilog HDL assignment warning at sel_encode_unit.v(10): truncated value with size 4 to match size of target (1) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 10
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(17): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 17
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(18): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 18
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(19): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 19
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(20): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 20
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(21): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 21
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(22): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 22
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(23): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 23
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(24): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 24
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(25): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 25
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(26): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 26
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(27): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 27
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(28): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 28
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(29): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 29
+Warning (10199): Verilog HDL Case Statement warning at sel_encode_unit.v(30): case item expression never matches the case expression File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v Line: 30
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "Clock" is missing source, defaulting to GND File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 7
+    Warning (12110): Net "Clock" is missing source, defaulting to GND File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 7
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (144001): Generated suppressed messages file C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/output_files/myCPU.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 112 warnings
-    Info: Peak virtual memory: 4796 megabytes
-    Info: Processing ended: Sun Mar 10 14:58:49 2024
-    Info: Elapsed time: 00:00:13
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 129 warnings
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Sun Mar 10 16:27:37 2024
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:12
 
 

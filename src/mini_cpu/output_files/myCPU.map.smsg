@@ -1,2 +1,4 @@
 Warning (10268): Verilog HDL information at phase_2_tb.v(56): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
 Info (10281): Verilog HDL Declaration information at phase_2_tb.v(6): object "IRin" differs only in case from object "irIn" in the same scope File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
+Warning (10268): Verilog HDL information at ALU_immediate_instr_tb.v(56): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 56
+Info (10281): Verilog HDL Declaration information at ALU_immediate_instr_tb.v(6): object "IRin" differs only in case from object "irIn" in the same scope File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 6

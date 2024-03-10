@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Sun Mar 10 14:58:49 2024
+Analysis & Elaboration Status : Successful - Sun Mar 10 16:27:36 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : myCPU
-Top-level Entity Name : phase_2_tb
+Top-level Entity Name : ALU_immediate_instr_tb
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge
