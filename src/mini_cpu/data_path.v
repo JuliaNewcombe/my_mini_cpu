@@ -1,6 +1,6 @@
 module data_path(
 	input clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout,
-	input [31:0] MDataIn, input_data, irIn,
+	input [31:0] input_data, irIn,
 	//control signals
 	input HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout, Cout,
 	//register enables
@@ -16,6 +16,7 @@ module data_path(
 );	
 //wire [31:0] ZHighWire, ZLowWire, 
 wire [31:0] C_sign_ext;
+reg [31:0] yALUin;
 wire [8:0] MARAddr;
 wire [4:0] op;
 //wire [31:0] Zregin;
@@ -53,10 +54,14 @@ reg_32 OutPort(clear, clock, OutPortin, BusMuxOut, output_data);
 mar	 MAR(clear, clock, MARin, BusMuxOut, MARAddr);
 
 // init ALU
+/*always @(IncPC) begin
+	PC = PC + 4;
+end*/
+
 ALU alu(BusMuxInYout, BusMuxOut, op, ZLowWire, ZHighWire);
 
 //init RAM
-ram RAM(clock, Read, Write, MARAddr, BusMuxOut, BusMuxInRamout);
+ram RAM(clock, Read, Write, MARAddr, BusMuxOut, MDataIn);
 //note that righ now we have the same read signals for the MDR and the RAM
 
 // init rest of blocks here
@@ -64,9 +69,9 @@ ram RAM(clock, Read, Write, MARAddr, BusMuxOut, BusMuxInRamout);
 Bus bus(BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
 	BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
 	BusMuxInHI, BusMuxInLO, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInMDRout, BusMuxInInPortout,
-	BusMuxInRamout, C_sign_ext,
+	C_sign_ext,
 	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
-	R12out, R13out, R14out, R15out, HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, RAMout, Cout,
+	R12out, R13out, R14out, R15out, HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Cout,
 	BusMuxOut);
 	
 //init con_ff here
@@ -75,7 +80,7 @@ con_ff CON_FF(branchCompare, irOut, BusMuxOut, clock);
 
 
 //init select and encode logic
-sel_encode SEL_ENCODE(irIn, Gra, Grb, Grc, Rin, Rout, BAOut, op, 
+sel_encode SEL_ENCODE(irOut, Gra, Grb, Grc, Rin, Rout, BAOut, op, 
 	C_sign_ext, 
 	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, 
 	R11in, R12in, R13in, R14in, R15in, 

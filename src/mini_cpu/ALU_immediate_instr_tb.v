@@ -21,7 +21,7 @@ module ALU_immediate_instr_tb;
 	//wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 
 	data_path DUT(Clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout,
-	Mdatain, input_data, irIn,
+	input_data, irIn,
 	HIOut, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout, Cout, 
 	HIin,  LOin,  ZHighin,  Zlowin,  PCin,  MDRin,  OutPortin, Yin, MARin, IncPC,
 	BusOut, mdrData, ZHighWire, ZLowWire,
@@ -86,7 +86,7 @@ always @(Present_state) begin // do the required job in each state
 		end
  
 		s2 : begin //t1
-			Mdatain <= {5'b01100, 4'b0011, 4'b0100, 19'd53};
+			//Mdatain <= {5'b01100, 4'b0011, 4'b0100, 19'd53};
 			#5 Zhighout <= 0; Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
 			#10 Zhighout <= 0; Zlowout <= 0; PCin <= 0; Read <= 0; MDRin <= 0;
 		end
