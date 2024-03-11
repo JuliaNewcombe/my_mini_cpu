@@ -1,25 +1,27 @@
 module data_path(
 	input clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout,
-	//immediate value IS this even necessary
-	input [4:0] op,
-	input [15:0] C,
 	input [31:0] MDataIn, input_data, irIn,
 	//control signals
-	input HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout,
+	input HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout, Cout,
 	//register enables
 	input HIin, LOin, Zhighin, Zlowin, PCin, MDRin, OutPortin, Yin, MARin, IncPC,
-	output [31:0] BusMuxOut, BusMuxInMDRout, 
+	output [31:0] BusMuxOut, BusMuxInMDRout, ZHighWire, ZLowWire,
 	BusMuxInR0, BusMuxInR1, BusMuxInR2,  BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7, BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
 	BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, BusMuxInYout, BusMuxInHI, BusMuxInLO, BusMuxInRamout, output_data, irOut,
-	output branchCompare
+	output branchCompare,
+	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out,
+	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in,
+	output [3:0] to_decode
 
 );	
-wire [31:0] ZHighWire, ZLowWire;
+//wire [31:0] ZHighWire, ZLowWire, 
+wire [31:0] C_sign_ext;
 wire [8:0] MARAddr;
+wire [4:0] op;
 //wire [31:0] Zregin;
 
-wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
-wire R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
+//wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
+//wire R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 
 // init 24 regs here
 r0		 R0(clear, clock, R0in, BAOut, BusMuxOut, BusMuxInR0);
@@ -62,25 +64,23 @@ ram RAM(clock, Read, Write, MARAddr, BusMuxOut, BusMuxInRamout);
 Bus bus(BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
 	BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
 	BusMuxInHI, BusMuxInLO, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInMDRout, BusMuxInInPortout,
-	BusMuxInRamout,
+	BusMuxInRamout, C_sign_ext,
 	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
-	R12out, R13out, R14out, R15out, HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, RAMout,
+	R12out, R13out, R14out, R15out, HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, RAMout, Cout,
 	BusMuxOut);
 	
 //init con_ff here
 reg_32 ir(clear, clock, 1'b1, irIn, irOut);
 con_ff CON_FF(branchCompare, irOut, BusMuxOut, clock);
 
-wire [31:0] C_sign_ext;
-assign C_sign_ext = C[15] == 0 ? {16'b0, C} : {16'hffff, C};
 
 //init select and encode logic
-sel_encode SEL_ENCODE(irOut, Gra, Grb, Grc, Rin, Rout, BAOut, op, 
+sel_encode SEL_ENCODE(irIn, Gra, Grb, Grc, Rin, Rout, BAOut, op, 
 	C_sign_ext, 
 	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, 
 	R11in, R12in, R13in, R14in, R15in, 
 	R0out, R1out, R2out, R3out, 
 	R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
-	R12out, R13out, R14out, R15out);
+	R12out, R13out, R14out, R15out, to_decode);
 
 endmodule 

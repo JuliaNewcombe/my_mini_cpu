@@ -2,32 +2,36 @@
 
 module ALU_immediate_instr_tb;
 
-	reg PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, RAMout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
-	reg MARin, Zin, PCin, MDRin, IRin, OutPortin, Yin, IncPC, Read, Write, AND, HIin, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
-	reg Clock, clear, strobe, BAOut, Gra, Grb, Grc, Rin, Rout;
+	reg PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, RAMout;
+	wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
+	reg MARin, Zin, PCin, MDRin, IRin, OutPortin, Yin, IncPC, Read, Write, AND, HIin, Loin, ZHighin, Zlowin;
+	wire R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
+	reg Clock, clear, strobe, BAOut, Gra, Grb, Grc, Rin, Rout, Cout;
 	wire branchCompare;
-	reg [15:0] C;
+	wire [3:0] to_decode;
 	reg [31:0] Mdatain, input_data, irIn;	
 	parameter Default = 4'b0000, s1 = 4'b0001, s2 = 4'b0010, s3 = 4'b0011, 
-				 s4 = 4'b0100, s5 = 4'b0101, s6 = 4'b0110, s7 = 4'b0111, s8 = 4'b1000, s9 = 4'b1001, s10 = 4'b1010, s11 = 4'b1011;
+				 s4 = 4'b0100, s5 = 4'b0101, s6 = 4'b0110, s7 = 4'b0111, s8 = 4'b1000, s9 = 4'b1001, s10 = 4'b1010, s11 = 4'b1011, sclear = 4'b1100;
 	reg [3:0] Present_state = Default;
 	reg [4:0] op;
 	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2,  BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
 					BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
-					BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, BusMuxInYout, BusMuxInHI, BusMuxInLO, BusMuxInRamout, output_data, irOut;
+					BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, BusMuxInYout, BusMuxInHI, BusMuxInLO, BusMuxInRamout, output_data, irOut,
+					ZHighWire, ZLowWire;
+	//wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 
-
-	data_path DUT(Clock, clear, Read, Write, strobe, BAOut,  Gra, Grb, Grc, Rin, Rout,
-	op, 
-	C,
+	data_path DUT(Clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout,
 	Mdatain, input_data, irIn,
-	HIOut, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout, 
+	HIOut, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout, Cout, 
 	HIin,  LOin,  ZHighin,  Zlowin,  PCin,  MDRin,  OutPortin, Yin, MARin, IncPC,
-	BusOut, mdrData, 
+	BusOut, mdrData, ZHighWire, ZLowWire,
 	BusMuxInR0, BusMuxInR1, BusMuxInR2,  BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7, BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
 	BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, BusMuxInYout, BusMuxInHI, BusMuxInLO, BusMuxInRamout, output_data, irOut,
-	branchCompare);
-	
+	branchCompare,
+	R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out,
+	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in,
+	to_decode);
+
 	
 initial begin
 	Clock = 1;
@@ -39,7 +43,8 @@ always #10 Clock = ~Clock;
 		
 always @(negedge Clock) begin// finite state machine; if clock falling-edge so as to be offset from reg clocking
 	case (Present_state)
-		Default : Present_state = s1;
+		Default : Present_state = sclear;
+		sclear : Present_state = s1;
 		s1 : Present_state = s2;
 		s2 : Present_state = s3;
 		s3 : Present_state = s4;
@@ -61,42 +66,47 @@ always @(Present_state) begin // do the required job in each state
 			PCin <=0; MDRin <= 0; IRin <= 0; Yin <= 0;
 			IncPC <= 0; Read <= 0; AND <= 0;
 			R1in <= 0; R2in <= 0; R3in <= 0; Mdatain <= 32'h00000000;*/
-			{PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out} <= 24'b0;
-			{MARin, Zin, PCin, MDRin, IRin, Yin, IncPC, Read, AND, HIin, InPortout, Loin, ZHighin, Zlowin, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in} <= 29'b0;
+			{Write, strobe, BAOut,  Gra, Grb, Grc, Rin, Rout} <= 8'b0;
+			{PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout} <= 8'b0;
+			{MARin, Zin, PCin, MDRin, IRin, Yin, IncPC, Read, AND, HIin, InPortout, Loin, ZHighin, Zlowin} <= 13'b0;
 			clear<=0;
 			Mdatain <= 32'h00000000;
-			op <= 0;
 			BAOut <= 0;
 		end
+		
+		sclear : begin
+			#5 clear <= 1;
+			#10 clear <= 0;
+		end
 			
-		s1 : begin
-			irIn <= {5'b01100, 4'b0011, 4'b0100, 19'd53};
+		s1 : begin //t0
+			irIn <= {5'b01100, 4'b0011, 4'b0100, 19'd15};// intr addi R3, R4, -5
 			#5 PCout <= 1; MARin <= 1; IncPC <= 1; ZHighin <= 1; Zlowin <= 1;
 			#10 PCout <= 0; MARin <= 0; IncPC <= 0; ZHighin <= 0; Zlowin <= 0;
 		end
  
-		s2 : begin
+		s2 : begin //t1
 			Mdatain <= {5'b01100, 4'b0011, 4'b0100, 19'd53};
-			#5 Zhighout <= 1; Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
+			#5 Zhighout <= 0; Zlowout <= 1; PCin <= 1; Read <= 1; MDRin <= 1;
 			#10 Zhighout <= 0; Zlowout <= 0; PCin <= 0; Read <= 0; MDRin <= 0;
 		end
 		
-		s3 : begin
-			#5 Grb <= 1; BAOut <= 1; Yin <= 1;
-			#10 Grb <= 0; BAOut <= 0; Yin <= 0;
+		s3 : begin //t2
+			#5 MDRout <= 1;
+			#10 MDRout <= 0;
 		end
 
-		s4 : begin
+		s4 : begin //t3 R4-> Yin
 			#5 Grb <= 1; Rout <= 1; Yin <= 1;
 			#10 Grb <= 0; Rout <= 0; Yin <= 0;
 		end
  
- 		s5 : begin
-			#2 op <= 5'b0;  ZHighin <= 1; Zlowin <= 1;
-			#3 op <= 5'b0;  ZHighin <= 0; Zlowin <= 0;
+ 		s5 : begin //t4 see C on the bus
+			#5  Cout<= 1; ZHighin <= 1; Zlowin <= 1; 
+			#10 Cout<= 0; ZHighin <= 0; Zlowin <= 0;
 		end
  
-		s6 : begin
+		s6 : begin //t5
 			#5 Zlowout <= 1; Gra <= 1; Rin <= 1;
 			#10 Zlowout <= 0; Gra <= 0; Rin <= 0;
 		end
@@ -125,8 +135,8 @@ always @(Present_state) begin // do the required job in each state
  
 		s11 : begin
 			irIn <= {11'b0, 2'b10, 19'b0};//branch if positive
-			#5 MDRout <= 1; R0in <= 1; //put compare value on the bus
-			#10 MDRout <= 0; R0in <= 0; //should see a positive branch compare value
+			#5 MDRout <= 1; //put compare value on the bus
+			#10 MDRout <= 0;//should see a positive branch compare value
 		end
 
 	endcase
