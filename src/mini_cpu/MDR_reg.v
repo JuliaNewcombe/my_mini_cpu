@@ -1,9 +1,7 @@
 module MDR_reg (input clear, clock, enable, read, 
 	input [31:0]BusMuxOut, input [31:0] Mdatain, output wire [31:0]BusMuxIn);
+	
 reg [31:0]q;
-initial begin
-	q = 32'habcd;
-end
 
 always @ (clock)
 		begin

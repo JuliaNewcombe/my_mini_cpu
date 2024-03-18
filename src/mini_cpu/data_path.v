@@ -15,10 +15,14 @@ module data_path(
 
 );	
 //wire [31:0] ZHighWire, ZLowWire, 
-wire [31:0] C_sign_ext;
+wire [31:0] C_sign_ext, MDataIn;
 reg [31:0] yALUin;
 wire [8:0] MARAddr;
 wire [4:0] op;
+wire [1:0] flag;
+wire [31:0] pc_adder_sum;
+wire [31:0] ZLowWire_temp;
+
 //wire [31:0] Zregin;
 
 //wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
@@ -54,14 +58,16 @@ reg_32 OutPort(clear, clock, OutPortin, BusMuxOut, output_data);
 mar	 MAR(clear, clock, MARin, BusMuxOut, MARAddr);
 
 // init ALU
-/*always @(IncPC) begin
-	PC = PC + 4;
-end*/
+ripple_carry_adder pc_adder(BusMuxInPCout, 1, pc_adder_sum, flag[0], flag[1]);
 
-ALU alu(BusMuxInYout, BusMuxOut, op, ZLowWire, ZHighWire);
+
+ALU alu(BusMuxInYout, BusMuxOut, op, ZLowWire_temp, ZHighWire);
+
+assign ZLowWire = (IncPC == 1) ? pc_adder_sum : ZLowWire_temp;
 
 //init RAM
 ram RAM(clock, Read, Write, MARAddr, BusMuxOut, MDataIn);
+
 //note that righ now we have the same read signals for the MDR and the RAM
 
 // init rest of blocks here
@@ -75,7 +81,7 @@ Bus bus(BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, 
 	BusMuxOut);
 	
 //init con_ff here
-reg_32 ir(clear, clock, 1'b1, irIn, irOut);
+reg_32 ir(clear, clock, irIn, BusMuxOut, irOut);
 con_ff CON_FF(branchCompare, irOut, BusMuxOut, clock);
 
 
