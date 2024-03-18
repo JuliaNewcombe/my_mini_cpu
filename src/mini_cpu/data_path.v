@@ -1,6 +1,7 @@
 module data_path(
 	input clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout,
 	input [31:0] input_data, irIn,
+	input [4:0] op_in,
 	//control signals
 	input HIout, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout, Cout,
 	//register enables
@@ -18,7 +19,7 @@ module data_path(
 wire [31:0] C_sign_ext, MDataIn;
 reg [31:0] yALUin;
 wire [8:0] MARAddr;
-wire [4:0] op;
+wire [4:0] op, op_code;
 wire [1:0] flag;
 wire [31:0] pc_adder_sum;
 wire [31:0] ZLowWire_temp;
@@ -60,8 +61,9 @@ mar	 MAR(clear, clock, MARin, BusMuxOut, MARAddr);
 // init ALU
 ripple_carry_adder pc_adder(BusMuxInPCout, 1, pc_adder_sum, flag[0], flag[1]);
 
+assign op_code = ((op_in[0] | op[1] | op[2] | op[3] | op[4]) == 1) ? op_in : op;
 
-ALU alu(BusMuxInYout, BusMuxOut, op, ZLowWire_temp, ZHighWire);
+ALU alu(BusMuxInYout, BusMuxOut, op_code, ZLowWire_temp, ZHighWire);
 
 assign ZLowWire = (IncPC == 1) ? pc_adder_sum : ZLowWire_temp;
 

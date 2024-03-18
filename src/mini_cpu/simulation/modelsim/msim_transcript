@@ -12,259 +12,259 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:26 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v 
 # -- Compiling module ripple_carry_adder
 # 
 # Top level modules:
 # 	ripple_carry_adder
-# End time: 14:03:05 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:26 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_vals.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:26 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_vals.v 
 # -- Compiling module and_vals
 # 
 # Top level modules:
 # 	and_vals
-# End time: 14:03:05 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:26 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_vals.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:26 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_vals.v 
 # -- Compiling module or_vals
 # 
 # Top level modules:
 # 	or_vals
-# End time: 14:03:05 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:26 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:26 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v 
 # -- Compiling module shift_right
 # 
 # Top level modules:
 # 	shift_right
-# End time: 14:03:05 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:26 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_left.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_left.v 
 # -- Compiling module shift_left
 # 
 # Top level modules:
 # 	shift_left
-# End time: 14:03:05 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_left.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_left.v 
 # -- Compiling module rotate_left
 # 
 # Top level modules:
 # 	rotate_left
-# End time: 14:03:05 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_right.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_right.v 
 # -- Compiling module rotate_right
 # 
 # Top level modules:
 # 	rotate_right
-# End time: 14:03:05 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:05 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v 
 # -- Compiling module not_val
 # 
 # Top level modules:
 # 	not_val
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:01
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v 
 # -- Compiling module negate_val
 # 
 # Top level modules:
 # 	negate_val
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v 
 # -- Compiling module ALU
 # 
 # Top level modules:
 # 	ALU
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v 
 # -- Compiling module booth_pair_mul
 # 
 # Top level modules:
 # 	booth_pair_mul
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v 
 # -- Compiling module divide
 # 
 # Top level modules:
 # 	divide
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v 
 # -- Compiling module Bus
 # 
 # Top level modules:
 # 	Bus
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v 
 # -- Compiling module data_path
 # 
 # Top level modules:
 # 	data_path
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v 
 # -- Compiling module MDR_reg
 # 
 # Top level modules:
 # 	MDR_reg
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v 
 # -- Compiling module reg_32
 # 
 # Top level modules:
 # 	reg_32
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:27 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:27 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v 
 # -- Compiling module in_port
 # 
 # Top level modules:
 # 	in_port
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v 
 # -- Compiling module mar
 # 
 # Top level modules:
 # 	mar
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v 
 # -- Compiling module ram
 # 
 # Top level modules:
 # 	ram
-# End time: 14:03:06 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:06 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v 
 # -- Compiling module r0
 # 
 # Top level modules:
 # 	r0
-# End time: 14:03:07 on Mar 18,2024, Elapsed time: 0:00:01
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:07 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v 
 # -- Compiling module sel_encode
 # 
 # Top level modules:
 # 	sel_encode
-# End time: 14:03:07 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:07 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v 
 # -- Compiling module con_ff
 # 
 # Top level modules:
 # 	con_ff
-# End time: 14:03:07 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:07 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v 
 # -- Compiling module d_flip_flop
 # 
 # Top level modules:
 # 	d_flip_flop
-# End time: 14:03:07 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ld_and_st_tb.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:07 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ld_and_st_tb.v 
 # -- Compiling module ld_and_st_tb
 # 
 # Top level modules:
 # 	ld_and_st_tb
-# End time: 14:03:07 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu {C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ld_and_st_tb.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:03:07 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu" C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ld_and_st_tb.v 
 # -- Compiling module ld_and_st_tb
 # 
 # Top level modules:
 # 	ld_and_st_tb
-# End time: 14:03:07 on Mar 18,2024, Elapsed time: 0:00:00
+# End time: 14:34:28 on Mar 18,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  ld_and_st_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" ld_and_st_tb 
-# Start time: 14:03:07 on Mar 18,2024
+# Start time: 14:34:28 on Mar 18,2024
 # Loading work.ld_and_st_tb
 # Loading work.data_path
 # Loading work.r0
@@ -293,52 +293,34 @@
 #    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v
 # ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v(24): [PCDPC] - Port size (64) does not match connection size (65) for port 'result'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT/alu/booth_instance File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v
-# ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v(84): [PCDPC] - Port size (1) does not match connection size (32) for port 'enable'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v(1).
+# ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v(86): [PCDPC] - Port size (1) does not match connection size (32) for port 'enable'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT/ir File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: 18jmcn  Hostname: BMH-212-15  ProcessID: 8700
-#           Attempting to use alternate WLF file "./wlfttj2n9j".
+#           Attempting to use alternate WLF file "./wlftt7ykcx".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfttj2n9j
+#           Using alternate file: ./wlftt7ykcx
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 500 ns
-add wave -position 71  sim:/ld_and_st_tb/DUT/SEL_ENCODE/C_sign_ext
-add wave -position 72  sim:/ld_and_st_tb/DUT/bus/c_sign_extend
-add wave -position 73  sim:/ld_and_st_tb/DUT/bus/Cout
-add wave -position 74  sim:/ld_and_st_tb/DUT/bus/BusMuxOut
+add wave -position 77  sim:/ld_and_st_tb/DUT/R2/enable
+add wave -position 78  sim:/ld_and_st_tb/DUT/R2/BusMuxOut
+add wave -position 79  sim:/ld_and_st_tb/DUT/R2/BusMuxIn
+add wave -position 80  sim:/ld_and_st_tb/DUT/R2/q
 restart
 # ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ld_and_st_tb.v(23): [PCDPC] - Port size (32) does not match connection size (1) for port 'irIn'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v(3).
 #    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v
 # ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v(24): [PCDPC] - Port size (64) does not match connection size (65) for port 'result'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT/alu/booth_instance File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v
-# ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v(84): [PCDPC] - Port size (1) does not match connection size (32) for port 'enable'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v(1).
+# ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v(86): [PCDPC] - Port size (1) does not match connection size (32) for port 'enable'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT/ir File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v
 run 500 ns
 # GetModuleFileName: The specified module could not be found.
 # 
 # 
-add wave -position 76  sim:/ld_and_st_tb/DUT/alu/A
-add wave -position 77  sim:/ld_and_st_tb/DUT/alu/B
-add wave -position 78  sim:/ld_and_st_tb/DUT/alu/op
-add wave -position 79  sim:/ld_and_st_tb/DUT/alu/Zlowout
-add wave -position 80  sim:/ld_and_st_tb/DUT/alu/Zhighout
-add wave -position 81  sim:/ld_and_st_tb/DUT/alu/add_result
-add wave -position 82  sim:/ld_and_st_tb/DUT/alu/Z
-restart
-# ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ld_and_st_tb.v(23): [PCDPC] - Port size (32) does not match connection size (1) for port 'irIn'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v
-# ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v(24): [PCDPC] - Port size (64) does not match connection size (65) for port 'result'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT/alu/booth_instance File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v
-# ** Warning: (vsim-3015) C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v(84): [PCDPC] - Port size (1) does not match connection size (32) for port 'enable'. The port definition is at: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /ld_and_st_tb/DUT/ir File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v
-run 500 ns
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# End time: 14:15:08 on Mar 18,2024, Elapsed time: 0:12:01
-# Errors: 0, Warnings: 11
+# End time: 14:38:40 on Mar 18,2024, Elapsed time: 0:04:12
+# Errors: 0, Warnings: 8
