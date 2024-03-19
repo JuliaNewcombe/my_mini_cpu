@@ -1,5 +1,5 @@
 Flow report for myCPU
-Tue Mar 19 17:21:41 2024
+Tue Mar 19 18:11:49 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,10 +40,10 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Successful - Tue Mar 19 17:21:41 2024           ;
+; Flow Status                 ; Successful - Tue Mar 19 18:11:49 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name               ; myCPU                                           ;
-; Top-level Entity Name       ; ld_and_st_tb                                    ;
+; Top-level Entity Name       ; alu_instr_tb                                    ;
 ; Family                      ; Cyclone V                                       ;
 ; Device                      ; 5CEBA5F23C7                                     ;
 ; Timing Models               ; Final                                           ;
@@ -62,7 +62,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/19/2024 17:21:31 ;
+; Start date & time ; 03/19/2024 18:11:38 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; myCPU               ;
 +-------------------+---------------------+
@@ -73,14 +73,16 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+--------------+------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name  ; Section Id             ;
 +--------------------------------------+----------------------------------------+---------------+--------------+------------------------+
-; COMPILER_SIGNATURE_ID                ; 26830026781138.171088329008324         ; --            ; --           ; --                     ;
+; COMPILER_SIGNATURE_ID                ; 26830026781138.171088629713544         ; --            ; --           ; --                     ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; or_tb                  ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; ALU_tb                 ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; alu_instr_tb           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; ror_tb                 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; div_tb                 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; and_tb                 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; add_substract_tb       ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; datapath_tb            ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; ldi_tb                 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; phase_2_tb             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; not_tb                 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; ld_and_st_tb           ;
@@ -91,17 +93,19 @@ refer to the applicable agreement for further details.
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; slra_tb                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; mul_tb                 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; negate_tb              ;
-; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ld_and_st_tb                           ; --            ; --           ; eda_simulation         ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; ldi_tb                                 ; --            ; --           ; eda_simulation         ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --           ; eda_simulation         ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>        ; --           ; --                     ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --           ; eda_simulation         ;
 ; EDA_TEST_BENCH_FILE                  ; or_tb.v                                ; --            ; --           ; or_tb                  ;
 ; EDA_TEST_BENCH_FILE                  ; ALU_tb.v                               ; --            ; --           ; ALU_tb                 ;
+; EDA_TEST_BENCH_FILE                  ; alu_instr_tb.v                         ; --            ; --           ; alu_instr_tb           ;
 ; EDA_TEST_BENCH_FILE                  ; ror_tb.v                               ; --            ; --           ; ror_tb                 ;
 ; EDA_TEST_BENCH_FILE                  ; div_tb.v                               ; --            ; --           ; div_tb                 ;
 ; EDA_TEST_BENCH_FILE                  ; and_tb.v                               ; --            ; --           ; and_tb                 ;
 ; EDA_TEST_BENCH_FILE                  ; add_substract_tb.v                     ; --            ; --           ; add_substract_tb       ;
 ; EDA_TEST_BENCH_FILE                  ; datapath_tb.v                          ; --            ; --           ; datapath_tb            ;
+; EDA_TEST_BENCH_FILE                  ; ldi_tb.v                               ; --            ; --           ; ldi_tb                 ;
 ; EDA_TEST_BENCH_FILE                  ; phase_2_tb.v                           ; --            ; --           ; phase_2_tb             ;
 ; EDA_TEST_BENCH_FILE                  ; not_tb.v                               ; --            ; --           ; not_tb                 ;
 ; EDA_TEST_BENCH_FILE                  ; ld_and_st_tb.v                         ; --            ; --           ; ld_and_st_tb           ;
@@ -114,11 +118,13 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_FILE                  ; negate_tb.v                            ; --            ; --           ; negate_tb              ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; or_tb                                  ; --            ; --           ; or_tb                  ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; ALU_tb                                 ; --            ; --           ; ALU_tb                 ;
+; EDA_TEST_BENCH_MODULE_NAME           ; alu_instr_tb                           ; --            ; --           ; alu_instr_tb           ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; ror_tb                                 ; --            ; --           ; ror_tb                 ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; div_tb                                 ; --            ; --           ; div_tb                 ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; and_tb                                 ; --            ; --           ; and_tb                 ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; add_substract_tb                       ; --            ; --           ; add_substract_tb       ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; datapath_tb                            ; --            ; --           ; datapath_tb            ;
+; EDA_TEST_BENCH_MODULE_NAME           ; ldi_tb                                 ; --            ; --           ; ldi_tb                 ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; phase_2_tb                             ; --            ; --           ; phase_2_tb             ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; not_tb                                 ; --            ; --           ; not_tb                 ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; ld_and_st_tb                           ; --            ; --           ; ld_and_st_tb           ;
@@ -146,13 +152,17 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_NAME                  ; phase_2_tb                             ; --            ; --           ; eda_simulation         ;
 ; EDA_TEST_BENCH_NAME                  ; ALU_immediate_instr_tb                 ; --            ; --           ; eda_simulation         ;
 ; EDA_TEST_BENCH_NAME                  ; ld_and_st_tb                           ; --            ; --           ; eda_simulation         ;
+; EDA_TEST_BENCH_NAME                  ; ldi_tb                                 ; --            ; --           ; eda_simulation         ;
+; EDA_TEST_BENCH_NAME                  ; alu_instr_tb                           ; --            ; --           ; eda_simulation         ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; or_tb                  ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; ALU_tb                 ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 2000 ns                                ; --            ; --           ; alu_instr_tb           ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; ror_tb                 ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; div_tb                 ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; and_tb                 ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; add_substract_tb       ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; datapath_tb            ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1000 ns                                ; --            ; --           ; ldi_tb                 ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; phase_2_tb             ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; not_tb                 ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 2000 ns                                ; --            ; --           ; ld_and_st_tb           ;
@@ -166,13 +176,13 @@ refer to the applicable agreement for further details.
 ; EDA_TIME_SCALE                       ; 1 ns                                   ; --            ; --           ; eda_simulation         ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --           ; --                     ;
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --            ; --           ; --                     ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; ld_and_st_tb ; Top                    ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; ld_and_st_tb ; Top                    ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; ld_and_st_tb ; Top                    ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --            ; alu_instr_tb ; Top                    ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --            ; alu_instr_tb ; Top                    ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --            ; alu_instr_tb ; Top                    ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --           ; --                     ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --           ; --                     ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --           ; --                     ;
-; TOP_LEVEL_ENTITY                     ; ld_and_st_tb                           ; myCPU         ; --           ; --                     ;
+; TOP_LEVEL_ENTITY                     ; alu_instr_tb                           ; myCPU         ; --           ; --                     ;
 +--------------------------------------+----------------------------------------+---------------+--------------+------------------------+
 
 
@@ -181,8 +191,8 @@ refer to the applicable agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:11     ; 1.0                     ; 4800 MB             ; 00:00:11                           ;
-; Total                  ; 00:00:11     ; --                      ; --                  ; 00:00:11                           ;
+; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 4800 MB             ; 00:00:11                           ;
+; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:11                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
