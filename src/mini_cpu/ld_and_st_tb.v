@@ -81,7 +81,7 @@ always @(Present_state) begin // do the required job in each state
 		end
 			
 		s1 : begin //t0
-			PCout <= 1; MARin <= 1; IncPC <= 1; ZHighin <= 1; Zlowin <= 1;
+			PCout <= 1; MARin <= 1; IncPC <= 1; ZHighin <= 1; Zlowin <= 1; //see the PC on the bus
 			#10 PCout <= 0; MARin <= 0; IncPC <= 0; ZHighin <= 0; Zlowin <= 0;
 		end
 		
@@ -91,19 +91,20 @@ always @(Present_state) begin // do the required job in each state
 		end
  
 		s2 : begin //t1
-			Zhighout <= 0; Zlowout <= 1; PCin <= 1; 
+			Zhighout <= 0; Zlowout <= 1; PCin <= 1; //see the value of PC plus one on the bus
 			#10 Read <= 1; MDRin <= 1;
 			#20 Zhighout <= 0; Zlowout <= 0; PCin <= 0;Read <= 0; MDRin <= 0;
 		end
 		
 		s3 : begin //t2
-			MDRout <= 1; Read <= 0; MDRin <= 0;
+			MDRout <= 1; Read <= 0; MDRin <= 0; //the the instruction on the bus
 			#10 IRin <= 1;
 			#20 MDRout <= 0; IRin <= 0;
 		end
 
 		s4 : begin //t3 
-			Grb <= 1; BAOut <= 1; Yin <= 1;
+			Grb <= 1; BAOut <= 1; 
+			#10 Yin <= 1; //see the value of the reg to be added
 			#10 Grb <= 0; BAOut <= 0; Yin <= 0;
 		end
  
@@ -113,19 +114,19 @@ always @(Present_state) begin // do the required job in each state
 			#20 Cout<= 0; op <= 5'b00000; ZHighin <= 0; Zlowin <= 0;
 		end
  
-		s6 : begin //t5
-			Zlowout <= 1; MARin <= 1;
+		s6 : begin //t5 
+			Zlowout <= 1; MARin <= 1; // see the addition result on the bus
 			#10 Zlowout <= 0; MARin <= 0;
 		end
 			
 		s7 : begin //t6
-			MDRin <= 1; Read <= 1;
+			MDRin <= 1; Read <= 1; 
 			#10 MDRin <= 0; Read <= 0;
 		end
 		
 		 
 		s8 : begin //t7
-			Gra <= 1; Rin <= 1; MDRout <= 1;
+			Gra <= 1; Rin <= 1; MDRout <= 1; //see the contents of memory on the bus
 			#10 Gra <= 0; Rin <= 0; MDRout <= 0;
 		end
 		

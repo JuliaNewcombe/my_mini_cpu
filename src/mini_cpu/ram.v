@@ -6,7 +6,7 @@ reg [31:0] 	q;
 initial begin
 	//3.1 load instructions
 	mem[0] = 32'b00000_0010_0000_00000000000_0101_1111; //load r2, r0(95) (puts 4 in r2)
-	mem[1] = 32'b00000_0010_0000_00000000000_0010_0110; //load r0, 38(r2) (puts 
+	mem[1] = 32'b00000_0000_0010_00000000000_0010_0110; //load r0, 38(r2) (puts 
 	//3.2 store instructions
 	mem[2] = 32'b00010_0001_0000_00000000000_01010111; //st 0x87, R1; (see 87 in r1)
 	mem[3] = 32'b00010_0001_0001_00000000000_01010111; //st 0x87(R1), R1; (see 0a0a in r1)
@@ -27,12 +27,14 @@ initial begin
 	mem[] = ;*/
 	
 	mem[42] = 32'hffff;
-	mem[87] = 32'h0007;
+	mem[43] = 32'd100;
+	mem[87] = 32'd43;
 	mem[94] = 32'h0a0a;
 	mem[95] = 32'h0004;
 	mem[100] = 32'hffff;
 	mem[101] = 32'h0003;
 	mem[102] = 32'h000a;
+	mem[130] = 32'habba;
 	
 end
 

@@ -1,5 +1,5 @@
 Flow report for myCPU
-Mon Mar 18 14:33:00 2024
+Tue Mar 19 17:21:41 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +-----------------------------+-------------------------------------------------+
-; Flow Status                 ; Successful - Mon Mar 18 14:33:00 2024           ;
+; Flow Status                 ; Successful - Tue Mar 19 17:21:41 2024           ;
 ; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name               ; myCPU                                           ;
 ; Top-level Entity Name       ; ld_and_st_tb                                    ;
@@ -62,7 +62,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/18/2024 14:32:49 ;
+; Start date & time ; 03/19/2024 17:21:31 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; myCPU               ;
 +-------------------+---------------------+
@@ -73,7 +73,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+--------------+------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name  ; Section Id             ;
 +--------------------------------------+----------------------------------------+---------------+--------------+------------------------+
-; COMPILER_SIGNATURE_ID                ; 26830026781693.171078676902088         ; --            ; --           ; --                     ;
+; COMPILER_SIGNATURE_ID                ; 26830026781138.171088329008324         ; --            ; --           ; --                     ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; or_tb                  ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; ALU_tb                 ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --           ; ror_tb                 ;
@@ -155,7 +155,7 @@ refer to the applicable agreement for further details.
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; datapath_tb            ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; phase_2_tb             ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; not_tb                 ;
-; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; ld_and_st_tb           ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 2000 ns                                ; --            ; --           ; ld_and_st_tb           ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; ALU_immediate_instr_tb ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; slr_tb                 ;
 ; EDA_TEST_BENCH_RUN_SIM_FOR           ; 500 ns                                 ; --            ; --           ; rol_tb                 ;
@@ -191,7 +191,7 @@ refer to the applicable agreement for further details.
 +------------------------+------------------+------------+------------+----------------+
 ; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; BMH-212-15       ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Elaboration ; BMH-212-08       ; Windows 10 ; 10.0       ; x86_64         ;
 +------------------------+------------------+------------+------------+----------------+
 
 

@@ -61,7 +61,7 @@ mar	 MAR(clear, clock, MARin, BusMuxOut, MARAddr);
 // init ALU
 ripple_carry_adder pc_adder(BusMuxInPCout, 1, pc_adder_sum, flag[0], flag[1]);
 
-assign op_code = ((op_in[0] | op[1] | op[2] | op[3] | op[4]) == 1) ? op_in : op;
+assign op_code = ((op_in[0] | op[1] | op[2] | op[3] | op[4]) == 1) ? 5'b00011 : op;
 
 ALU alu(BusMuxInYout, BusMuxOut, op_code, ZLowWire_temp, ZHighWire);
 
