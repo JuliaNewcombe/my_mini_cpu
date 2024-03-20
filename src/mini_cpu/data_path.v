@@ -23,6 +23,7 @@ wire [4:0] op, op_code;
 wire [1:0] flag;
 wire [31:0] pc_adder_sum;
 wire [31:0] ZLowWire_temp;
+wire R15in_temp;
 
 //wire [31:0] Zregin;
 
@@ -91,9 +92,12 @@ con_ff CON_FF(branchCompare, irOut, BusMuxOut, clock);
 sel_encode SEL_ENCODE(irOut, Gra, Grb, Grc, Rin, Rout, BAOut, op, 
 	C_sign_ext, 
 	R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, 
-	R11in, R12in, R13in, R14in, R15in, 
+	R11in, R12in, R13in, R14in, R15in_temp, 
 	R0out, R1out, R2out, R3out, 
 	R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, 
 	R12out, R13out, R14out, R15out, to_decode);
+	
+//R15 is link pointer
+assign R15in = ((irOut[31:27] == 5'b10101) && PCin == 1 && Rout == 0) ? 1'b1 : R15in_temp;
 
 endmodule 
