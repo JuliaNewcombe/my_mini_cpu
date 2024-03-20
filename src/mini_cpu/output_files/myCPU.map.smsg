@@ -5,3 +5,4 @@ Info (10281): Verilog HDL Declaration information at ALU_immediate_instr_tb.v(7)
 Warning (10268): Verilog HDL information at ld_and_st_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ld_and_st_tb.v Line: 62
 Warning (10268): Verilog HDL information at ldi_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ldi_tb.v Line: 62
 Warning (10268): Verilog HDL information at alu_instr_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/alu_instr_tb.v Line: 62
+Warning (10268): Verilog HDL information at mfhi_mflo_tb.v(67): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v Line: 67
