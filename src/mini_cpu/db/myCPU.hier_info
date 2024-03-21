@@ -12017,8 +12017,8 @@ BusMuxOut[30] => Equal0.IN1
 BusMuxOut[30] => Equal1.IN1
 BusMuxOut[31] => Equal0.IN0
 BusMuxOut[31] => Equal1.IN0
-BusMuxOut[31] => temp.IN1
-BusMuxOut[31] => temp.IN1
+BusMuxOut[31] => pos.IN1
+BusMuxOut[31] => neg.IN1
 CONin => CONin.IN1
 
 
