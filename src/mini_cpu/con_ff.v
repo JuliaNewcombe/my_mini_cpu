@@ -9,12 +9,12 @@ wire negative = (BusMuxOut[31] == 1'b1) ? 1'b1 : 1'b0;
 
 always @ (ir) begin
 	case (ir[20:19])
-			00: decoder = 4'b0001;
-			01: decoder = 4'b0010;
-			10: decoder = 4'b0100;
-			11: decoder = 4'b1000;
+			2'b00: decoder = 4'b0001;
+			2'b01: decoder = 4'b0010;
+			2'b10: decoder = 4'b0100;
+			2'b11: decoder = 4'b1000;
 	endcase
-	temp = (decoder[0] & equal | decoder[1] & not_equal | decoder[2] & positive | decoder[3] & negative);
+	temp = ((decoder[3] & equal) | (decoder[2] & not_equal) | (decoder[1] & positive) | (decoder[0] & negative));
 end
 
 d_flip_flop	CONFF(CONin, temp, result); 

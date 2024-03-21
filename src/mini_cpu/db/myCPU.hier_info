@@ -1,8 +1,8 @@
-|mfhi_mflo_tb
+|br_tb
 
 
-|mfhi_mflo_tb|data_path:DUT
-clock => clock.IN29
+|br_tb|data_path:DUT
+clock => clock.IN28
 clear => clear.IN27
 Read => Read.IN2
 Write => Write.IN1
@@ -13,6 +13,7 @@ Grb => Grb.IN1
 Grc => Grc.IN1
 Rin => Rin.IN1
 Rout => Rout.IN1
+CONin => CONin.IN1
 input_data[0] => input_data[0].IN1
 input_data[1] => input_data[1].IN1
 input_data[2] => input_data[2].IN1
@@ -96,7 +97,8 @@ HIin => HIin.IN1
 LOin => LOin.IN1
 Zhighin => Zhighin.IN1
 Zlowin => Zlowin.IN1
-PCin => PCin.IN1
+PCin => PCin_total.IN1
+PCin => R15in.IN1
 MDRin => MDRin.IN1
 OutPortin => OutPortin.IN1
 Yin => Yin.IN1
@@ -1132,7 +1134,7 @@ to_decode[2] <= sel_encode:SEL_ENCODE.port41
 to_decode[3] <= sel_encode:SEL_ENCODE.port41
 
 
-|mfhi_mflo_tb|data_path:DUT|r0:R0
+|br_tb|data_path:DUT|r0:R0
 clear => clear.IN1
 clock => clock.IN1
 enable => enable.IN1
@@ -1234,7 +1236,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|r0:R0|reg_32:this_reg
+|br_tb|data_path:DUT|r0:R0|reg_32:this_reg
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1397,7 +1399,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R1
+|br_tb|data_path:DUT|reg_32:R1
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1560,7 +1562,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R2
+|br_tb|data_path:DUT|reg_32:R2
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1723,7 +1725,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R3
+|br_tb|data_path:DUT|reg_32:R3
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1886,7 +1888,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R4
+|br_tb|data_path:DUT|reg_32:R4
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2049,7 +2051,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R5
+|br_tb|data_path:DUT|reg_32:R5
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2212,7 +2214,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R6
+|br_tb|data_path:DUT|reg_32:R6
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2375,7 +2377,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R7
+|br_tb|data_path:DUT|reg_32:R7
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2538,7 +2540,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R8
+|br_tb|data_path:DUT|reg_32:R8
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2701,7 +2703,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R9
+|br_tb|data_path:DUT|reg_32:R9
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2864,7 +2866,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R10
+|br_tb|data_path:DUT|reg_32:R10
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3027,7 +3029,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R11
+|br_tb|data_path:DUT|reg_32:R11
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3190,7 +3192,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R12
+|br_tb|data_path:DUT|reg_32:R12
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3353,7 +3355,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R13
+|br_tb|data_path:DUT|reg_32:R13
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3516,7 +3518,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R14
+|br_tb|data_path:DUT|reg_32:R14
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3679,7 +3681,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:R15
+|br_tb|data_path:DUT|reg_32:R15
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3842,7 +3844,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:HI
+|br_tb|data_path:DUT|reg_32:HI
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4005,7 +4007,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:LO
+|br_tb|data_path:DUT|reg_32:LO
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4168,7 +4170,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:Zhigh
+|br_tb|data_path:DUT|reg_32:Zhigh
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4331,7 +4333,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:Zlow
+|br_tb|data_path:DUT|reg_32:Zlow
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4494,7 +4496,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:PC
+|br_tb|data_path:DUT|reg_32:PC
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4657,7 +4659,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|MDR_reg:MDR
+|br_tb|data_path:DUT|MDR_reg:MDR
 clear => q[0].ACLR
 clear => q[1].ACLR
 clear => q[2].ACLR
@@ -4853,7 +4855,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|in_port:InPort
+|br_tb|data_path:DUT|in_port:InPort
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5016,7 +5018,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:Y
+|br_tb|data_path:DUT|reg_32:Y
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5179,7 +5181,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:OutPort
+|br_tb|data_path:DUT|reg_32:OutPort
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5342,7 +5344,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|mar:MAR
+|br_tb|data_path:DUT|mar:MAR
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5413,7 +5415,7 @@ addr[7] <= q[7].DB_MAX_OUTPUT_PORT_TYPE
 addr[8] <= q[8].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ripple_carry_adder:pc_adder
+|br_tb|data_path:DUT|ripple_carry_adder:pc_adder
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -5642,7 +5644,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu
+|br_tb|data_path:DUT|ALU:alu
 A[0] => A[0].IN11
 A[1] => A[1].IN11
 A[2] => A[2].IN11
@@ -5707,38 +5709,38 @@ B[28] => B[28].IN8
 B[29] => B[29].IN8
 B[30] => B[30].IN8
 B[31] => B[31].IN8
-op[0] => Mux0.IN18
-op[0] => Mux1.IN18
-op[0] => Mux2.IN18
-op[0] => Mux3.IN18
-op[0] => Mux4.IN18
-op[0] => Mux5.IN18
-op[0] => Mux6.IN18
-op[0] => Mux7.IN18
-op[0] => Mux8.IN18
-op[0] => Mux9.IN18
-op[0] => Mux10.IN18
-op[0] => Mux11.IN18
-op[0] => Mux12.IN18
-op[0] => Mux13.IN18
-op[0] => Mux14.IN18
-op[0] => Mux15.IN18
-op[0] => Mux16.IN18
-op[0] => Mux17.IN18
-op[0] => Mux18.IN18
-op[0] => Mux19.IN18
-op[0] => Mux20.IN18
-op[0] => Mux21.IN18
-op[0] => Mux22.IN18
-op[0] => Mux23.IN18
-op[0] => Mux24.IN18
-op[0] => Mux25.IN18
-op[0] => Mux26.IN18
-op[0] => Mux27.IN18
-op[0] => Mux28.IN18
-op[0] => Mux29.IN18
-op[0] => Mux30.IN18
-op[0] => Mux31.IN18
+op[0] => Mux0.IN34
+op[0] => Mux1.IN34
+op[0] => Mux2.IN34
+op[0] => Mux3.IN34
+op[0] => Mux4.IN34
+op[0] => Mux5.IN34
+op[0] => Mux6.IN34
+op[0] => Mux7.IN34
+op[0] => Mux8.IN34
+op[0] => Mux9.IN34
+op[0] => Mux10.IN34
+op[0] => Mux11.IN34
+op[0] => Mux12.IN34
+op[0] => Mux13.IN34
+op[0] => Mux14.IN34
+op[0] => Mux15.IN34
+op[0] => Mux16.IN34
+op[0] => Mux17.IN34
+op[0] => Mux18.IN34
+op[0] => Mux19.IN34
+op[0] => Mux20.IN34
+op[0] => Mux21.IN34
+op[0] => Mux22.IN34
+op[0] => Mux23.IN34
+op[0] => Mux24.IN34
+op[0] => Mux25.IN34
+op[0] => Mux26.IN34
+op[0] => Mux27.IN34
+op[0] => Mux28.IN34
+op[0] => Mux29.IN34
+op[0] => Mux30.IN34
+op[0] => Mux31.IN34
 op[0] => Mux32.IN4
 op[0] => Mux33.IN4
 op[0] => Mux34.IN4
@@ -5771,38 +5773,38 @@ op[0] => Mux60.IN4
 op[0] => Mux61.IN4
 op[0] => Mux62.IN4
 op[0] => Mux63.IN4
-op[1] => Mux0.IN17
-op[1] => Mux1.IN17
-op[1] => Mux2.IN17
-op[1] => Mux3.IN17
-op[1] => Mux4.IN17
-op[1] => Mux5.IN17
-op[1] => Mux6.IN17
-op[1] => Mux7.IN17
-op[1] => Mux8.IN17
-op[1] => Mux9.IN17
-op[1] => Mux10.IN17
-op[1] => Mux11.IN17
-op[1] => Mux12.IN17
-op[1] => Mux13.IN17
-op[1] => Mux14.IN17
-op[1] => Mux15.IN17
-op[1] => Mux16.IN17
-op[1] => Mux17.IN17
-op[1] => Mux18.IN17
-op[1] => Mux19.IN17
-op[1] => Mux20.IN17
-op[1] => Mux21.IN17
-op[1] => Mux22.IN17
-op[1] => Mux23.IN17
-op[1] => Mux24.IN17
-op[1] => Mux25.IN17
-op[1] => Mux26.IN17
-op[1] => Mux27.IN17
-op[1] => Mux28.IN17
-op[1] => Mux29.IN17
-op[1] => Mux30.IN17
-op[1] => Mux31.IN17
+op[1] => Mux0.IN33
+op[1] => Mux1.IN33
+op[1] => Mux2.IN33
+op[1] => Mux3.IN33
+op[1] => Mux4.IN33
+op[1] => Mux5.IN33
+op[1] => Mux6.IN33
+op[1] => Mux7.IN33
+op[1] => Mux8.IN33
+op[1] => Mux9.IN33
+op[1] => Mux10.IN33
+op[1] => Mux11.IN33
+op[1] => Mux12.IN33
+op[1] => Mux13.IN33
+op[1] => Mux14.IN33
+op[1] => Mux15.IN33
+op[1] => Mux16.IN33
+op[1] => Mux17.IN33
+op[1] => Mux18.IN33
+op[1] => Mux19.IN33
+op[1] => Mux20.IN33
+op[1] => Mux21.IN33
+op[1] => Mux22.IN33
+op[1] => Mux23.IN33
+op[1] => Mux24.IN33
+op[1] => Mux25.IN33
+op[1] => Mux26.IN33
+op[1] => Mux27.IN33
+op[1] => Mux28.IN33
+op[1] => Mux29.IN33
+op[1] => Mux30.IN33
+op[1] => Mux31.IN33
 op[1] => Mux32.IN3
 op[1] => Mux33.IN3
 op[1] => Mux34.IN3
@@ -5835,38 +5837,38 @@ op[1] => Mux60.IN3
 op[1] => Mux61.IN3
 op[1] => Mux62.IN3
 op[1] => Mux63.IN3
-op[2] => Mux0.IN16
-op[2] => Mux1.IN16
-op[2] => Mux2.IN16
-op[2] => Mux3.IN16
-op[2] => Mux4.IN16
-op[2] => Mux5.IN16
-op[2] => Mux6.IN16
-op[2] => Mux7.IN16
-op[2] => Mux8.IN16
-op[2] => Mux9.IN16
-op[2] => Mux10.IN16
-op[2] => Mux11.IN16
-op[2] => Mux12.IN16
-op[2] => Mux13.IN16
-op[2] => Mux14.IN16
-op[2] => Mux15.IN16
-op[2] => Mux16.IN16
-op[2] => Mux17.IN16
-op[2] => Mux18.IN16
-op[2] => Mux19.IN16
-op[2] => Mux20.IN16
-op[2] => Mux21.IN16
-op[2] => Mux22.IN16
-op[2] => Mux23.IN16
-op[2] => Mux24.IN16
-op[2] => Mux25.IN16
-op[2] => Mux26.IN16
-op[2] => Mux27.IN16
-op[2] => Mux28.IN16
-op[2] => Mux29.IN16
-op[2] => Mux30.IN16
-op[2] => Mux31.IN16
+op[2] => Mux0.IN32
+op[2] => Mux1.IN32
+op[2] => Mux2.IN32
+op[2] => Mux3.IN32
+op[2] => Mux4.IN32
+op[2] => Mux5.IN32
+op[2] => Mux6.IN32
+op[2] => Mux7.IN32
+op[2] => Mux8.IN32
+op[2] => Mux9.IN32
+op[2] => Mux10.IN32
+op[2] => Mux11.IN32
+op[2] => Mux12.IN32
+op[2] => Mux13.IN32
+op[2] => Mux14.IN32
+op[2] => Mux15.IN32
+op[2] => Mux16.IN32
+op[2] => Mux17.IN32
+op[2] => Mux18.IN32
+op[2] => Mux19.IN32
+op[2] => Mux20.IN32
+op[2] => Mux21.IN32
+op[2] => Mux22.IN32
+op[2] => Mux23.IN32
+op[2] => Mux24.IN32
+op[2] => Mux25.IN32
+op[2] => Mux26.IN32
+op[2] => Mux27.IN32
+op[2] => Mux28.IN32
+op[2] => Mux29.IN32
+op[2] => Mux30.IN32
+op[2] => Mux31.IN32
 op[2] => Mux32.IN2
 op[2] => Mux33.IN2
 op[2] => Mux34.IN2
@@ -5899,38 +5901,38 @@ op[2] => Mux60.IN2
 op[2] => Mux61.IN2
 op[2] => Mux62.IN2
 op[2] => Mux63.IN2
-op[3] => Mux0.IN15
-op[3] => Mux1.IN15
-op[3] => Mux2.IN15
-op[3] => Mux3.IN15
-op[3] => Mux4.IN15
-op[3] => Mux5.IN15
-op[3] => Mux6.IN15
-op[3] => Mux7.IN15
-op[3] => Mux8.IN15
-op[3] => Mux9.IN15
-op[3] => Mux10.IN15
-op[3] => Mux11.IN15
-op[3] => Mux12.IN15
-op[3] => Mux13.IN15
-op[3] => Mux14.IN15
-op[3] => Mux15.IN15
-op[3] => Mux16.IN15
-op[3] => Mux17.IN15
-op[3] => Mux18.IN15
-op[3] => Mux19.IN15
-op[3] => Mux20.IN15
-op[3] => Mux21.IN15
-op[3] => Mux22.IN15
-op[3] => Mux23.IN15
-op[3] => Mux24.IN15
-op[3] => Mux25.IN15
-op[3] => Mux26.IN15
-op[3] => Mux27.IN15
-op[3] => Mux28.IN15
-op[3] => Mux29.IN15
-op[3] => Mux30.IN15
-op[3] => Mux31.IN15
+op[3] => Mux0.IN31
+op[3] => Mux1.IN31
+op[3] => Mux2.IN31
+op[3] => Mux3.IN31
+op[3] => Mux4.IN31
+op[3] => Mux5.IN31
+op[3] => Mux6.IN31
+op[3] => Mux7.IN31
+op[3] => Mux8.IN31
+op[3] => Mux9.IN31
+op[3] => Mux10.IN31
+op[3] => Mux11.IN31
+op[3] => Mux12.IN31
+op[3] => Mux13.IN31
+op[3] => Mux14.IN31
+op[3] => Mux15.IN31
+op[3] => Mux16.IN31
+op[3] => Mux17.IN31
+op[3] => Mux18.IN31
+op[3] => Mux19.IN31
+op[3] => Mux20.IN31
+op[3] => Mux21.IN31
+op[3] => Mux22.IN31
+op[3] => Mux23.IN31
+op[3] => Mux24.IN31
+op[3] => Mux25.IN31
+op[3] => Mux26.IN31
+op[3] => Mux27.IN31
+op[3] => Mux28.IN31
+op[3] => Mux29.IN31
+op[3] => Mux30.IN31
+op[3] => Mux31.IN31
 op[3] => Mux32.IN1
 op[3] => Mux33.IN1
 op[3] => Mux34.IN1
@@ -5963,38 +5965,38 @@ op[3] => Mux60.IN1
 op[3] => Mux61.IN1
 op[3] => Mux62.IN1
 op[3] => Mux63.IN1
-op[4] => Mux0.IN14
-op[4] => Mux1.IN14
-op[4] => Mux2.IN14
-op[4] => Mux3.IN14
-op[4] => Mux4.IN14
-op[4] => Mux5.IN14
-op[4] => Mux6.IN14
-op[4] => Mux7.IN14
-op[4] => Mux8.IN14
-op[4] => Mux9.IN14
-op[4] => Mux10.IN14
-op[4] => Mux11.IN14
-op[4] => Mux12.IN14
-op[4] => Mux13.IN14
-op[4] => Mux14.IN14
-op[4] => Mux15.IN14
-op[4] => Mux16.IN14
-op[4] => Mux17.IN14
-op[4] => Mux18.IN14
-op[4] => Mux19.IN14
-op[4] => Mux20.IN14
-op[4] => Mux21.IN14
-op[4] => Mux22.IN14
-op[4] => Mux23.IN14
-op[4] => Mux24.IN14
-op[4] => Mux25.IN14
-op[4] => Mux26.IN14
-op[4] => Mux27.IN14
-op[4] => Mux28.IN14
-op[4] => Mux29.IN14
-op[4] => Mux30.IN14
-op[4] => Mux31.IN14
+op[4] => Mux0.IN30
+op[4] => Mux1.IN30
+op[4] => Mux2.IN30
+op[4] => Mux3.IN30
+op[4] => Mux4.IN30
+op[4] => Mux5.IN30
+op[4] => Mux6.IN30
+op[4] => Mux7.IN30
+op[4] => Mux8.IN30
+op[4] => Mux9.IN30
+op[4] => Mux10.IN30
+op[4] => Mux11.IN30
+op[4] => Mux12.IN30
+op[4] => Mux13.IN30
+op[4] => Mux14.IN30
+op[4] => Mux15.IN30
+op[4] => Mux16.IN30
+op[4] => Mux17.IN30
+op[4] => Mux18.IN30
+op[4] => Mux19.IN30
+op[4] => Mux20.IN30
+op[4] => Mux21.IN30
+op[4] => Mux22.IN30
+op[4] => Mux23.IN30
+op[4] => Mux24.IN30
+op[4] => Mux25.IN30
+op[4] => Mux26.IN30
+op[4] => Mux27.IN30
+op[4] => Mux28.IN30
+op[4] => Mux29.IN30
+op[4] => Mux30.IN30
+op[4] => Mux31.IN30
 op[4] => Mux32.IN0
 op[4] => Mux33.IN0
 op[4] => Mux34.IN0
@@ -6027,73 +6029,73 @@ op[4] => Mux60.IN0
 op[4] => Mux61.IN0
 op[4] => Mux62.IN0
 op[4] => Mux63.IN0
-Zlowout[0] <= Zlowout[0].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[1] <= Zlowout[1].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[2] <= Zlowout[2].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[3] <= Zlowout[3].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[4] <= Zlowout[4].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[5] <= Zlowout[5].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[6] <= Zlowout[6].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[7] <= Zlowout[7].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[8] <= Zlowout[8].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[9] <= Zlowout[9].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[10] <= Zlowout[10].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[11] <= Zlowout[11].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[12] <= Zlowout[12].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[13] <= Zlowout[13].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[14] <= Zlowout[14].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[15] <= Zlowout[15].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[16] <= Zlowout[16].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[17] <= Zlowout[17].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[18] <= Zlowout[18].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[19] <= Zlowout[19].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[20] <= Zlowout[20].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[21] <= Zlowout[21].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[22] <= Zlowout[22].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[23] <= Zlowout[23].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[24] <= Zlowout[24].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[25] <= Zlowout[25].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[26] <= Zlowout[26].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[27] <= Zlowout[27].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[28] <= Zlowout[28].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[29] <= Zlowout[29].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[30] <= Zlowout[30].DB_MAX_OUTPUT_PORT_TYPE
-Zlowout[31] <= Zlowout[31].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[0] <= Zhighout[0].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[1] <= Zhighout[1].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[2] <= Zhighout[2].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[3] <= Zhighout[3].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[4] <= Zhighout[4].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[5] <= Zhighout[5].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[6] <= Zhighout[6].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[7] <= Zhighout[7].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[8] <= Zhighout[8].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[9] <= Zhighout[9].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[10] <= Zhighout[10].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[11] <= Zhighout[11].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[12] <= Zhighout[12].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[13] <= Zhighout[13].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[14] <= Zhighout[14].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[15] <= Zhighout[15].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[16] <= Zhighout[16].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[17] <= Zhighout[17].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[18] <= Zhighout[18].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[19] <= Zhighout[19].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[20] <= Zhighout[20].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[21] <= Zhighout[21].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[22] <= Zhighout[22].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[23] <= Zhighout[23].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[24] <= Zhighout[24].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[25] <= Zhighout[25].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[26] <= Zhighout[26].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[27] <= Zhighout[27].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[28] <= Zhighout[28].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[29] <= Zhighout[29].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[30] <= Zhighout[30].DB_MAX_OUTPUT_PORT_TYPE
-Zhighout[31] <= Zhighout[31].DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[0] <= Mux63.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[1] <= Mux62.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[2] <= Mux61.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[3] <= Mux60.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[4] <= Mux59.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[5] <= Mux58.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[6] <= Mux57.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[7] <= Mux56.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[8] <= Mux55.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[9] <= Mux54.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[10] <= Mux53.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[11] <= Mux52.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[12] <= Mux51.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[13] <= Mux50.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[14] <= Mux49.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[15] <= Mux48.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[16] <= Mux47.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[17] <= Mux46.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[18] <= Mux45.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[19] <= Mux44.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[20] <= Mux43.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[21] <= Mux42.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[22] <= Mux41.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[23] <= Mux40.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[24] <= Mux39.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[25] <= Mux38.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[26] <= Mux37.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[27] <= Mux36.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[28] <= Mux35.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[29] <= Mux34.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[30] <= Mux33.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout[31] <= Mux32.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[0] <= Mux31.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[1] <= Mux30.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[2] <= Mux29.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[3] <= Mux28.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[4] <= Mux27.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[5] <= Mux26.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[6] <= Mux25.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[7] <= Mux24.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[8] <= Mux23.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[9] <= Mux22.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[10] <= Mux21.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[11] <= Mux20.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[12] <= Mux19.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[13] <= Mux18.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[14] <= Mux17.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[15] <= Mux16.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[16] <= Mux15.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[17] <= Mux14.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[18] <= Mux13.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[19] <= Mux12.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[20] <= Mux11.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[21] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[22] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[23] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[24] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[25] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[26] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[27] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[28] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[29] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|ripple_carry_adder:add_instance
+|br_tb|data_path:DUT|ALU:alu|ripple_carry_adder:add_instance
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -6322,7 +6324,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|ripple_carry_adder:sub_instance
+|br_tb|data_path:DUT|ALU:alu|ripple_carry_adder:sub_instance
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -6551,7 +6553,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|and_vals:and_instance
+|br_tb|data_path:DUT|ALU:alu|and_vals:and_instance
 A[0] => result.IN0
 A[1] => result.IN0
 A[2] => result.IN0
@@ -6650,7 +6652,7 @@ result[30] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= result.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|or_vals:or_instance
+|br_tb|data_path:DUT|ALU:alu|or_vals:or_instance
 A[0] => result.IN0
 A[1] => result.IN0
 A[2] => result.IN0
@@ -6749,7 +6751,7 @@ result[30] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= result.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|shift_left:sll_instance
+|br_tb|data_path:DUT|ALU:alu|shift_left:sll_instance
 A[0] => ShiftLeft0.IN32
 A[1] => ShiftLeft0.IN31
 A[2] => ShiftLeft0.IN30
@@ -6848,7 +6850,7 @@ result[30] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|shift_right:slr_instance
+|br_tb|data_path:DUT|ALU:alu|shift_right:slr_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftRight1.IN32
 A[1] => ShiftRight0.IN31
@@ -7044,7 +7046,7 @@ result[30] <= intermediate[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= intermediate[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|shift_right:slra_instance
+|br_tb|data_path:DUT|ALU:alu|shift_right:slra_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftRight1.IN32
 A[1] => ShiftRight0.IN31
@@ -7240,7 +7242,7 @@ result[30] <= intermediate[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= intermediate[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|rotate_left:rol_instance
+|br_tb|data_path:DUT|ALU:alu|rotate_left:rol_instance
 A[0] => ShiftLeft0.IN32
 A[0] => ShiftRight0.IN64
 A[1] => ShiftLeft0.IN31
@@ -7403,7 +7405,7 @@ result[30] <= q.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|rotate_right:ror_instance
+|br_tb|data_path:DUT|ALU:alu|rotate_right:ror_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftLeft0.IN64
 A[1] => ShiftRight0.IN31
@@ -7566,7 +7568,7 @@ result[30] <= q.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|not_val:not_instance
+|br_tb|data_path:DUT|ALU:alu|not_val:not_instance
 A[0] => result[0].DATAIN
 A[1] => result[1].DATAIN
 A[2] => result[2].DATAIN
@@ -7633,7 +7635,7 @@ result[30] <= A[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= A[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|negate_val:negate_instance
+|br_tb|data_path:DUT|ALU:alu|negate_val:negate_instance
 A[0] => intermediate[0].IN1
 A[1] => intermediate[1].IN1
 A[2] => intermediate[2].IN1
@@ -7700,7 +7702,7 @@ result[30] <= ripple_carry_adder:add_one.port2
 result[31] <= ripple_carry_adder:add_one.port2
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one
+|br_tb|data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -7929,7 +7931,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|booth_pair_mul:booth_instance
+|br_tb|data_path:DUT|ALU:alu|booth_pair_mul:booth_instance
 A[0] => Selector31.IN7
 A[0] => Selector32.IN4
 A[0] => Add1.IN124
@@ -9595,7 +9597,7 @@ result[63] <= Selector719.DB_MAX_OUTPUT_PORT_TYPE
 carry_flag <= <GND>
 
 
-|mfhi_mflo_tb|data_path:DUT|ALU:alu|divide:divide_instance
+|br_tb|data_path:DUT|ALU:alu|divide:divide_instance
 A[0] => Add62.IN33
 A[0] => Add63.IN33
 A[1] => Add60.IN33
@@ -9918,7 +9920,7 @@ remainder[30] <= c.DB_MAX_OUTPUT_PORT_TYPE
 remainder[31] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|ram:RAM
+|br_tb|data_path:DUT|ram:RAM
 clock => mem.we_a.CLK
 clock => mem.waddr_a[8].CLK
 clock => mem.waddr_a[7].CLK
@@ -10185,7 +10187,7 @@ MDataIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 MDataIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|Bus:bus
+|br_tb|data_path:DUT|Bus:bus
 BusMuxInR0[0] => q[0].DATAA
 BusMuxInR0[1] => q[1].DATAA
 BusMuxInR0[2] => q[2].DATAA
@@ -11748,7 +11750,7 @@ BusMuxOut[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxOut[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|reg_32:ir
+|br_tb|data_path:DUT|reg_32:ir
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -11911,7 +11913,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|con_ff:CON_FF
+|br_tb|data_path:DUT|con_ff:CON_FF
 result <= d_flip_flop:CONFF.port2
 ir[0] => ~NO_FANOUT~
 ir[1] => ~NO_FANOUT~
@@ -11932,10 +11934,14 @@ ir[15] => ~NO_FANOUT~
 ir[16] => ~NO_FANOUT~
 ir[17] => ~NO_FANOUT~
 ir[18] => ~NO_FANOUT~
-ir[19] => Equal2.IN63
-ir[19] => Equal3.IN63
-ir[20] => Equal2.IN62
-ir[20] => Equal3.IN62
+ir[19] => Decoder0.IN1
+ir[19] => Decoder1.IN1
+ir[19] => Decoder2.IN1
+ir[19] => Decoder3.IN1
+ir[20] => Decoder0.IN0
+ir[20] => Decoder1.IN0
+ir[20] => Decoder2.IN0
+ir[20] => Decoder3.IN0
 ir[21] => ~NO_FANOUT~
 ir[22] => ~NO_FANOUT~
 ir[23] => ~NO_FANOUT~
@@ -12011,16 +12017,18 @@ BusMuxOut[30] => Equal0.IN1
 BusMuxOut[30] => Equal1.IN1
 BusMuxOut[31] => Equal0.IN0
 BusMuxOut[31] => Equal1.IN0
+BusMuxOut[31] => temp.IN1
+BusMuxOut[31] => temp.IN1
 CONin => CONin.IN1
 
 
-|mfhi_mflo_tb|data_path:DUT|con_ff:CON_FF|d_flip_flop:CONFF
+|br_tb|data_path:DUT|con_ff:CON_FF|d_flip_flop:CONFF
 CONin => ~NO_FANOUT~
 D => Q.DATAIN
 Q <= D.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mfhi_mflo_tb|data_path:DUT|sel_encode:SEL_ENCODE
+|br_tb|data_path:DUT|sel_encode:SEL_ENCODE
 instr[0] => C_sign_ext[0].DATAIN
 instr[1] => C_sign_ext[1].DATAIN
 instr[2] => C_sign_ext[2].DATAIN

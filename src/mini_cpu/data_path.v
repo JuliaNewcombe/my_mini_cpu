@@ -1,5 +1,5 @@
 module data_path(
-	input clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout,
+	input clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout, CONin,
 	input [31:0] input_data, irIn,
 	input [4:0] op_in,
 	//control signals
@@ -24,6 +24,19 @@ wire [1:0] flag;
 wire [31:0] pc_adder_sum;
 wire [31:0] ZLowWire_temp;
 wire R15in_temp;
+reg PCin_br;
+wire PCin_total;
+
+initial begin
+	PCin_br = 0;
+end
+
+always @(branchCompare, Zlowout) begin
+	if(branchCompare) PCin_br <= 1;
+	else if (Zlowout == 0) PCin_br <= 0;
+end
+
+assign PCin_total = PCin || (PCin_br&&Zlowout);
 
 //wire [31:0] Zregin;
 
@@ -51,7 +64,7 @@ reg_32 HI(clear, clock, HIin, BusMuxOut, BusMuxInHI);
 reg_32 LO(clear, clock, LOin, BusMuxOut, BusMuxInLO);
 reg_32 Zhigh(clear, clock, Zhighin, ZHighWire, BusMuxInZhigh);
 reg_32 Zlow(clear, clock, Zlowin, ZLowWire, BusMuxInZlow);
-reg_32 PC(clear, clock, PCin, BusMuxOut, BusMuxInPCout);
+reg_32 PC(clear, clock, PCin_total, BusMuxOut, BusMuxInPCout);
 // reg_32 MAR(clear, clock, MARin, BusMuxOut, BusMuxInPCout);
 MDR_reg MDR(clear, clock, MDRin, Read, BusMuxOut, MDataIn, BusMuxInMDRout);
 in_port InPort(clear, clock, strobe, input_data, BusMuxInInPortout);
@@ -85,8 +98,7 @@ Bus bus(BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, 
 	
 //init con_ff here
 reg_32 ir(clear, clock, irIn, BusMuxOut, irOut);
-con_ff CON_FF(branchCompare, irOut, BusMuxOut, clock);
-
+con_ff CON_FF(branchCompare, irOut, BusMuxOut, CONin);
 
 //init select and encode logic
 sel_encode SEL_ENCODE(irOut, Gra, Grb, Grc, Rin, Rout, BAOut, op, 

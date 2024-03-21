@@ -39,6 +39,7 @@ module ALU(input [31:0] A, B, input [4:0] op, output reg[31:0] Zlowout, Zhighout
 			5'b10001 : Z = negate_result;
 			5'b01111 : Z = mul_result;
 			5'b10000 : Z = {divide_remainder, divide_result};
+			default : Z = add_result;
 		endcase
 		Zlowout = Z[31:0];
 		Zhighout = Z[63:32];

@@ -9,50 +9,50 @@ z2
 cModel Technology
 Z0 dC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/simulation/modelsim
 vALU
-Z1 !s110 1710947336
+Z1 !s110 1711037657
 !i10b 1
-!s100 nM>S5>HLJUTSMKImR[SdL2
-IGU^]^n>Ph=b<zeCgV[9gW1
+!s100 K;3i_ERjXTaebRD<EL]k=2
+I^zRkC_:m32RfG^3N0R`kB3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1710940859
+w1711033904
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v
 L0 1
-Z4 OV;L;10.5b;63
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1710947336.000000
+Z4 !s108 1711037657.000000
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v|
 !i113 1
-Z6 o-vlog01compat -work work
-Z7 !s92 -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu
-Z8 tCvgOpt 0
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu
+Z7 tCvgOpt 0
 n@a@l@u
 vand_vals
-R1
+Z8 !s110 1711037656
 !i10b 1
 !s100 IWLf[_oM`MFYJ@PmR>lh_3
 IU_iP>W;XL:cCS<HGOglR?0
 R2
 R0
-R3
+Z9 w1711028528
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_vals.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_vals.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+Z10 !s108 1711037656.000000
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_vals.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/and_vals.v|
 !i113 1
+R5
 R6
 R7
-R8
 vbooth_pair_mul
 R1
 !i10b 1
@@ -60,221 +60,221 @@ R1
 IBXR>LEhGGj9aF94N`ZBAC1
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/booth_pair_mul.v|
 !i113 1
+R5
 R6
 R7
-R8
+vbr_tb
+Z11 !s110 1711037659
+!i10b 1
+!s100 3SmhGkKDSnoDFf`X?NhTC2
+IO5;7<YEISm?DIMazkhPS80
+R2
+R0
+w1711035535
+8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v
+FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+Z12 !s108 1711037659.000000
+!s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v|
+!i113 1
+R5
+R6
+R7
 vBus
-Z9 !s110 1710947337
+Z13 !s110 1711037658
 !i10b 1
 !s100 T4H9H^H:Sof=k0@49WE010
 IfM]ESLP<alZhmL=CHhhh_2
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-Z10 !s108 1710947337.000000
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/bus.v|
 !i113 1
+R5
 R6
 R7
-R8
 n@bus
 vcon_ff
-R9
+R13
 !i10b 1
-!s100 4ZckQ_PBZj6fZ]?5jbeMB1
-I1jQYJAImjlTH32OS<EWkT0
+!s100 3bWmf=jVV;NdL_W`?7lDV1
+I3nm5<Tk?4BYYQW0cEF79W3
 R2
 R0
-R3
+w1711037629
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+Z14 !s108 1711037658.000000
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/con_ff.v|
 !i113 1
+R5
 R6
 R7
-R8
 vd_flip_flop
-R9
+R11
 !i10b 1
 !s100 OC7NMcmG2<8iSmeYa7R9g3
 InZT0ME`UDC4WKG=?FPW[l2
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R12
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v|
 !i113 1
+R5
 R6
 R7
-R8
 vdata_path
-R9
+R13
 !i10b 1
-!s100 ?E7oh?ZV3gLdJh^NY?4i31
-I2nI`M?UKG;@TO7?4TDDa>0
+!s100 >1oSeSZlndWFl?1bEiFH11
+I50=HL0[I5gOC7E6hBm`jV3
 R2
 R0
-w1710944971
+w1711032037
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v|
 !i113 1
+R5
 R6
 R7
-R8
 vdivide
-R9
+R1
 !i10b 1
 !s100 M5<OhkdMe2hAH=z?@il8D3
 I29g[<U6aWmGYLQcE:ka5h2
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/divide.v|
 !i113 1
+R5
 R6
 R7
-R8
 vin_port
-R9
+R13
 !i10b 1
 !s100 C6fJz<4k>P3UU]ilP7Hl53
 IG8?W6QaDG==ZKTVLS:9jc0
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_port.v|
 !i113 1
+R5
 R6
 R7
-R8
 vmar
-R9
+R13
 !i10b 1
 !s100 ^YKngN=_l7QNoNb_CORCd2
 IDlal?zgP8_o47<n:CKQd71
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mar.v|
 !i113 1
+R5
 R6
 R7
-R8
 vMDR_reg
-R9
+R13
 !i10b 1
 !s100 ifJ;zHKXWBB<59lG[HBme2
 Ij3C6A4ofnF005AmK?YlL>0
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/MDR_reg.v|
 !i113 1
+R5
 R6
 R7
-R8
 n@m@d@r_reg
-vmfhi_mflo_tb
-R9
-!i10b 1
-!s100 KK15T0PckDD9;6R@PaWI93
-I[J2N;TISgk<S_9g=TaD:;0
-R2
-R0
-w1710946728
-8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v
-FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v
-L0 3
-R4
-r1
-!s85 0
-31
-R10
-!s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v|
-!i113 1
-R6
-R7
-R8
 vnegate_val
 R1
 !i10b 1
@@ -282,21 +282,21 @@ R1
 IFC`Fnn9BB13R6U3j9k3@S1
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/negate_val.v|
 !i113 1
+R5
 R6
 R7
-R8
 vnot_val
 R1
 !i10b 1
@@ -304,21 +304,21 @@ R1
 Iif0iER8KZd7P==aS:1`LM3
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/not_val.v|
 !i113 1
+R5
 R6
 R7
-R8
 vor_vals
 R1
 !i10b 1
@@ -326,109 +326,109 @@ R1
 Ic@?3M[cD4^GA98=3D<BLl0
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_vals.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_vals.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_vals.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/or_vals.v|
 !i113 1
+R5
 R6
 R7
-R8
 vr0
-R9
+R13
 !i10b 1
 !s100 RJ3G?b78X03EYDFWOF1CO1
 IaFkLa0ZgT3J8eXJRXB4<X1
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/r0.v|
 !i113 1
+R5
 R6
 R7
-R8
 vram
-R9
+R13
 !i10b 1
-!s100 aJc@AF?jAR4>h?aC0PncQ1
-I@dAW93JB]QWG=IS:Y`RU71
+!s100 W[`PIz<HRV^@AzQYbBZcR0
+IOmX3?RlTAoI6OLJ9`QOIj0
 R2
 R0
-w1710947209
+w1711034155
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ram.v|
 !i113 1
+R5
 R6
 R7
-R8
 vreg_32
-R9
+R13
 !i10b 1
 !s100 L8LgBkYY_^`J:6oAjDXYE2
 IkmH7`b^<X7>Ff:hDinFk^3
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/reg_32.v|
 !i113 1
+R5
 R6
 R7
-R8
 vripple_carry_adder
-R1
+R8
 !i10b 1
 !s100 1A?hIJPbh?QYc>hcMLYcC1
 IDAHeMk@RQCKhl_QcTb2V61
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R10
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ripple_carry_adder.v|
 !i113 1
+R5
 R6
 R7
-R8
 vrotate_left
 R1
 !i10b 1
@@ -436,21 +436,21 @@ R1
 I<_kzok1jX>6EVn5h]l?hG0
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_left.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_left.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_left.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_left.v|
 !i113 1
+R5
 R6
 R7
-R8
 vrotate_right
 R1
 !i10b 1
@@ -458,43 +458,43 @@ R1
 IYQHAVk<ZVUNUGQGM05RR43
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_right.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_right.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_right.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/rotate_right.v|
 !i113 1
+R5
 R6
 R7
-R8
 vsel_encode
-R9
+R13
 !i10b 1
 !s100 k79c`jcgc`M9_]Da1iW:n3
 IaEP?dUloebfoAz=lHdId53
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R10
+R14
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/sel_encode_unit.v|
 !i113 1
+R5
 R6
 R7
-R8
 vshift_left
 R1
 !i10b 1
@@ -502,21 +502,21 @@ R1
 IYFZYmzJeoO78Y]0M[KgK^0
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_left.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_left.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_left.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_left.v|
 !i113 1
+R5
 R6
 R7
-R8
 vshift_right
 R1
 !i10b 1
@@ -524,18 +524,18 @@ R1
 InN]BO_i;5V?CXIP<5T<iP0
 R2
 R0
-R3
+R9
 8C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v
 FC:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v
 L0 1
-R4
+R3
 r1
 !s85 0
 31
-R5
+R4
 !s107 C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/18jmcn/my_mini_cpu/src/mini_cpu|C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/shift_right.v|
 !i113 1
+R5
 R6
 R7
-R8
