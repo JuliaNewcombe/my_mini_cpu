@@ -2,7 +2,7 @@
 
 module jr_jal_tb;
 
-	reg PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, RAMout;
+	reg PCout, Zhighout, Zlowout, MDRout, HIOut, LOout, InPortout, Yout, RAMout, CONin;
 	wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out, R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out;
 	reg MARin, Zin, PCin, MDRin, IRin, OutPortin, Yin, IncPC, Read, Write, AND, HIin, Loin, ZHighin, Zlowin;
 	wire R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in, R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
@@ -11,8 +11,8 @@ module jr_jal_tb;
 	wire [3:0] to_decode;
 	reg [31:0] Mdatain, input_data;	
 	parameter Default = 4'b0000, s1 = 4'b0001, s2 = 4'b0010, s3 = 4'b0011, 
-				 s4 = 4'b0100, s5 = 4'b0101, s6 = 4'b0110, s7 = 4'b0111, s8 = 4'b1000, s9 = 4'b1001, s10 = 4'b1010, s11 = 4'b1011, sclear = 4'b1100, s12 = 4'b1101, s13 = 4'b1110, s14 = 4'b1111;
-	reg [3:0] Present_state = Default;
+				 s4 = 4'b0100, s5 = 4'b0101, s6 = 4'b0110, s7 = 4'b0111, s8 = 4'b1000, s9 = 4'b1001, s10 = 4'b1010, s11 = 4'b1011, sclear = 4'b1100, s12 = 4'b1101, s13 = 4'b1110, s14 = 4'b1111, s15 = 5'b10000;
+	reg [4:0] Present_state = Default;
 	reg [4:0] op;
 	wire [31:0] BusOut, mdrData, BusMuxInR0, BusMuxInR1, BusMuxInR2,  BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
 					BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15, 
@@ -20,7 +20,7 @@ module jr_jal_tb;
 					ZHighWire, ZLowWire;
 	//wire R0out, R1out, R2out, R3out, R4out, R5out, R6out, R7out,R8out, R9out, R10out, R11out, R12out, R13out, R14out, R15out, R0in, R1in, R2in, R3in, R4in, R5in, R6in, R7in,R8in, R9in, R10in, R11in, R12in, R13in, R14in, R15in;
 
-	data_path DUT(Clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout,
+	data_path DUT(Clock, clear, Read, Write, strobe, BAOut, Gra, Grb, Grc, Rin, Rout, CONin,
 	input_data,IRin, 
 	op,
 	HIOut, LOout, Zhighout, Zlowout, PCout, MDRout, InPortout, Yout, RAMout, Cout, 
@@ -59,7 +59,8 @@ always @(negedge Clock) begin// finite state machine; if clock falling-edge so a
 		s10 : #40 Present_state = s1;
 		s11	: #40 Present_state = s12;
 		s12 : #40 Present_state = s13;
-		s13 : #40 Present_state = s14;
+		s13 : #40 Present_state = s15;
+		s15 : #40 Present_state = s14;
 		s14 : #40 Present_state = s1;
 	endcase
 end
@@ -160,10 +161,16 @@ always @(Present_state) begin // do the required job in each state
 			#20 MDRout <= 0; IRin <= 0;
 		end
 		
+		s15 : begin //move this into r5
+			#10 PCout <= 1;
+			#20 PCout <= 0;
+		end
+		
 		s14 : begin //t3
 			Gra <= 1; Rout <= 1; PCin <= 1;
 			#20 Gra <= 0; Rout <= 0; PCin <= 0;
 		end
+		
 		
 
 	endcase

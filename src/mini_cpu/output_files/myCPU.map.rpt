@@ -1,5 +1,5 @@
 Analysis & Elaboration report for myCPU
-Thu Mar 21 16:10:03 2024
+Mon Mar 25 15:56:14 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -9,7 +9,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   1. Legal Notice
   2. Analysis & Elaboration Summary
   3. Parallel Compilation
-  4. Parameter Settings for User Entity Instance: Top-level Entity: |br_tb
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |store_tb
   5. Analysis & Elaboration Settings
   6. Port Connectivity Checks: "data_path:DUT|reg_32:ir"
   7. Port Connectivity Checks: "data_path:DUT|ALU:alu|booth_pair_mul:booth_instance"
@@ -47,10 +47,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                  ;
 +-------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Thu Mar 21 16:10:02 2024           ;
+; Analysis & Elaboration Status ; Successful - Mon Mar 25 15:56:14 2024           ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                 ; myCPU                                           ;
-; Top-level Entity Name         ; br_tb                                           ;
+; Top-level Entity Name         ; store_tb                                        ;
 ; Family                        ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                       ;
 ; Total registers               ; N/A until Partition Merge                       ;
@@ -78,28 +78,28 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |br_tb ;
-+----------------+-------+----------------------------------------------+
-; Parameter Name ; Value ; Type                                         ;
-+----------------+-------+----------------------------------------------+
-; Default        ; 0000  ; Unsigned Binary                              ;
-; s1             ; 0001  ; Unsigned Binary                              ;
-; s2             ; 0010  ; Unsigned Binary                              ;
-; s3             ; 0011  ; Unsigned Binary                              ;
-; s4             ; 0100  ; Unsigned Binary                              ;
-; s5             ; 0101  ; Unsigned Binary                              ;
-; s6             ; 0110  ; Unsigned Binary                              ;
-; s7             ; 0111  ; Unsigned Binary                              ;
-; s8             ; 1000  ; Unsigned Binary                              ;
-; s9             ; 1001  ; Unsigned Binary                              ;
-; s10            ; 1010  ; Unsigned Binary                              ;
-; s11            ; 1011  ; Unsigned Binary                              ;
-; sclear         ; 1100  ; Unsigned Binary                              ;
-; s12            ; 1101  ; Unsigned Binary                              ;
-; s13            ; 1110  ; Unsigned Binary                              ;
-; s14            ; 1111  ; Unsigned Binary                              ;
-+----------------+-------+----------------------------------------------+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |store_tb ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; Default        ; 0000  ; Unsigned Binary                                 ;
+; s1             ; 0001  ; Unsigned Binary                                 ;
+; s2             ; 0010  ; Unsigned Binary                                 ;
+; s3             ; 0011  ; Unsigned Binary                                 ;
+; s4             ; 0100  ; Unsigned Binary                                 ;
+; s5             ; 0101  ; Unsigned Binary                                 ;
+; s6             ; 0110  ; Unsigned Binary                                 ;
+; s7             ; 0111  ; Unsigned Binary                                 ;
+; s8             ; 1000  ; Unsigned Binary                                 ;
+; s9             ; 1001  ; Unsigned Binary                                 ;
+; s10            ; 1010  ; Unsigned Binary                                 ;
+; s11            ; 1011  ; Unsigned Binary                                 ;
+; sclear         ; 1100  ; Unsigned Binary                                 ;
+; delay          ; 1101  ; Unsigned Binary                                 ;
+; s12            ; 1110  ; Unsigned Binary                                 ;
+; s13            ; 1111  ; Unsigned Binary                                 ;
++----------------+-------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -109,7 +109,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CEBA5F23C7        ;                    ;
-; Top-level entity name                                                           ; br_tb              ; myCPU              ;
+; Top-level entity name                                                           ; store_tb           ; myCPU              ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -286,7 +286,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Grc               ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; Rin               ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; Rout              ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
-; CONin             ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; irIn              ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "irIn[31..1]" will be connected to GND. ;
 ; irIn              ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; op_in             ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
@@ -300,7 +299,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Yout              ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; Cout              ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; HIin              ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
-; LOin              ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; Zhighin           ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; Zlowin            ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
 ; PCin              ; Input  ; Info     ; Stuck at GND                                                                                                                                   ;
@@ -381,7 +379,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Thu Mar 21 16:09:51 2024
+    Info: Processing started: Mon Mar 25 15:56:01 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off myCPU -c myCPU --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -478,6 +476,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file mfhi_mf
     Info (12023): Found entity 1: mfhi_mflo_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file br_tb.v
     Info (12023): Found entity 1: br_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file store_tb.sv
+    Info (12023): Found entity 1: store_tb File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 3
 Warning (10236): Verilog HDL Implicit Net warning at ALU.v(24): created implicit net for "carry_flag" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU.v Line: 24
 Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
 Warning (10236): Verilog HDL Implicit Net warning at datapath_tb.v(22): created implicit net for "InPC" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/datapath_tb.v Line: 22
@@ -498,112 +498,76 @@ Warning (10236): Verilog HDL Implicit Net warning at ldi_tb.v(27): created impli
 Warning (10236): Verilog HDL Implicit Net warning at alu_instr_tb.v(27): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/alu_instr_tb.v Line: 27
 Warning (10236): Verilog HDL Implicit Net warning at in_out_tb.v(27): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/in_out_tb.v Line: 27
 Warning (10236): Verilog HDL Implicit Net warning at jr_jal_tb.sv(27): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/jr_jal_tb.sv Line: 27
-Info (12127): Elaborating entity "br_tb" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at br_tb.v(7): object "Zin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 7
-Warning (10036): Verilog HDL or VHDL warning at br_tb.v(7): object "AND" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 7
-Warning (10036): Verilog HDL or VHDL warning at br_tb.v(12): object "Mdatain" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 12
-Warning (10755): Verilog HDL warning at br_tb.v(43): assignments to Clock create a combinational loop File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 43
-Warning (10235): Verilog HDL Always Construct warning at br_tb.v(124): variable "flag" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 124
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Write", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "strobe", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "BAOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Gra", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Grb", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Grc", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Rin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Rout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "PCout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Zhighout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Zlowout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "MDRout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "HIOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "LOout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "InPortout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Yout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "MARin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "PCin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "MDRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "IRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Yin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "IncPC", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Read", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "HIin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "LOin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "ZHighin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Zlowin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "clear", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "CONin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "flag", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "Cout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at br_tb.v(66): inferring latch(es) for variable "op", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "op[0]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "op[1]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "op[2]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "op[3]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "op[4]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Cout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[0]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[1]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[2]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[3]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[4]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[5]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[6]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[7]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[8]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[9]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[10]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[11]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[12]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[13]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[14]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[15]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[16]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[17]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[18]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[19]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[20]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[21]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[22]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[23]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[24]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[25]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[26]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[27]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[28]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[29]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[30]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "flag[31]" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "CONin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "clear" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Zlowin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "ZHighin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "LOin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "HIin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Read" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "IncPC" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Yin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "IRin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "MDRin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "PCin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "MARin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Yout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "InPortout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "LOout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "HIOut" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "MDRout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Zlowout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Zhighout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "PCout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Rout" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Rin" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Grc" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Grb" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Gra" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "BAOut" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "strobe" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (10041): Inferred latch for "Write" at br_tb.v(66) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 66
-Info (12128): Elaborating entity "data_path" for hierarchy "data_path:DUT" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 34
+Warning (10236): Verilog HDL Implicit Net warning at store_tb.sv(27): created implicit net for "LOin" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 27
+Info (12127): Elaborating entity "store_tb" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at store_tb.sv(7): object "Zin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 7
+Warning (10036): Verilog HDL or VHDL warning at store_tb.sv(7): object "AND" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 7
+Warning (10036): Verilog HDL or VHDL warning at store_tb.sv(7): object "Loin" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 7
+Warning (10036): Verilog HDL or VHDL warning at store_tb.sv(12): object "Mdatain" assigned a value but never read File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 12
+Warning (10755): Verilog HDL warning at store_tb.sv(42): assignments to Clock create a combinational loop File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 42
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Write", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "strobe", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "BAOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Gra", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Grb", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Grc", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Rin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Rout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "PCout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Zhighout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Zlowout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "MDRout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "HIOut", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "LOout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "InPortout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Yout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "MARin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "PCin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "MDRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "IRin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Yin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "IncPC", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Read", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "HIin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "ZHighin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Zlowin", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "clear", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "Cout", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Warning (10240): Verilog HDL Always Construct warning at store_tb.sv(65): inferring latch(es) for variable "op", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "op[0]" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "op[1]" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "op[2]" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "op[3]" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "op[4]" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Cout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "clear" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Zlowin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "ZHighin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "HIin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Read" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "IncPC" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Yin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "IRin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "MDRin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "PCin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "MARin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Yout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "InPortout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "LOout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "HIOut" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "MDRout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Zlowout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Zhighout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "PCout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Rout" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Rin" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Grc" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Grb" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Gra" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "BAOut" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "strobe" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (10041): Inferred latch for "Write" at store_tb.sv(65) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 65
+Info (12128): Elaborating entity "data_path" for hierarchy "data_path:DUT" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 34
 Warning (10240): Verilog HDL Always Construct warning at data_path.v(34): inferring latch(es) for variable "PCin_br", which holds its previous value in one or more paths through the always construct File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 34
 Warning (10034): Output port "BusMuxInRamout" at data_path.v(11) has no driver File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 11
 Info (10041): Inferred latch for "PCin_br" at data_path.v(34) File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 34
@@ -744,13 +708,13 @@ Info (12128): Elaborating entity "d_flip_flop" for hierarchy "data_path:DUT|con_
 Warning (10235): Verilog HDL Always Construct warning at dff.v(6): variable "D" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/dff.v Line: 6
 Info (12128): Elaborating entity "sel_encode" for hierarchy "data_path:DUT|sel_encode:SEL_ENCODE" File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 110
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "Clock" is missing source, defaulting to GND File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/br_tb.v Line: 9
+    Warning (12110): Net "Clock" is missing source, defaulting to GND File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/store_tb.sv Line: 9
 Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (144001): Generated suppressed messages file C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/output_files/myCPU.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 82 warnings
-    Info: Peak virtual memory: 4798 megabytes
-    Info: Processing ended: Thu Mar 21 16:10:03 2024
-    Info: Elapsed time: 00:00:12
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 80 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Mon Mar 25 15:56:14 2024
+    Info: Elapsed time: 00:00:13
     Info: Total CPU time (on all processors): 00:00:11
 
 

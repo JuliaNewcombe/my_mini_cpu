@@ -110,6 +110,6 @@ sel_encode SEL_ENCODE(irOut, Gra, Grb, Grc, Rin, Rout, BAOut, op,
 	R12out, R13out, R14out, R15out, to_decode);
 	
 //R15 is link pointer
-assign R15in = ((irOut[31:27] == 5'b10101) && PCin == 1 && Rout == 0) ? 1'b1 : R15in_temp;
+assign R15in = ((irOut[31:27] == 5'b10101) && PCout == 1 && Zlowin == 0) ? 1'b1 : R15in_temp;
 
 endmodule 
