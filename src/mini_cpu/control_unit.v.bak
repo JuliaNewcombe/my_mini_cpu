@@ -1,4 +1,4 @@
-// this is the Verilog sample code for Method 1 for the Control Unit
+/ this is the Verilog sample code for Method 1 for the Control Unit
 `timescale 1ns/10ps
 module control_unit (
     output reg Gra, Grb, Grc, Rin, Rout, // define the inputs and outputs to your Control Unit here
@@ -74,11 +74,8 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
                     default : present_state = alu6;
                 endcase
             end
-				// alu but for immediates
             alui4: present_state = alu6;
-				// for high portion of mul and div
             alu5: present_state = alu6
-				// final step of every alu op
             alu6: present_state = fetch0;
             
             // branch stuff
@@ -87,7 +84,6 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 
             //address stuff
             addr3: present_state = addr4;
-				// effective address calculation
             addr4: begin // this will be address calculation step could in theory be combined with alui4
                 case(IR[31:27])
                     5'b00000 : present_state = ldi5;//ldi
@@ -97,17 +93,17 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
                 endcase
             end
             
-            //end of branch stuff (everything after effective address calc)
+            //end of branch stuff
             br6: present_state = fetch0;
 
-            //load stuff (everything after effective address calc)
+            //load stuff
             ld5: present_state = ld6;
             ld6: present_state = ld7;
             ld7: present_state = fetch0;
 
             ldi5: present_state = fetch0;
 
-            //store stuff (everything after effective address calc)
+            //store stuff
             st5: present_state = st6;
             st6: present_state = fetch0;
 
