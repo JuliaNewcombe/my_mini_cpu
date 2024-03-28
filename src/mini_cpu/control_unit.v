@@ -1,6 +1,7 @@
 // this is the Verilog sample code for Method 1 for the Control Unit
 `timescale 1ns/10ps
 module control_unit (
+	 output reg [9:0] present_state,
     output reg clear, IncPC, strobe,
 	 Gra, Grb, Grc, Rin, Rout, // define the inputs and outputs to your Control Unit here
     PCout, MDRout, Zhighout, Zlowout, HIout, LOout,
@@ -15,47 +16,31 @@ module control_unit (
     addr4 = 10'd8, ldi5 = 10'd9, ld5 = 10'd10, ld6 = 10'd11, ld7 = 10'd12, ld3 = 10'd13, st6 = 10'd14, br3 = 10'd15,
     br4 = 10'd16, br6 = 10'd17, jr3 = 10'd18, mfhi3 = 10'd19, mflo3 = 10'd20, in3 = 10'd21, out3 = 10'd22, jal3 = 10'd23, 
     jal4 = 10'd24, nop3 = 10'd25, halt3 = 10'd26, alu = 10'd27, alui = 10'd28, store = 10'd29, load = 10'd30, loadi  = 10'd31, 
-	 branch = 10'd32, stall = 10'd33;
-    reg [9:0] present_state = stall; // adjust the bit pattern based on the number of states
+	 branch = 10'd32, stall = 10'd33, notneg = 10'd36, mul = 10'd37, notneg3 = 10'd38, mul3 = 10'd39, mul4 = 10'd40, mul5 = 10'd41;
+    //reg [9:0] present_state = stall; // adjust the bit pattern based on the number of states
+initial begin
+	present_state = stall;
+end
 	 
 always @(posedge Clock, posedge Reset) // finite state machine; if clock or reset rising-edge
     begin
         if (Reset == 1'b1) present_state = reset_state;
         else case (present_state)
-        /*
-        Important things to note
-            - addr4 just preforms effective address calculation and as such is reused for all operations that require it
-            - alu ops are almost all the same except for immediate and mul/div which have one step added or diff
-        */
             stall : present_state = stall;
 				reset_state: #40 present_state = fetch0;
             fetch0: #40 present_state = fetch1;
             fetch1: #40 present_state = fetch2;
             fetch2: begin
+					#30
                 case (IR[31:27]) // inst. decoding based on the opcode to set the next state
-                	/*5'b00011 : alu3;//add 
-                    5'b01100 : alui3//addi
-			        5'b00100 : alu3//sub
-			        5'b01010 : alu3//and 
-                    5'b01101 : alui3//andi
-			        5'b01011 : alu3//or 
-                    5'b01110 : alui3//ori
-			        5'b00111 : alu3//shl
-			        5'b00101 : alu3//shr
-			        5'b00110 : alu3//shra
-			        5'b01001 : alu3//rol
-			        5'b01000 : alu3//ror
-		            5'b10010 : alu3//not
-			        5'b10001 : alu3//negate
-			        5'b01111 : alu3//mul
-			        5'b10000 : alu3//divide*/
-                    5'b01100, 5'b0110, 5'b01110, 5'b00011, 5'b00100, 5'b01010, 5'b01011, 5'b00111, 5'b00101, 
-                    5'b00110, 5'b01001, 5'b01000, 5'b10010, 5'b10001, 5'b01111, 5'b10000 : present_state <= alu3;
-                    /*5'b00000 : //ld
-                    5'b00001 : //ldi
-                    5'b00010 : //st*/
-                    5'b00000, 5'b00001, 5'b00010: #40 present_state = addr3;
-                    5'b10011 : #40 present_state = br3;//br
+						  5'b00011, 5'b00100, 5'b00101, 5'b00110, 5'b00111, 5'b01000, 5'b01001, 5'b01010, 5'b01011 : #40 present_state = alu;//add 
+                    5'b01100, 5'b01101, 5'b01110 : #40 present_state = alui;//addi
+		              5'b10010, 5'b10001 : #40 present_state = notneg; //not and negate
+			           5'b01111, 5'b10000 : #40 present_state = mul; //mul and divide
+                    5'b00010 : #40 present_state = store; //st
+                    5'b00000 : #40 present_state = load;
+						  5'b00001 : #40 present_state = loadi; //loadi
+                    5'b10011 : #40 present_state = branch;//br
                     5'b10100 : #40 present_state = jr3;//jr
                     5'b10101 : #40 present_state = jal3;//jal
                     5'b10110 : #40 present_state = in3;//in
@@ -68,10 +53,6 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
             end
             // alu stuff
             alu: begin
-                /*case(IR[31:27])
-                    5'b01100, 5'b0110, 5'b01110 : alui4;
-                    default : alu4
-                endcase*/
 					 present_state <= alu3;
 					 #40 present_state <= alu4;
 					 #40 present_state <= alu5;
@@ -95,6 +76,20 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 					 #40 present_state <= alui4;
 					 #40 present_state <= alu5;
 					 #40 present_state <= fetch0;
+				end
+				
+				notneg : begin
+					present_state <= notneg3;
+					#40 present_state <= alu5;
+					#40 present_state <= fetch0;
+				end
+				
+				mul : begin
+					present_state <= alu3;
+					#40 present_state <= mul3;
+					#40 present_state <= mul4;
+					#40 present_state <= mul5;
+					#40 present_state <= fetch0;
 				end
             
             // branch stuff
@@ -140,7 +135,7 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 				
 				loadi : begin
 					present_state <= ld3;
-					#40 present_state <= alui;
+					#40 present_state <= alui4;
 					#40 present_state <= alu5;
 					#40 present_state <= fetch0;
 				end
@@ -218,8 +213,8 @@ always @(present_state)
 					#20 Grb <= 0; Rout <= 0; Yin <= 0;
             end
             alu4: begin //put rc on the bus and operate ALU
-					Grc <= 1; Rout <= 1;
-					#20 Grc <= 0; Rout <= 0;
+					Grc <= 1; Rout <= 1; Zhighin <= 1; Zlowin <= 1;
+					#20 Grc <= 0; Rout <= 0;  Zhighin <= 0; Zlowin <= 0;
             end
             alui4: begin //put C on the bus and operate ALU
 					Cout<= 1; Zhighin <= 1; Zlowin <= 1; 
@@ -260,8 +255,9 @@ always @(present_state)
 					#10 Zlowout <= 0; MARin <= 0;
             end
             ld6: begin //mdr gets data from ram
+					#10
 					MDRin <= 1; Read <= 1; 
-					#10 MDRin <= 0; Read <= 0;
+					#20 MDRin <= 0; Read <= 0;
             end
             ld7: begin //contents of memory to Ra
                Gra <= 1; Rin <= 1; MDRout <= 1; 
@@ -302,6 +298,20 @@ always @(present_state)
 					LOout <= 1;Gra <= 1; Rin <= 1;  
 					#20 Gra <= 0; Rin <= 0; LOout <= 0; 
             end
+				
+				mul4: begin 
+					HIout <= 1; Zhighout <= 1; 
+					#20 Zhighout <= 0; HIout <= 0; 
+            end
+            mul5: begin
+					LOin <= 1; Zlowout <= 1;
+					#20  LOin <= 0; Zlowout <= 0;
+            end
+				
+				notneg3 : begin
+					Rout <= 1; Grb <= 1; Zhighin <= 1; Zlowin <= 1; 
+					#20 Rout <= 0; Grb <= 0; Zhighin <= 0; Zlowin <= 0;
+				end
 
             /*nop3: begin
 

@@ -1,4 +1,5 @@
 module data_path(
+	output [9:0] present_state,
 	output clear, IncPC, strobe,
 	Gra, Grb, Grc, Rin, Rout, 
    PCout, MDRout, Zhighout, Zlowout, HIout, LOout,
@@ -32,8 +33,8 @@ initial begin
 	PCin_br = 0;
 end
 
-always @(branchCompare, Zlowout) begin
-	if(branchCompare) PCin_br <= 1;
+always @(branchCompare, Zlowout, irOut) begin
+	if(branchCompare && irOut[31:27] == 5'b10011) PCin_br <= 1;
 	else if (Zlowout == 0) PCin_br <= 0;
 end
 
@@ -41,6 +42,7 @@ assign PCin_total = PCin || (PCin_br&&Zlowout);
 
 //control unit
 control_unit ctrl(
+	 present_state,
     clear, IncPC, strobe,
 	 Gra, Grb, Grc, Rin, Rout, // define the inputs and outputs to your Control Unit here
     PCout, MDRout, Zhighout, Zlowout, HIout, LOout,

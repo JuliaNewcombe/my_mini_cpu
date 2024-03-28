@@ -12,8 +12,10 @@ BusMuxInR15, BusMuxInZhigh, BusMuxInZlow, BusMuxInPCout, BusMuxInInPortout, BusM
 BusMuxInRamout, output_data, irOut;
 reg [31:0] input_data;
 reg clock, Reset, Stop, Con_FF;
+wire [9:0] present_state;
 
 data_path dp(
+	present_state,
 	clear, IncPC, strobe,
 	Gra, Grb, Grc, Rin, Rout, 
    PCout, MDRout, Zhighout, Zlowout, HIout, LOout,
