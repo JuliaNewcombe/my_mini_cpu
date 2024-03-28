@@ -4,18 +4,19 @@ module control_unit (
     output reg clear, IncPC, strobe,
 	 Gra, Grb, Grc, Rin, Rout, // define the inputs and outputs to your Control Unit here
     PCout, MDRout, Zhighout, Zlowout, HIout, LOout,
-    InPortout, Read, Write, Run, Clear,
+    InPortout, Read, Write, Run,
     HIin, LOin, CONin, PCin, IRin, Yin, Zlowin, Zhighin, MARin, MDRin, OutPortIn, Cout, BAout,
     input [31:0] IR,
     input Clock, Reset, Stop, Con_FF);
 	 
 	 
-    parameter reset_state = 10'd0, fetch0 = 10'd1, fetch1 = 10'd2, fetch2 = 10'd2,
-    alu3 = 10'd2, alu4 = 10'd3, alu5 = 10'd4, alu6 = 10'd5, alui4 = 10'd6, addr3 = 10'd7, 
+    parameter reset_state = 10'd0, fetch0 = 10'd1, fetch1 = 10'd2, fetch2 = 10'd3,
+    alu3 = 10'd34, alu4 = 10'd35, alu5 = 10'd4, alu6 = 10'd5, alui4 = 10'd6, addr3 = 10'd7, 
     addr4 = 10'd8, ldi5 = 10'd9, ld5 = 10'd10, ld6 = 10'd11, ld7 = 10'd12, ld3 = 10'd13, st6 = 10'd14, br3 = 10'd15,
     br4 = 10'd16, br6 = 10'd17, jr3 = 10'd18, mfhi3 = 10'd19, mflo3 = 10'd20, in3 = 10'd21, out3 = 10'd22, jal3 = 10'd23, 
-    jal4 = 10'd24, nop3 = 10'd25, halt3 = 10'd26, alu = 10'd27, alui = 10'd28, store = 10'd29, load = 10'd30, loadi  = 10'd31, branch = 10'd32;
-    reg [9:0] present_state = reset_state; // adjust the bit pattern based on the number of states
+    jal4 = 10'd24, nop3 = 10'd25, halt3 = 10'd26, alu = 10'd27, alui = 10'd28, store = 10'd29, load = 10'd30, loadi  = 10'd31, 
+	 branch = 10'd32, stall = 10'd33;
+    reg [9:0] present_state = stall; // adjust the bit pattern based on the number of states
 	 
 always @(posedge Clock, posedge Reset) // finite state machine; if clock or reset rising-edge
     begin
@@ -26,7 +27,8 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
             - addr4 just preforms effective address calculation and as such is reused for all operations that require it
             - alu ops are almost all the same except for immediate and mul/div which have one step added or diff
         */
-            reset_state: present_state = fetch0;
+            stall : present_state = stall;
+				reset_state: #40 present_state = fetch0;
             fetch0: #40 present_state = fetch1;
             fetch1: #40 present_state = fetch2;
             fetch2: begin
@@ -175,7 +177,7 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
             //nop3
             nop3: present_state = fetch0;
 				
-				default : present_state = fetch0;
+				//default : present_state = fetch0;
 				
 				halt3 : begin
 					Run <= 0;
@@ -193,7 +195,7 @@ always @(present_state)
 					clear <= 1;
 					#20 
 					clear <= 0;
-                //initialize all signals to zero and run a clear, do this last when signal list is complete, JN
+					{IncPC, strobe, Gra, Grb, Grc, Rin, Rout, PCout, MDRout, Zhighout, Zlowout, HIout, LOout, InPortout, Read, Write, HIin, LOin, CONin, PCin, IRin, Yin, Zlowin, Zhighin, MARin, MDRin, OutPortIn, Cout, BAout} = 29'b0;
             end
             fetch0: begin //see the PC on the bus
 					PCout <= 1; MARin <= 1; IncPC <= 1; Zhighin <= 1; Zlowin <= 1;

@@ -1,3 +1,4 @@
+Info (10281): Verilog HDL Declaration information at data_path.v(16): object "Con_FF" differs only in case from object "CON_FF" in the same scope File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/data_path.v Line: 16
 Warning (10268): Verilog HDL information at phase_2_tb.v(56): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 56
 Info (10281): Verilog HDL Declaration information at phase_2_tb.v(6): object "IRin" differs only in case from object "irIn" in the same scope File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/phase_2_tb.v Line: 6
 Warning (10268): Verilog HDL information at ALU_immediate_instr_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ALU_immediate_instr_tb.v Line: 62
@@ -6,5 +7,5 @@ Warning (10268): Verilog HDL information at ld_and_st_tb.v(62): always construct
 Warning (10268): Verilog HDL information at ldi_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ldi_tb.v Line: 62
 Warning (10268): Verilog HDL information at alu_instr_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/alu_instr_tb.v Line: 62
 Warning (10268): Verilog HDL information at mfhi_mflo_tb.v(67): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v Line: 67
-Warning (10268): Verilog HDL information at control_unit.v(20): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 20
-Info (10281): Verilog HDL Declaration information at control_unit.v(4): object "clear" differs only in case from object "Clear" in the same scope File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 4
+Warning (10268): Verilog HDL information at control_unit.v(21): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 21
+Warning (10268): Verilog HDL information at control_unit.v(191): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 191

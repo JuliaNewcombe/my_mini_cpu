@@ -1,139 +1,38 @@
-|store_tb
+|ctrl_unit_tb
 
 
-|store_tb|data_path:DUT
-clock => clock.IN28
-clear => clear.IN27
-Read => Read.IN2
-Write => Write.IN1
-strobe => strobe.IN1
-BAOut => BAOut.IN2
-Gra => Gra.IN1
-Grb => Grb.IN1
-Grc => Grc.IN1
-Rin => Rin.IN1
-Rout => Rout.IN1
-CONin => CONin.IN1
-input_data[0] => input_data[0].IN1
-input_data[1] => input_data[1].IN1
-input_data[2] => input_data[2].IN1
-input_data[3] => input_data[3].IN1
-input_data[4] => input_data[4].IN1
-input_data[5] => input_data[5].IN1
-input_data[6] => input_data[6].IN1
-input_data[7] => input_data[7].IN1
-input_data[8] => input_data[8].IN1
-input_data[9] => input_data[9].IN1
-input_data[10] => input_data[10].IN1
-input_data[11] => input_data[11].IN1
-input_data[12] => input_data[12].IN1
-input_data[13] => input_data[13].IN1
-input_data[14] => input_data[14].IN1
-input_data[15] => input_data[15].IN1
-input_data[16] => input_data[16].IN1
-input_data[17] => input_data[17].IN1
-input_data[18] => input_data[18].IN1
-input_data[19] => input_data[19].IN1
-input_data[20] => input_data[20].IN1
-input_data[21] => input_data[21].IN1
-input_data[22] => input_data[22].IN1
-input_data[23] => input_data[23].IN1
-input_data[24] => input_data[24].IN1
-input_data[25] => input_data[25].IN1
-input_data[26] => input_data[26].IN1
-input_data[27] => input_data[27].IN1
-input_data[28] => input_data[28].IN1
-input_data[29] => input_data[29].IN1
-input_data[30] => input_data[30].IN1
-input_data[31] => input_data[31].IN1
-irIn[0] => irIn[0].IN1
-irIn[1] => irIn[1].IN1
-irIn[2] => irIn[2].IN1
-irIn[3] => irIn[3].IN1
-irIn[4] => irIn[4].IN1
-irIn[5] => irIn[5].IN1
-irIn[6] => irIn[6].IN1
-irIn[7] => irIn[7].IN1
-irIn[8] => irIn[8].IN1
-irIn[9] => irIn[9].IN1
-irIn[10] => irIn[10].IN1
-irIn[11] => irIn[11].IN1
-irIn[12] => irIn[12].IN1
-irIn[13] => irIn[13].IN1
-irIn[14] => irIn[14].IN1
-irIn[15] => irIn[15].IN1
-irIn[16] => irIn[16].IN1
-irIn[17] => irIn[17].IN1
-irIn[18] => irIn[18].IN1
-irIn[19] => irIn[19].IN1
-irIn[20] => irIn[20].IN1
-irIn[21] => irIn[21].IN1
-irIn[22] => irIn[22].IN1
-irIn[23] => irIn[23].IN1
-irIn[24] => irIn[24].IN1
-irIn[25] => irIn[25].IN1
-irIn[26] => irIn[26].IN1
-irIn[27] => irIn[27].IN1
-irIn[28] => irIn[28].IN1
-irIn[29] => irIn[29].IN1
-irIn[30] => irIn[30].IN1
-irIn[31] => irIn[31].IN1
-op_in[0] => op_code.IN1
-op_in[1] => ~NO_FANOUT~
-op_in[2] => ~NO_FANOUT~
-op_in[3] => ~NO_FANOUT~
-op_in[4] => ~NO_FANOUT~
-HIout => HIout.IN1
-LOout => LOout.IN1
-Zhighout => Zhighout.IN1
-Zlowout => Zlowout.IN1
-PCout => PCout.IN1
-MDRout => MDRout.IN1
-InPortout => InPortout.IN1
-Yout => ~NO_FANOUT~
-RAMout => ~NO_FANOUT~
-Cout => Cout.IN1
-HIin => HIin.IN1
-LOin => LOin.IN1
-Zhighin => Zhighin.IN1
-Zlowin => Zlowin.IN1
-PCin => PCin_total.IN1
-MDRin => MDRin.IN1
-OutPortin => OutPortin.IN1
-Yin => Yin.IN1
-MARin => MARin.IN1
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
-IncPC => ZLowWire.OUTPUTSELECT
+|ctrl_unit_tb|data_path:dp
+clear <= clear.DB_MAX_OUTPUT_PORT_TYPE
+IncPC <= control_unit:ctrl.port1
+strobe <= strobe.DB_MAX_OUTPUT_PORT_TYPE
+Gra <= Gra.DB_MAX_OUTPUT_PORT_TYPE
+Grb <= Grb.DB_MAX_OUTPUT_PORT_TYPE
+Grc <= Grc.DB_MAX_OUTPUT_PORT_TYPE
+Rin <= Rin.DB_MAX_OUTPUT_PORT_TYPE
+Rout <= Rout.DB_MAX_OUTPUT_PORT_TYPE
+PCout <= PCout.DB_MAX_OUTPUT_PORT_TYPE
+MDRout <= MDRout.DB_MAX_OUTPUT_PORT_TYPE
+Zhighout <= Zhighout.DB_MAX_OUTPUT_PORT_TYPE
+Zlowout <= Zlowout.DB_MAX_OUTPUT_PORT_TYPE
+HIout <= HIout.DB_MAX_OUTPUT_PORT_TYPE
+LOout <= LOout.DB_MAX_OUTPUT_PORT_TYPE
+InPortout <= InPortout.DB_MAX_OUTPUT_PORT_TYPE
+Read <= Read.DB_MAX_OUTPUT_PORT_TYPE
+Write <= Write.DB_MAX_OUTPUT_PORT_TYPE
+Run <= control_unit:ctrl.port17
+HIin <= HIin.DB_MAX_OUTPUT_PORT_TYPE
+LOin <= LOin.DB_MAX_OUTPUT_PORT_TYPE
+CONin <= CONin.DB_MAX_OUTPUT_PORT_TYPE
+PCin <= control_unit:ctrl.port21
+IRin <= IRin.DB_MAX_OUTPUT_PORT_TYPE
+Yin <= Yin.DB_MAX_OUTPUT_PORT_TYPE
+Zlowin <= Zlowin.DB_MAX_OUTPUT_PORT_TYPE
+Zhighin <= Zhighin.DB_MAX_OUTPUT_PORT_TYPE
+MARin <= MARin.DB_MAX_OUTPUT_PORT_TYPE
+MDRin <= MDRin.DB_MAX_OUTPUT_PORT_TYPE
+OutPortin <= OutPortin.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+BAOut <= BAOut.DB_MAX_OUTPUT_PORT_TYPE
 BusMuxOut[0] <= BusMuxOut[0].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxOut[1] <= BusMuxOut[1].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxOut[2] <= BusMuxOut[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -1127,13 +1026,172 @@ R12in <= R12in.DB_MAX_OUTPUT_PORT_TYPE
 R13in <= R13in.DB_MAX_OUTPUT_PORT_TYPE
 R14in <= R14in.DB_MAX_OUTPUT_PORT_TYPE
 R15in <= R15in.DB_MAX_OUTPUT_PORT_TYPE
-to_decode[0] <= sel_encode:SEL_ENCODE.port41
-to_decode[1] <= sel_encode:SEL_ENCODE.port41
-to_decode[2] <= sel_encode:SEL_ENCODE.port41
-to_decode[3] <= sel_encode:SEL_ENCODE.port41
+input_data[0] => input_data[0].IN1
+input_data[1] => input_data[1].IN1
+input_data[2] => input_data[2].IN1
+input_data[3] => input_data[3].IN1
+input_data[4] => input_data[4].IN1
+input_data[5] => input_data[5].IN1
+input_data[6] => input_data[6].IN1
+input_data[7] => input_data[7].IN1
+input_data[8] => input_data[8].IN1
+input_data[9] => input_data[9].IN1
+input_data[10] => input_data[10].IN1
+input_data[11] => input_data[11].IN1
+input_data[12] => input_data[12].IN1
+input_data[13] => input_data[13].IN1
+input_data[14] => input_data[14].IN1
+input_data[15] => input_data[15].IN1
+input_data[16] => input_data[16].IN1
+input_data[17] => input_data[17].IN1
+input_data[18] => input_data[18].IN1
+input_data[19] => input_data[19].IN1
+input_data[20] => input_data[20].IN1
+input_data[21] => input_data[21].IN1
+input_data[22] => input_data[22].IN1
+input_data[23] => input_data[23].IN1
+input_data[24] => input_data[24].IN1
+input_data[25] => input_data[25].IN1
+input_data[26] => input_data[26].IN1
+input_data[27] => input_data[27].IN1
+input_data[28] => input_data[28].IN1
+input_data[29] => input_data[29].IN1
+input_data[30] => input_data[30].IN1
+input_data[31] => input_data[31].IN1
+clock => clock.IN29
+Reset => Reset.IN1
+Stop => Stop.IN1
+Con_FF => Con_FF.IN1
 
 
-|store_tb|data_path:DUT|r0:R0
+|ctrl_unit_tb|data_path:dp|control_unit:ctrl
+clear <= <GND>
+IncPC <= <GND>
+strobe <= <GND>
+Gra <= Gra$latch.DB_MAX_OUTPUT_PORT_TYPE
+Grb <= <GND>
+Grc <= <GND>
+Rin <= Rin$latch.DB_MAX_OUTPUT_PORT_TYPE
+Rout <= <GND>
+PCout <= <GND>
+MDRout <= <GND>
+Zhighout <= <GND>
+Zlowout <= <GND>
+HIout <= <GND>
+LOout <= <GND>
+InPortout <= <GND>
+Read <= <GND>
+Write <= <GND>
+Run <= Run~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HIin <= <GND>
+LOin <= <GND>
+CONin <= <GND>
+PCin <= <GND>
+IRin <= <GND>
+Yin <= <GND>
+Zlowin <= <GND>
+Zhighin <= <GND>
+MARin <= <GND>
+MDRin <= <GND>
+OutPortIn <= <GND>
+Cout <= <GND>
+BAout <= <GND>
+IR[0] => ~NO_FANOUT~
+IR[1] => ~NO_FANOUT~
+IR[2] => ~NO_FANOUT~
+IR[3] => ~NO_FANOUT~
+IR[4] => ~NO_FANOUT~
+IR[5] => ~NO_FANOUT~
+IR[6] => ~NO_FANOUT~
+IR[7] => ~NO_FANOUT~
+IR[8] => ~NO_FANOUT~
+IR[9] => ~NO_FANOUT~
+IR[10] => ~NO_FANOUT~
+IR[11] => ~NO_FANOUT~
+IR[12] => ~NO_FANOUT~
+IR[13] => ~NO_FANOUT~
+IR[14] => ~NO_FANOUT~
+IR[15] => ~NO_FANOUT~
+IR[16] => ~NO_FANOUT~
+IR[17] => ~NO_FANOUT~
+IR[18] => ~NO_FANOUT~
+IR[19] => ~NO_FANOUT~
+IR[20] => ~NO_FANOUT~
+IR[21] => ~NO_FANOUT~
+IR[22] => ~NO_FANOUT~
+IR[23] => ~NO_FANOUT~
+IR[24] => ~NO_FANOUT~
+IR[25] => ~NO_FANOUT~
+IR[26] => ~NO_FANOUT~
+IR[27] => Decoder0.IN4
+IR[27] => Mux0.IN31
+IR[27] => Mux1.IN31
+IR[27] => Mux2.IN31
+IR[27] => Mux3.IN31
+IR[27] => Mux4.IN31
+IR[27] => Mux5.IN31
+IR[27] => Mux6.IN31
+IR[27] => Mux7.IN31
+IR[27] => Mux8.IN31
+IR[27] => Mux9.IN31
+IR[27] => Mux10.IN31
+IR[28] => Decoder0.IN3
+IR[28] => Mux0.IN30
+IR[28] => Mux1.IN30
+IR[28] => Mux2.IN30
+IR[28] => Mux3.IN30
+IR[28] => Mux4.IN30
+IR[28] => Mux5.IN30
+IR[28] => Mux6.IN30
+IR[28] => Mux7.IN30
+IR[28] => Mux8.IN30
+IR[28] => Mux9.IN30
+IR[28] => Mux10.IN30
+IR[29] => Decoder0.IN2
+IR[29] => Mux0.IN29
+IR[29] => Mux1.IN29
+IR[29] => Mux2.IN29
+IR[29] => Mux3.IN29
+IR[29] => Mux4.IN29
+IR[29] => Mux5.IN29
+IR[29] => Mux6.IN29
+IR[29] => Mux7.IN29
+IR[29] => Mux8.IN29
+IR[29] => Mux9.IN29
+IR[29] => Mux10.IN29
+IR[30] => Decoder0.IN1
+IR[30] => Mux0.IN28
+IR[30] => Mux1.IN28
+IR[30] => Mux2.IN28
+IR[30] => Mux3.IN28
+IR[30] => Mux4.IN28
+IR[30] => Mux5.IN28
+IR[30] => Mux6.IN28
+IR[30] => Mux7.IN28
+IR[30] => Mux8.IN28
+IR[30] => Mux9.IN28
+IR[30] => Mux10.IN28
+IR[31] => Decoder0.IN0
+IR[31] => Mux0.IN27
+IR[31] => Mux1.IN27
+IR[31] => Mux2.IN27
+IR[31] => Mux3.IN27
+IR[31] => Mux4.IN27
+IR[31] => Mux5.IN27
+IR[31] => Mux6.IN27
+IR[31] => Mux7.IN27
+IR[31] => Mux8.IN27
+IR[31] => Mux9.IN27
+IR[31] => Mux10.IN27
+Clock => Run~reg0.CLK
+Clock => present_state~23.DATAIN
+Reset => present_state~25.DATAIN
+Reset => Run~reg0.ENA
+Stop => ~NO_FANOUT~
+Con_FF => ~NO_FANOUT~
+
+
+|ctrl_unit_tb|data_path:dp|r0:R0
 clear => clear.IN1
 clock => clock.IN1
 enable => enable.IN1
@@ -1235,7 +1293,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|r0:R0|reg_32:this_reg
+|ctrl_unit_tb|data_path:dp|r0:R0|reg_32:this_reg
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1398,7 +1456,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R1
+|ctrl_unit_tb|data_path:dp|reg_32:R1
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1561,7 +1619,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R2
+|ctrl_unit_tb|data_path:dp|reg_32:R2
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1724,7 +1782,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R3
+|ctrl_unit_tb|data_path:dp|reg_32:R3
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -1887,7 +1945,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R4
+|ctrl_unit_tb|data_path:dp|reg_32:R4
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2050,7 +2108,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R5
+|ctrl_unit_tb|data_path:dp|reg_32:R5
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2213,7 +2271,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R6
+|ctrl_unit_tb|data_path:dp|reg_32:R6
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2376,7 +2434,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R7
+|ctrl_unit_tb|data_path:dp|reg_32:R7
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2539,7 +2597,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R8
+|ctrl_unit_tb|data_path:dp|reg_32:R8
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2702,7 +2760,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R9
+|ctrl_unit_tb|data_path:dp|reg_32:R9
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -2865,7 +2923,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R10
+|ctrl_unit_tb|data_path:dp|reg_32:R10
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3028,7 +3086,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R11
+|ctrl_unit_tb|data_path:dp|reg_32:R11
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3191,7 +3249,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R12
+|ctrl_unit_tb|data_path:dp|reg_32:R12
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3354,7 +3412,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R13
+|ctrl_unit_tb|data_path:dp|reg_32:R13
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3517,7 +3575,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R14
+|ctrl_unit_tb|data_path:dp|reg_32:R14
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3680,7 +3738,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:R15
+|ctrl_unit_tb|data_path:dp|reg_32:R15
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -3843,7 +3901,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:HI
+|ctrl_unit_tb|data_path:dp|reg_32:HI
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4006,7 +4064,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:LO
+|ctrl_unit_tb|data_path:dp|reg_32:LO
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4169,7 +4227,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:Zhigh
+|ctrl_unit_tb|data_path:dp|reg_32:Zhigh
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4332,7 +4390,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:Zlow
+|ctrl_unit_tb|data_path:dp|reg_32:Zlow
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4495,7 +4553,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:PC
+|ctrl_unit_tb|data_path:dp|reg_32:PC
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -4658,7 +4716,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|MDR_reg:MDR
+|ctrl_unit_tb|data_path:dp|MDR_reg:MDR
 clear => q[0].ACLR
 clear => q[1].ACLR
 clear => q[2].ACLR
@@ -4854,7 +4912,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|in_port:InPort
+|ctrl_unit_tb|data_path:dp|in_port:InPort
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5017,7 +5075,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:Y
+|ctrl_unit_tb|data_path:dp|reg_32:Y
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5180,7 +5238,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:OutPort
+|ctrl_unit_tb|data_path:dp|reg_32:OutPort
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5343,7 +5401,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|mar:MAR
+|ctrl_unit_tb|data_path:dp|mar:MAR
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -5414,7 +5472,7 @@ addr[7] <= q[7].DB_MAX_OUTPUT_PORT_TYPE
 addr[8] <= q[8].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ripple_carry_adder:pc_adder
+|ctrl_unit_tb|data_path:dp|ripple_carry_adder:pc_adder
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -5643,7 +5701,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu
+|ctrl_unit_tb|data_path:dp|ALU:alu
 A[0] => A[0].IN11
 A[1] => A[1].IN11
 A[2] => A[2].IN11
@@ -6094,7 +6152,7 @@ Zhighout[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 Zhighout[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|ripple_carry_adder:add_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|ripple_carry_adder:add_instance
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -6323,7 +6381,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|ripple_carry_adder:sub_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|ripple_carry_adder:sub_instance
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -6552,7 +6610,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|and_vals:and_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|and_vals:and_instance
 A[0] => result.IN0
 A[1] => result.IN0
 A[2] => result.IN0
@@ -6651,7 +6709,7 @@ result[30] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= result.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|or_vals:or_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|or_vals:or_instance
 A[0] => result.IN0
 A[1] => result.IN0
 A[2] => result.IN0
@@ -6750,7 +6808,7 @@ result[30] <= result.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= result.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|shift_left:sll_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|shift_left:sll_instance
 A[0] => ShiftLeft0.IN32
 A[1] => ShiftLeft0.IN31
 A[2] => ShiftLeft0.IN30
@@ -6849,7 +6907,7 @@ result[30] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= ShiftLeft0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|shift_right:slr_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|shift_right:slr_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftRight1.IN32
 A[1] => ShiftRight0.IN31
@@ -7045,7 +7103,7 @@ result[30] <= intermediate[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= intermediate[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|shift_right:slra_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|shift_right:slra_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftRight1.IN32
 A[1] => ShiftRight0.IN31
@@ -7241,7 +7299,7 @@ result[30] <= intermediate[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= intermediate[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|rotate_left:rol_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|rotate_left:rol_instance
 A[0] => ShiftLeft0.IN32
 A[0] => ShiftRight0.IN64
 A[1] => ShiftLeft0.IN31
@@ -7404,7 +7462,7 @@ result[30] <= q.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|rotate_right:ror_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|rotate_right:ror_instance
 A[0] => ShiftRight0.IN32
 A[0] => ShiftLeft0.IN64
 A[1] => ShiftRight0.IN31
@@ -7567,7 +7625,7 @@ result[30] <= q.DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|not_val:not_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|not_val:not_instance
 A[0] => result[0].DATAIN
 A[1] => result[1].DATAIN
 A[2] => result[2].DATAIN
@@ -7634,7 +7692,7 @@ result[30] <= A[30].DB_MAX_OUTPUT_PORT_TYPE
 result[31] <= A[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|negate_val:negate_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|negate_val:negate_instance
 A[0] => intermediate[0].IN1
 A[1] => intermediate[1].IN1
 A[2] => intermediate[2].IN1
@@ -7701,7 +7759,7 @@ result[30] <= ripple_carry_adder:add_one.port2
 result[31] <= ripple_carry_adder:add_one.port2
 
 
-|store_tb|data_path:DUT|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one
+|ctrl_unit_tb|data_path:dp|ALU:alu|negate_val:negate_instance|ripple_carry_adder:add_one
 A[0] => sum.IN0
 A[0] => carry[1].IN0
 A[1] => sum.IN0
@@ -7930,7 +7988,7 @@ carry_flag <= carry.DB_MAX_OUTPUT_PORT_TYPE
 overflow_flag <= overflow_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ALU:alu|booth_pair_mul:booth_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|booth_pair_mul:booth_instance
 A[0] => Selector31.IN7
 A[0] => Selector32.IN4
 A[0] => Add1.IN124
@@ -9596,7 +9654,7 @@ result[63] <= Selector719.DB_MAX_OUTPUT_PORT_TYPE
 carry_flag <= <GND>
 
 
-|store_tb|data_path:DUT|ALU:alu|divide:divide_instance
+|ctrl_unit_tb|data_path:dp|ALU:alu|divide:divide_instance
 A[0] => Add62.IN33
 A[0] => Add63.IN33
 A[1] => Add60.IN33
@@ -9919,7 +9977,7 @@ remainder[30] <= c.DB_MAX_OUTPUT_PORT_TYPE
 remainder[31] <= c.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|ram:RAM
+|ctrl_unit_tb|data_path:dp|ram:RAM
 clock => mem.we_a.CLK
 clock => mem.waddr_a[8].CLK
 clock => mem.waddr_a[7].CLK
@@ -10186,7 +10244,7 @@ MDataIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 MDataIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|Bus:bus
+|ctrl_unit_tb|data_path:dp|Bus:bus
 BusMuxInR0[0] => q[0].DATAA
 BusMuxInR0[1] => q[1].DATAA
 BusMuxInR0[2] => q[2].DATAA
@@ -11749,7 +11807,7 @@ BusMuxOut[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxOut[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|reg_32:ir
+|ctrl_unit_tb|data_path:dp|reg_32:ir
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
 clear => q.OUTPUTSELECT
@@ -11912,7 +11970,7 @@ BusMuxIn[30] <= q[30].DB_MAX_OUTPUT_PORT_TYPE
 BusMuxIn[31] <= q[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|con_ff:CON_FF
+|ctrl_unit_tb|data_path:dp|con_ff:CON_FF
 result <= d_flip_flop:CONFF.port2
 ir[0] => ~NO_FANOUT~
 ir[1] => ~NO_FANOUT~
@@ -12021,13 +12079,13 @@ BusMuxOut[31] => neg.IN1
 CONin => CONin.IN1
 
 
-|store_tb|data_path:DUT|con_ff:CON_FF|d_flip_flop:CONFF
+|ctrl_unit_tb|data_path:dp|con_ff:CON_FF|d_flip_flop:CONFF
 CONin => ~NO_FANOUT~
 D => Q.DATAIN
 Q <= D.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|store_tb|data_path:DUT|sel_encode:SEL_ENCODE
+|ctrl_unit_tb|data_path:dp|sel_encode:SEL_ENCODE
 instr[0] => C_sign_ext[0].DATAIN
 instr[1] => C_sign_ext[1].DATAIN
 instr[2] => C_sign_ext[2].DATAIN
@@ -12176,9 +12234,5 @@ R12out <= outReg.DB_MAX_OUTPUT_PORT_TYPE
 R13out <= outReg.DB_MAX_OUTPUT_PORT_TYPE
 R14out <= outReg.DB_MAX_OUTPUT_PORT_TYPE
 R15out <= outReg.DB_MAX_OUTPUT_PORT_TYPE
-to_decode[0] <= to_decode.DB_MAX_OUTPUT_PORT_TYPE
-to_decode[1] <= to_decode.DB_MAX_OUTPUT_PORT_TYPE
-to_decode[2] <= to_decode.DB_MAX_OUTPUT_PORT_TYPE
-to_decode[3] <= to_decode.DB_MAX_OUTPUT_PORT_TYPE
 
 
