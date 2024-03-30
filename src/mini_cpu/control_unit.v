@@ -16,18 +16,24 @@ module control_unit (
     addr4 = 10'd8, ldi5 = 10'd9, ld5 = 10'd10, ld6 = 10'd11, ld7 = 10'd12, ld3 = 10'd13, st6 = 10'd14, br3 = 10'd15,
     br4 = 10'd16, br6 = 10'd17, jr3 = 10'd18, mfhi3 = 10'd19, mflo3 = 10'd20, in3 = 10'd21, out3 = 10'd22, jal3 = 10'd23, 
     jal4 = 10'd24, nop3 = 10'd25, halt3 = 10'd26, alu = 10'd27, alui = 10'd28, store = 10'd29, load = 10'd30, loadi  = 10'd31, 
-	 branch = 10'd32, stall = 10'd33, notneg = 10'd36, mul = 10'd37, notneg3 = 10'd38, mul3 = 10'd39, mul4 = 10'd40, mul5 = 10'd41;
+	 branch = 10'd32, stall = 10'd33, notneg = 10'd36, mul = 10'd37, notneg3 = 10'd38, mul3 = 10'd39, mul4 = 10'd40, mul5 = 10'd41,
+	 st3 = 10'd42, mul34 = 10'd43, jal = 10'd44;
     //reg [9:0] present_state = stall; // adjust the bit pattern based on the number of states
 initial begin
 	present_state = stall;
+	Run <= 0;
 end
 	 
 always @(posedge Clock, posedge Reset) // finite state machine; if clock or reset rising-edge
     begin
         if (Reset == 1'b1) present_state = reset_state;
+		  else if(Stop == 1'b1) present_state = halt3;
         else case (present_state)
             stall : present_state = stall;
-				reset_state: #40 present_state = fetch0;
+				reset_state: begin
+					Run <= 1;
+					#40 present_state = fetch0;
+				end
             fetch0: #40 present_state = fetch1;
             fetch1: #40 present_state = fetch2;
             fetch2: begin
@@ -42,7 +48,7 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 						  5'b00001 : #40 present_state = loadi; //loadi
                     5'b10011 : #40 present_state = branch;//br
                     5'b10100 : #40 present_state = jr3;//jr
-                    5'b10101 : #40 present_state = jal3;//jal
+                    5'b10101 : #40 present_state = jal;//jal
                     5'b10110 : #40 present_state = in3;//in
                     5'b10111 : #40 present_state = out3;//out
                     5'b11000 : #40 present_state = mfhi3;//mfhi
@@ -85,8 +91,8 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 				end
 				
 				mul : begin
-					present_state <= alu3;
-					#40 present_state <= mul3;
+					present_state <= mul3;
+					#40 present_state <= mul34;
 					#40 present_state <= mul4;
 					#40 present_state <= mul5;
 					#40 present_state <= fetch0;
@@ -144,7 +150,7 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
             /*st5: present_state = st6;
             st6: present_state = fetch0;*/
 				store : begin
-					present_state <= ld3;
+					present_state <= st3;
 					#40 present_state <= alui4;
 					#40 present_state <= ld5;
 					#40 present_state <= st6;
@@ -154,8 +160,9 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
             //jump stuff
             jr3: #40 present_state <= fetch0;
 
-            jal3: begin
-					#40 present_state <= jal4;
+            jal: begin
+					present_state <= jal3;
+					#40 present_state <= jr3;
 					#40 present_state <= fetch0;
 				end
 
@@ -264,6 +271,12 @@ always @(present_state)
 					#10 Gra <= 0; Rin <= 0; MDRout <= 0;
             end
 				
+				st3: begin //load register addr in Yin
+					Grb <= 1; Rout <= 1;
+					#10 Yin <= 1; 
+					#10 Grb <= 0; Yin <= 0; Rout <= 0;
+				end
+				
             st6: begin //ram to bus to ra
 					MDRin <= 1; Write <= 1; Rout <= 1; Gra <= 1;
 					#10 MDRin <= 0; Write <= 0; Rout <= 0; Gra <= 0;
@@ -298,7 +311,16 @@ always @(present_state)
 					LOout <= 1;Gra <= 1; Rin <= 1;  
 					#20 Gra <= 0; Rin <= 0; LOout <= 0; 
             end
-				
+				mul3: begin //gra on the bus and do the mult
+               Gra <= 1; Rout <= 1; 
+					#10 Yin <= 1;
+					#20 Gra <= 0; Rout <= 0; Yin <= 0; 
+            end
+				mul34 : begin
+					Grb <= 1; Rout <= 1; 
+					#10  Zhighin <= 1; Zlowin <= 1; 
+					#20 Grb <= 0; Rout <= 0; Zhighin <= 0; Zlowin <= 0; 
+            end
 				mul4: begin 
 					HIout <= 1; Zhighout <= 1; 
 					#20 Zhighout <= 0; HIout <= 0; 

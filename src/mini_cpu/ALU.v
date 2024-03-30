@@ -1,7 +1,7 @@
 module ALU(input [31:0] A, B, input [4:0] op, output reg[31:0] Zlowout, Zhighout);
 
 	wire [31:0] add_result, sub_result, and_result, or_result, sll_result, slr_result, slra_result, rol_result, ror_result, not_result, negate_result, divide_result, divide_remainder;
-	wire [64:0] mul_result;
+	wire [63:0] mul_result;
 	wire carry_flag_add, overflow_flag_add, carry_flag_sub, overflow_flag_sub;
 	reg my_one = 1'b1;
 	reg my_zero = 1'b0;
@@ -19,8 +19,8 @@ module ALU(input [31:0] A, B, input [4:0] op, output reg[31:0] Zlowout, Zhighout
 	shift_right 	    slra_instance(A, B, my_one, slra_result);
 	rotate_left        rol_instance(A, B, rol_result);
 	rotate_right       ror_instance(A, B, ror_result);
-	not_val            not_instance(A, not_result);
-	negate_val         negate_instance(A, negate_result);
+	not_val            not_instance(B, not_result);
+	negate_val         negate_instance(B, negate_result);
 	booth_pair_mul		 booth_instance(A, B, mul_result, carry_flag);
 	divide				 divide_instance(A, B, divide_result, divide_remainder);
 	

@@ -7,5 +7,5 @@ Warning (10268): Verilog HDL information at ld_and_st_tb.v(62): always construct
 Warning (10268): Verilog HDL information at ldi_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/ldi_tb.v Line: 62
 Warning (10268): Verilog HDL information at alu_instr_tb.v(62): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/alu_instr_tb.v Line: 62
 Warning (10268): Verilog HDL information at mfhi_mflo_tb.v(67): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/mfhi_mflo_tb.v Line: 67
-Warning (10268): Verilog HDL information at control_unit.v(25): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 25
-Warning (10268): Verilog HDL information at control_unit.v(186): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 186
+Warning (10268): Verilog HDL information at control_unit.v(27): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 27
+Warning (10268): Verilog HDL information at control_unit.v(193): always construct contains both blocking and non-blocking assignments File: C:/Users/18jmcn/my_mini_cpu/src/mini_cpu/control_unit.v Line: 193
