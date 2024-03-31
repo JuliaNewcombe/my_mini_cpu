@@ -3,7 +3,7 @@
 module control_unit (
 	 output reg [9:0] present_state,
     output reg clear, IncPC, strobe,
-	 Gra, Grb, Grc, Rin, Rout, // define the inputs and outputs to your Control Unit here
+	 Gra, Grb, Grc, Rin, Rout, 
     PCout, MDRout, Zhighout, Zlowout, HIout, LOout,
     InPortout, Read, Write, Run,
     HIin, LOin, CONin, PCin, IRin, Yin, Zlowin, Zhighin, MARin, MDRin, OutPortIn, Cout, BAout,
@@ -18,16 +18,17 @@ module control_unit (
     jal4 = 10'd24, nop3 = 10'd25, halt3 = 10'd26, alu = 10'd27, alui = 10'd28, store = 10'd29, load = 10'd30, loadi  = 10'd31, 
 	 branch = 10'd32, stall = 10'd33, notneg = 10'd36, mul = 10'd37, notneg3 = 10'd38, mul3 = 10'd39, mul4 = 10'd40, mul5 = 10'd41,
 	 st3 = 10'd42, mul34 = 10'd43, jal = 10'd44;
-    //reg [9:0] present_state = stall; // adjust the bit pattern based on the number of states
-initial begin
+
+	 initial begin
 	present_state = stall;
 	Run <= 0;
 end
 	 
-always @(posedge Clock, posedge Reset) // finite state machine; if clock or reset rising-edge
+always @(posedge Clock, posedge Reset, posedge Stop) // finite state machine; if clock or reset rising-edge
     begin
+		  if(Stop == 1'b1) present_state = halt3;
+	 
         if (Reset == 1'b1) present_state = reset_state;
-		  else if(Stop == 1'b1) present_state = halt3;
         else case (present_state)
             stall : present_state = stall;
 				reset_state: begin
@@ -57,25 +58,13 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
                     5'b11011 : #40 present_state = halt3;//halt
                 endcase
             end
-            // alu stuff
+
             alu: begin
 					 present_state <= alu3;
 					 #40 present_state <= alu4;
 					 #40 present_state <= alu5;
 					 #40 present_state <= fetch0;
             end
-            /*alu4: begin
-                case(IR[31:27])
-                    5'b01111, 5'b10000 : present_state = alu5;
-                    default : present_state = alu6;
-                endcase
-            end
-				// alu but for immediates
-            alui4: present_state = alu6;
-				// for high portion of mul and div
-            alu5: present_state = alu6
-				// final step of every alu op
-            alu6: present_state = fetch0;*/
 				
 				alui: begin
 					 present_state <= alu3;
@@ -98,9 +87,6 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 					#40 present_state <= fetch0;
 				end
             
-            // branch stuff
-            /*br3: present_state = br4;
-            br4: present_state = addr4;*/
 				branch : begin
 					present_state <= br3;
 					#40 present_state <= br4;
@@ -108,27 +94,6 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 					#40 present_state <= br6;
 					#40 present_state <= fetch0;
 				end
-
-            //address stuff
-            //addr3: present_state = addr4;
-				// effective address calculation
-            /*addr4: begin // this will be address calculation step could in theory be combined with alui4
-                case(IR[31:27])
-                    5'b00000 : present_state = ldi5;//ldi
-                    5'b00001 : present_state = ld5;//ld
-                    5'b00010 : present_state = st5;//st
-                    5'b10011 : present_state = br6;//br
-                endcase
-            end*/
-            
-            //end of branch stuff (everything after effective address calc)
-            //br6: present_state = fetch0;
-
-            //load stuff (everything after effective address calc)
-            /*ld5: present_state = ld6;
-            ld6: present_state = ld7;
-            ld7: present_state = fetch0;
-            ldi5: present_state = fetch0;*/
 				
 				load : begin
 					present_state <= ld3;
@@ -146,9 +111,6 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 					#40 present_state <= fetch0;
 				end
 
-            //store stuff (everything after effective address calc)
-            /*st5: present_state = st6;
-            st6: present_state = fetch0;*/
 				store : begin
 					present_state <= st3;
 					#40 present_state <= alui4;
@@ -179,11 +141,8 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
             //nop3
             nop3: present_state = fetch0;
 				
-				//default : present_state = fetch0;
-				
 				halt3 : begin
 					Run <= 0;
-					//need to figure out a stall type of state. or if we don't need.
 				end
 
         endcase
@@ -192,7 +151,8 @@ always @(posedge Clock, posedge Reset) // finite state machine; if clock or rese
 	 
 always @(present_state) 
     begin
-        case (present_state) 
+			
+        if (Stop == 0) begin case (present_state) 
             reset_state: begin
 					clear <= 1;
 					#20 
@@ -244,13 +204,6 @@ always @(present_state)
 					Zlowout <= 1;
 					#20 Zlowout <= 0;
 				end
-				
-            /*addr3: begin
-
-            end
-            addr4: begin
-
-            end*/
 				
 				ld3: begin //load register addr in Yin
 					Grb <= 1; BAout <= 1; 
@@ -335,12 +288,6 @@ always @(present_state)
 					#20 Rout <= 0; Grb <= 0; Zhighin <= 0; Zlowin <= 0;
 				end
 
-            /*nop3: begin
-
-            end
-            halt3: begin
-
-            end*/
-        endcase
+        endcase end
     end
 endmodule

@@ -45,11 +45,14 @@ initial begin
 	
 	Reset <= 0;
 	
-	#500
+	/*#500
 	
-	/*Stop <= 1;
-	#20 
+	Stop <= 1;
+	
+	#200
+	
 	Stop <= 0;*/
+
 end
 
 
