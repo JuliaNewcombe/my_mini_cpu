@@ -225,9 +225,9 @@ always @(present_state)
             end
 				
 				st3: begin //load register addr in Yin
-					Grb <= 1; Rout <= 1;
+					Grb <= 1; Rout <= 1; BAout<= 1;
 					#10 Yin <= 1; 
-					#10 Grb <= 0; Yin <= 0; Rout <= 0;
+					#10 Grb <= 0; Yin <= 0; Rout <= 0; BAout<= 0;
 				end
 				
             st6: begin //ram to bus to ra
@@ -275,8 +275,8 @@ always @(present_state)
 					#20 Grb <= 0; Rout <= 0; Zhighin <= 0; Zlowin <= 0; 
             end
 				mul4: begin 
-					HIout <= 1; Zhighout <= 1; 
-					#20 Zhighout <= 0; HIout <= 0; 
+					HIin <= 1; Zhighout <= 1; 
+					#20 Zhighout <= 0; HIin <= 0; 
             end
             mul5: begin
 					LOin <= 1; Zlowout <= 1;
